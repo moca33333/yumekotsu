@@ -1,0 +1,1277 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<title>夢こつ手帳</title>
+<style>
+:root{
+  --bg:#F2F4EB; --card:#FBFCF7; --ink:#2F352C; --sub:#77806F;
+  --line:#E2E6D8; --accent:#55803F; --accent-soft:#E7EFDC;
+  --peach:#D97E4A; --peach-soft:#F8E9DE; --danger:#B25541;
+  --shadow:0 1px 3px rgba(47,53,44,.07);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#191E18; --card:#232922; --ink:#EAEDE3; --sub:#99A28F;
+    --line:#333B31; --accent:#9CC57F; --accent-soft:#2E3A28;
+    --peach:#E39A6B; --peach-soft:#3A2E24; --danger:#DB8570;
+    --shadow:0 1px 3px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F2F4EB; --card:#FBFCF7; --ink:#2F352C; --sub:#77806F;
+  --line:#E2E6D8; --accent:#55803F; --accent-soft:#E7EFDC;
+  --peach:#D97E4A; --peach-soft:#F8E9DE; --danger:#B25541;
+  --shadow:0 1px 3px rgba(47,53,44,.07);
+}
+:root[data-theme="dark"]{
+  --bg:#191E18; --card:#232922; --ink:#EAEDE3; --sub:#99A28F;
+  --line:#333B31; --accent:#9CC57F; --accent-soft:#2E3A28;
+  --peach:#E39A6B; --peach-soft:#3A2E24; --danger:#DB8570;
+  --shadow:0 1px 3px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{background:var(--bg);}
+body{
+  margin:0; color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic","Meiryo",sans-serif;
+  font-size:16px; line-height:1.6;
+}
+#app{max-width:480px; margin:0 auto; padding:14px 14px 92px;}
+button{font:inherit; color:inherit; border:none; background:none; cursor:pointer; padding:0;}
+button:focus-visible, input:focus-visible, textarea:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+input,textarea{font:inherit; color:var(--ink);}
+
+/* ---------- header ---------- */
+.top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin:4px 2px 14px;}
+.appname{font-size:13px; letter-spacing:.18em; color:var(--sub); font-weight:700;}
+.datebar{display:flex; align-items:center; gap:4px; margin-top:2px;}
+.datebar .dlabel{font-size:22px; font-weight:800; letter-spacing:.02em; min-width:9em;}
+.dbtn{width:34px; height:34px; border-radius:50%; font-size:17px; color:var(--sub); background:var(--card); box-shadow:var(--shadow);}
+.dbtn:disabled{opacity:.3; cursor:default;}
+.plant{text-align:center; background:var(--card); border-radius:16px; padding:8px 12px 6px; box-shadow:var(--shadow); min-width:86px;}
+.plant .pico{font-size:26px; line-height:1.2; display:block;}
+.plant .plabel{font-size:11px; color:var(--sub);}
+.plant .pcount{font-size:12px; color:var(--accent); font-weight:700;}
+
+/* ---------- quote ---------- */
+.quote{text-align:center; padding:2px 12px 0; margin:0 0 10px;}
+.quote small{display:block; color:var(--sub); font-size:10px; letter-spacing:.2em; margin-bottom:3px; font-weight:700;}
+.quote .qtext{font-size:14px; line-height:1.6;}
+.quote .qby{color:var(--sub); font-size:11px; margin-left:8px;}
+
+/* ---------- cards ---------- */
+.card{background:var(--card); border-radius:16px; padding:14px 16px; box-shadow:var(--shadow); margin-bottom:12px;}
+.card h2{font-size:13px; color:var(--sub); letter-spacing:.12em; margin:0 0 10px; font-weight:700;}
+.note{font-size:13px; color:var(--sub); margin:2px 2px 12px;}
+
+/* ---------- habit rows ---------- */
+.habit{
+  display:flex; width:100%; align-items:center; gap:12px; text-align:left;
+  background:var(--card); border-radius:16px; padding:13px 14px; box-shadow:var(--shadow);
+  margin-bottom:10px; border:2px solid transparent; transition:border-color .15s, background .15s;
+}
+.habit.done{border-color:var(--accent); background:var(--accent-soft);}
+.h-emoji{font-size:26px; width:34px; text-align:center; flex:none;}
+.h-body{flex:1; min-width:0;}
+.h-name{display:block; font-weight:800; font-size:16px;}
+.h-hint{display:block; font-size:12px; color:var(--sub); line-height:1.45;}
+.h-week{display:flex; gap:3px; margin-top:5px;}
+.h-week i{width:8px; height:8px; border-radius:50%; background:var(--line);}
+.h-week i.on{background:var(--accent);}
+.h-week i.today{box-shadow:0 0 0 2px var(--accent-soft);}
+.h-check{
+  flex:none; width:34px; height:34px; border-radius:50%; border:2px solid var(--line);
+  display:flex; align-items:center; justify-content:center; font-size:18px; color:transparent;
+  transition:transform .15s;
+}
+.habit.done .h-check{background:var(--accent); border-color:var(--accent); color:var(--card);}
+@media (prefers-reduced-motion: no-preference){
+  .habit.done .h-check{animation:pop .25s;}
+  @keyframes pop{50%{transform:scale(1.25);}}
+}
+
+/* ---------- weight ---------- */
+.wrow{display:flex; gap:8px; align-items:center;}
+.wrow input{
+  flex:1; min-width:0; font-size:20px; font-weight:700; padding:9px 12px;
+  border:1.5px solid var(--line); border-radius:12px; background:var(--bg);
+  font-variant-numeric:tabular-nums;
+}
+.wrow .unit{color:var(--sub); font-size:14px;}
+.btn{
+  background:var(--accent); color:var(--card); font-weight:800; border-radius:12px;
+  padding:10px 18px; font-size:15px;
+}
+.btn.ghost{background:var(--accent-soft); color:var(--accent);}
+.btn.danger{background:transparent; color:var(--danger); border:1.5px solid var(--danger); font-weight:700;}
+.wsaved{font-size:13px; color:var(--accent); font-weight:700; margin-top:8px;}
+.goalnums{display:flex; gap:12px; align-items:baseline; flex-wrap:wrap;}
+.gbig{font-size:25px; font-weight:800; color:var(--peach); font-variant-numeric:tabular-nums;}
+.gsub{font-size:13px; color:var(--sub);}
+.pbar{position:relative; height:14px; background:var(--line); border-radius:999px; margin:12px 0 4px; overflow:hidden;}
+.pfill{position:absolute; left:0; top:0; bottom:0; background:var(--accent); border-radius:999px; min-width:6px; transition:width .4s;}
+.pends{display:flex; justify-content:space-between; font-size:11px; color:var(--sub); font-variant-numeric:tabular-nums;}
+.wupd{margin-top:10px;}
+.linkbtn{color:var(--accent); font-weight:700; font-size:14px; padding:6px 2px;}
+.sect{font-size:12px; color:var(--sub); letter-spacing:.14em; margin:18px 4px 8px; font-weight:700;}
+.sectsub{font-weight:400; letter-spacing:0; opacity:.85;}
+.collectgrid{display:flex; flex-wrap:wrap; gap:8px;}
+.citem{display:flex; flex-direction:column; align-items:center; font-size:26px; line-height:1.2; background:var(--accent-soft); border-radius:12px; padding:8px 10px 4px; min-width:52px;}
+.citem small{font-size:10px; color:var(--sub); font-variant-numeric:tabular-nums;}
+.tpick{font-size:14px; padding:9px 12px;}
+.yearwrap{overflow-x:auto; padding-bottom:4px;}
+.ygrid{display:grid; grid-template-columns:auto repeat(31, 9px); gap:2px; min-width:370px; align-items:center;}
+.ymon{font-size:9px; color:var(--sub); padding-right:5px; text-align:right; white-space:nowrap;}
+.ycell{width:9px; height:9px; border-radius:2px; background:var(--line); opacity:.45;}
+.ycell.empty{opacity:0;}
+.ycell.l1{background:var(--accent); opacity:.3;}
+.ycell.l2{background:var(--accent); opacity:.55;}
+.ycell.l3{background:var(--accent); opacity:.78;}
+.ycell.l4{background:var(--accent); opacity:1;}
+
+/* ---------- log view ---------- */
+.bignum{font-size:26px; font-weight:800; font-variant-numeric:tabular-nums;}
+.chartwrap{overflow-x:auto;}
+.diff{font-size:13px; color:var(--sub); margin-top:4px;}
+.diff b{color:var(--peach);}
+.gridwrap{overflow-x:auto; padding-bottom:4px;}
+.ggrid{display:grid; gap:4px; font-size:11px; color:var(--sub); min-width:340px;}
+.gcell{width:17px; height:17px; border-radius:5px; background:var(--line); opacity:.55;}
+.gcell.on{background:var(--accent); opacity:1;}
+.gcell.future{opacity:.18;}
+.glabel{white-space:nowrap; display:flex; align-items:center; font-size:14px;}
+.gday{text-align:center; width:17px;}
+.wk{display:flex; justify-content:space-between; align-items:baseline; padding:7px 2px; border-bottom:1px dashed var(--line); font-size:14px;}
+.wk:last-child{border-bottom:none;}
+.wk .cnt{font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums;}
+.wk .cnt small{color:var(--sub); font-weight:400;}
+
+/* ---------- settings ---------- */
+.edit-row{border-bottom:1px dashed var(--line); padding:10px 0;}
+.edit-row:last-child{border-bottom:none;}
+.edit-line{display:flex; gap:8px; margin-bottom:6px;}
+.edit-line input{border:1.5px solid var(--line); border-radius:10px; padding:7px 10px; background:var(--bg); font-size:16px;}
+.in-emoji{width:56px; text-align:center; flex:none;}
+.in-name{flex:1; min-width:0;}
+.in-hint{flex:1; min-width:0; font-size:14px !important; color:var(--sub);}
+.mini{font-size:13px; color:var(--danger); padding:4px 8px; font-weight:700;}
+textarea.backup{
+  width:100%; height:96px; border:1.5px solid var(--line); border-radius:12px;
+  background:var(--bg); padding:10px; font-size:12px; font-family:ui-monospace,monospace;
+}
+.btnrow{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;}
+
+/* ---------- tab bar ---------- */
+.tabbar{
+  position:fixed; bottom:0; left:0; right:0; display:flex; justify-content:center; gap:6px;
+  background:var(--card); border-top:1px solid var(--line);
+  padding:8px 10px calc(10px + env(safe-area-inset-bottom));
+}
+.tab{flex:1; max-width:150px; text-align:center; border-radius:12px; padding:7px 4px; color:var(--sub); font-size:12px; font-weight:700;}
+.tab .ticon{display:block; font-size:19px;}
+.tab.active{background:var(--accent-soft); color:var(--accent);}
+
+/* ---------- toast ---------- */
+#toast{
+  position:fixed; left:50%; bottom:96px; transform:translateX(-50%);
+  background:var(--ink); color:var(--bg); font-weight:800; font-size:15px;
+  padding:9px 20px; border-radius:999px; opacity:0; pointer-events:none;
+  transition:opacity .25s, transform .25s; white-space:nowrap; z-index:9;
+}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(-6px);}
+</style>
+
+<div id="app">
+  <header class="top">
+    <div>
+      <div class="appname">夢こつ手帳</div>
+      <div class="datebar">
+        <button class="dbtn" id="dprev" aria-label="前の日">‹</button>
+        <span class="dlabel" id="dlabel"></span>
+        <button class="dbtn" id="dnext" aria-label="次の日">›</button>
+      </div>
+    </div>
+    <div class="plant" id="plant"></div>
+  </header>
+
+  <main>
+    <section id="view-today"></section>
+    <section id="view-log" hidden></section>
+    <section id="view-set" hidden></section>
+  </main>
+</div>
+
+<nav class="tabbar">
+  <button class="tab active" data-tab="today"><span class="ticon">☀️</span>きょう</button>
+  <button class="tab" data-tab="log"><span class="ticon">📈</span>きろく</button>
+  <button class="tab" data-tab="set"><span class="ticon">⚙️</span>せってい</button>
+</nav>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+"use strict";
+var KEY = "kotsu-v1";
+var WD = ["日","月","火","水","木","金","土"];
+var PRAISE = ["えらい!","その調子 🌱","ナイスです","未来の自分がよろこんでます","コツコツが最強","今日もひとつ ◎","いいね、その一歩","じぶんに花まる 💮","つづいてなくても、今日できた!"];
+var QUOTES = [
+  /* ことわざ・古典 */
+  ["継続は力なり",""],
+  ["ちりも積もれば山となる",""],
+  ["千里の道も一歩から","老子"],
+  ["足るを知る者は富む","老子"],
+  ["どんなにゆっくりでも、止まらなければ進んでいる","孔子"],
+  ["ローマは一日にして成らず",""],
+  ["急がば回れ",""],
+  ["七転び八起き",""],
+  ["石の上にも三年",""],
+  ["案ずるより産むが易し",""],
+  ["笑う門には福来る",""],
+  ["明日は明日の風が吹く",""],
+  ["休むも相場","相場の格言"],
+  ["為せば成る、為さねば成らぬ、何事も","上杉鷹山"],
+  ["積小為大 —— 小さな積み重ねが、大きな実りになる","二宮尊徳"],
+  /* 映画・芸能の人たち */
+  ["『不可能』という言葉には、『私はできる』とかくれている","オードリー・ヘプバーン"],
+  ["下を向いていたら、虹を見つけることはできない","チャップリン"],
+  ["人生はクローズアップで見れば悲劇、ロングショットで見れば喜劇","チャップリン"],
+  ["人生に必要なのは、勇気と想像力、そして少しのお金","チャップリン『ライムライト』"],
+  ["おごらず、人と比べず、面白がって、平気に生きればいい","樹木希林"],
+  ["生きてるだけで丸もうけ","明石家さんま"],
+  ["ダメなときほど、運はたまる","萩本欽一"],
+  ["真剣にやれよ、仕事じゃねぇんだぞ","タモリ"],
+  ["笑顔でいて。人生は素晴らしいものだから","マリリン・モンロー"],
+  ["悪魔のように細心に、天使のように大胆に","黒澤明"],
+  /* スポーツの人たち */
+  ["小さいことを積み重ねるのが、とんでもないところへ行くただひとつの道","イチロー"],
+  ["壁というのは、できる人にしかやってこない","イチロー"],
+  ["努力は必ず報われる。報われない努力は、まだ努力と呼ばない","王貞治"],
+  ["自分で自分をほめたい","有森裕子"],
+  ["夢は見るものではなく、かなえるもの","澤穂希"],
+  ["憧れるのをやめましょう","大谷翔平"],
+  /* 世界の言葉 */
+  ["焦らず、しかし休まず","ゲーテ"],
+  ["できると思ってもできないと思っても、どちらも正しい","ヘンリー・フォード"],
+  ["私は失敗したことがない。うまくいかない方法を一万通り見つけただけだ","エジソン"],
+  ["顔を太陽に向けていれば、影は見えない","ヘレン・ケラー"],
+  ["大切なのは、どれだけ多くをしたかではなく、どれだけ心をこめたか","マザー・テレサ"],
+  ["翼がないなら、翼を生やす努力をすればいい","ココ・シャネル"],
+  ["変えられるものを変える勇気を、変えられないものを受け入れる静けさを","ニーバー"],
+  ["今日という日は、残りの人生の最初の日",""],
+  /* 日本の言葉 */
+  ["つまづいたっていいじゃないか、にんげんだもの","相田みつを"],
+  ["置かれた場所で咲きなさい","渡辺和子"],
+  ["失敗したところでやめるから失敗になる。続ければ成功になる","松下幸之助"],
+  /* 夢こつ手帳オリジナル */
+  ["昨日の自分より1タップ多ければ、もう前進",""],
+  ["休んだ日は、充電した日",""],
+  ["未来のあなたは、今日のあなたに感謝してる",""],
+  ["花は毎週、貯金は毎日、夢は毎晩ちかづく",""],
+  ["できなかった日は数えない。できた日だけ数える",""],
+  ["5時に起きたあなたは、それだけでえらい",""],
+  ["体重は今日を映さない。1ヶ月のあなたを映す",""],
+  ["小さすぎる習慣は、失敗のしようがない",""],
+  ["今日もこの手帳をひらいた。それがもう習慣",""],
+  ["がんばらない工夫を、がんばれるのは才能",""],
+  ["二番寝も、りっぱな睡眠",""],
+  ["コップの水は半分もある",""],
+  ["まいた種は、忘れたころに芽を出す",""],
+  ["完璧な1日より、まあまあの100日",""],
+  ["夢に日付はいらない。今日の1タップがあればいい",""],
+  ["あなたのペースが、いちばん速い近道",""],
+  ["炭酸水は、明日のあなたへの仕送り",""],
+  ["1時半のふとん直行は、静かなファインプレー",""],
+  ["サボりは借金にならない。今日の1回は、まるまる貯金",""],
+  ["体重計の数字は天気。あなたの価値は気候",""],
+  ["ゆっくり減った体重は、ゆっくりしか戻らない",""],
+  ["今週の花より、ことしの畑",""],
+  ["よく寝た日は、それだけで100点",""],
+  ["未来のあなたは、いま作られている最中",""],
+  ["隣の芝生より、うちの畑",""],
+  ["先生のあなたも、自分に花マルをつけていい",""],
+  /* ことわざ・古典(追加) */
+  ["初心忘るべからず","世阿弥"],
+  ["好きこそ物の上手なれ",""],
+  ["思い立ったが吉日",""],
+  ["善は急げ",""],
+  ["蒔かぬ種は生えぬ",""],
+  ["果報は寝て待て",""],
+  ["人間万事塞翁が馬",""],
+  ["雨降って地固まる",""],
+  ["明けない夜はない",""],
+  ["早起きは三文の徳",""],
+  ["腹八分目に医者いらず",""],
+  ["一日一善",""],
+  ["温故知新","論語"],
+  ["一期一会",""],
+  ["日進月歩",""],
+  ["一念発起",""],
+  ["初志貫徹",""],
+  ["有言実行",""],
+  ["雲外蒼天",""],
+  ["実るほど頭を垂れる稲穂かな",""],
+  ["待てば海路の日和あり",""],
+  ["備えあれば憂いなし",""],
+  ["縁の下の力持ち",""],
+  ["芸は身を助ける",""],
+  ["学問に王道なし",""],
+  ["亀の甲より年の功",""],
+  ["三人寄れば文殊の知恵",""],
+  ["情けは人の為ならず",""],
+  ["習うより慣れろ",""],
+  ["六十の手習い",""],
+  ["大器晩成",""],
+  ["雨垂れ石を穿つ",""],
+  ["愚公、山を移す",""],
+  ["玉磨かざれば光なし",""],
+  ["人事を尽くして天命を待つ",""],
+  ["病は気から",""],
+  ["急いては事を仕損じる",""],
+  ["短気は損気",""],
+  ["桃栗三年柿八年",""],
+  ["志ある者は、事ついに成る","後漢書"],
+  ["隗より始めよ",""],
+  ["良薬は口に苦し",""],
+  /* 偉人・有名人(追加) */
+  ["早寝早起きは、人を健康に、裕福に、賢くする","フランクリン"],
+  ["今日の一日は、明日の二日分","フランクリン"],
+  ["ハングリーであれ。愚かであれ","スティーブ・ジョブズ"],
+  ["薬を10錠のむより、心から笑うほうがずっと効く","アンネ・フランク"],
+  ["未来を予測する最善の方法は、自分でつくること","アラン・ケイ"],
+  ["人の一生は、重き荷を負うて遠き道をゆくがごとし。急ぐべからず","徳川家康(伝)"],
+  ["この道より、我を生かす道なし。この道を歩く","武者小路実篤"],
+  ["やってみせ、言って聞かせて、させてみて、ほめてやらねば、人は動かじ","山本五十六"],
+  ["失敗は成功のマザー","長嶋茂雄"],
+  ["失敗を重ねてきた。だから成功した","マイケル・ジョーダン"],
+  ["努力だ。勉強だ。それが天才だ","野口英世"],
+  ["人生は、よろこばせごっこ","やなせたかし"],
+  ["なまけ者になりなさい","水木しげる"],
+  ["これでいいのだ","赤塚不二夫"],
+  ["幸福は、幸福を呼ぶ","宇野千代"],
+  ["今日一日、怒らず、恐れず、悲しまず","中村天風"],
+  ["本当に大切なものは、目に見えない","サン=テグジュペリ"],
+  ["過ちて改めざる、これを過ちという","孔子"],
+  ["何より大事なのは、人生を楽しむこと","オードリー・ヘプバーン"],
+  ["人が旅をするのは、到着するためではなく、旅そのもののため","ゲーテ"],
+  /* オリジナル: 朝 */
+  ["アラームより先に目が覚めた朝は、ちょっと得した気分でいい",""],
+  ["朝の1ページは、夜の10ページに勝る",""],
+  ["コーヒーの湯気は、がんばらない朝の味方",""],
+  ["朝活は前借りじゃなく、未来への前払い",""],
+  ["起きられた。それが今日の成功第一号",""],
+  ["朝の静けさは、あなただけの貸切り時間",""],
+  ["5分の片付けは、夜の自分への置き手紙",""],
+  ["布団の上の1ポーズで、そこはもうヨガ教室",""],
+  ["早起きの日は、人生がすこし長くなる",""],
+  ["朝日を浴びた分だけ、夜の眠りは深くなる",""],
+  ["まだ誰も起きていない時間、世界はあなたの自習室",""],
+  ["朝ごはんを作るあなたの背中は、もう働いている",""],
+  ["起きた時間を記録する。それだけで朝が締まる",""],
+  ["二度寝した朝も、起きたことに変わりはない",""],
+  ["今日の1ページが、来月のあなたの言葉になる",""],
+  ["朝のヨガは体操じゃなく、体へのあいさつ",""],
+  ["お弁当箱を閉める音は、今日もやりきる合図",""],
+  ["朝の脳は、一日でいちばん学びが安く買える市場",""],
+  ["静かな朝に読んだ1行は、一日中ついてくる",""],
+  ["朝活ゼロの日は、睡眠活が満点だった日",""],
+  ["起きてすぐの白湯は、内臓のラジオ体操",""],
+  ["今日はじめて動いた筋肉に、おはようと言おう",""],
+  ["朝の15分は、夜の1時間",""],
+  ["カーテンを開けるのも、りっぱな朝活",""],
+  ["朝のあなたは、昨日のあなたが育てた作品",""],
+  /* オリジナル: 夜・睡眠 */
+  ["眠気は敵じゃない。今日がんばった証拠",""],
+  ["寝るのが早い日は、痩せるのも早い日",""],
+  ["夜のスマホより、朝の自分",""],
+  ["ふとんは、世界でいちばん安い美容液",""],
+  ["添い寝は、残業手当のつかない大事な仕事",""],
+  ["1時半の廊下は、まっすぐ歩けば勝ち",""],
+  ["夜中に起きても、目をつぶればまだ夜のうち",""],
+  ["睡眠は削るものじゃなく、貯めるもの",""],
+  ["今日の疲れは今日のうちに、ふとんに預ける",""],
+  ["歯磨きを済ませた夜は、未来がひとつ軽くなる",""],
+  ["寝落ちは失神じゃなく、着地",""],
+  ["夜9時の眠気は、体からの正直な手紙",""],
+  ["よく寝る人は、よく痩せる",""],
+  ["羊を数えるより、今日できたことを数えて眠る",""],
+  ["深夜の空腹は、たいてい眠気の変装",""],
+  ["明日のことは、明日の自分がなんとかする",""],
+  ["寝る前の30秒ストレッチは、腰への子守唄",""],
+  ["夜は反省会をしない。感想戦は朝に",""],
+  ["今夜の睡眠が、明日の食欲を決める",""],
+  ["ふとんに入った時点で、今日は合格",""],
+  ["夜中のキッチンの灯りより、朝のキッチンの湯気",""],
+  ["眠れない夜も、横になっていれば体は休んでいる",""],
+  ["今日を無事に終えた。それがいちばんの成果",""],
+  ["夢は寝てる間も、起きてる間も見ていい",""],
+  ["消灯は、今日のあなたへの拍手",""],
+  /* オリジナル: お酒 */
+  ["炭酸水の泡も、乾杯の泡",""],
+  ["2杯目の前の1杯の水が、明日の顔を決める",""],
+  ["枝豆は、飲む人の味方ナンバーワン",""],
+  ["今日の1杯を美味しくするのは、昨日の節度",""],
+  ["ハイボールは細く長く、が粋",""],
+  ["グラスに注ぐと、お酒は美味しくなって量は減る",""],
+  ["つまみを皿に出す人は、飲み方の上級者",""],
+  ["酔いは楽しみ、締めは汁もの",""],
+  ["飲んだ日もタップした日は、負けてない",""],
+  ["お酒と仲良くする人は、お酒に飲まれない",""],
+  ["晩酌は文化。ドカ食いは事故。分けて考えていい",""],
+  ["冷奴は、罪悪感ゼロの相棒",""],
+  ["今夜の炭酸水1杯は、来月のマイナス1kg",""],
+  ["お酒の量より、おつまみの質",""],
+  ["乾杯は座ってから、が新しい合図",""],
+  ["飲みながらでも、賢く飲める",""],
+  ["週6で飲みながら痩せてる人が、ここにいる",""],
+  ["今日も美味しく飲めた。それは体が元気な証拠",""],
+  /* オリジナル: 食事・体重 */
+  ["野菜が先、はもう呼吸みたいなもの",""],
+  ["体重計は裁判官じゃなく、ただの気象台",""],
+  ["−0.1kgも、ちゃんとマイナス",""],
+  ["増えた日の数字は、明日の水分",""],
+  ["食べたものを責めない。次の一食で整える",""],
+  ["腹八分は、明日のお腹への思いやり",""],
+  ["ドカ食いしたくなる日は、たいてい寝不足の日",""],
+  ["よく噛むだけで、食事はコースになる",""],
+  ["痩せるとは、毎日をちょっとずつ選び直すこと",""],
+  ["1ヶ月前のあなたより、今のあなたは軽い",""],
+  ["停滞期は、体が新しい体重を覚えている時間",""],
+  ["昨日より減らない日も、先月よりは減っている",""],
+  ["味噌汁は、日本のプロテインスープ",""],
+  ["小さな空腹は、脂肪が燃えているBGM",""],
+  ["大きな旅も、0.1kgずつなら歩ける",""],
+  ["『まぁいっか』は、続く人の合言葉",""],
+  ["甘いものは悪じゃない。量だけが問題",""],
+  ["食べる速さを半分に、満足は2倍に",""],
+  ["あすけんに正直な人は、体にも正直",""],
+  ["今日の一食より、今月の百食",""],
+  ["痩せた自分を想像する時間も、ダイエットのうち",""],
+  ["水を飲む。それだけで体は仕事を始める",""],
+  ["体は毎日あなたのために働いている。労おう",""],
+  ["久しぶりの服が入る日は、突然くる",""],
+  ["gの増減で一喜一憂しない。kgの旅の途中だから",""],
+  /* オリジナル: 習慣・継続 */
+  ["習慣は歯磨きに似てる。最初だけ面倒、あとは勝手",""],
+  ["三日坊主も、10回やれば30日",""],
+  ["続けるコツは、やめる日を許すこと",""],
+  ["タップは1秒、効き目は一生",""],
+  ["昨日の空白より、今日の1個",""],
+  ["小さな習慣は、大きな夢の分割払い",""],
+  ["毎日やるより、やめないことが大事",""],
+  ["習慣に休日があってもいい。退職さえしなければ",""],
+  ["チェックの数だけ、未来が軽くなる",""],
+  ["やる気は出すものじゃなく、始めると湧くもの",""],
+  ["1週間の花は散っても、根は残る",""],
+  ["今日できた1個は、明日の2個の呼び水",""],
+  ["積み重ねは、裏切らない数少ないもの",""],
+  ["忘れてた習慣を思い出した日も、続いているうち",""],
+  ["完璧主義より、再開主義",""],
+  ["習慣が人をつくる。あなたはいま工事中",""],
+  ["0の日があっても、平均はちゃんと育つ",""],
+  ["めんどくさい日にやる1個は、3個分",""],
+  ["続いてる実感は、あとから追いかけてくる",""],
+  ["レールに乗るまでが仕事、乗ったら景色を楽しむ",""],
+  ["昨日の自分は他人。比べるなら先月の自分",""],
+  ["サボった翌日に開くアプリが、本物の相棒",""],
+  ["1日サボっても、失うのは1日分だけ",""],
+  ["あなたが続けている限り、失敗は途中経過",""],
+  ["大きく変わる人は、小さく始めた人",""],
+  ["今日の畑に、1マス色がついた",""],
+  ["積立は、途中で見るから楽しい",""],
+  ["休憩は中断じゃなく、習慣の一部",""],
+  ["気合いは3日、仕組みは一生",""],
+  ["始めた日のあなたに、いい報告をしよう",""],
+  /* オリジナル: 休む・自己肯定 */
+  ["がんばれない日は、がんばらない日ってだけ",""],
+  ["あなたはすでに、いろいろ続いている人",""],
+  ["今日の自分に及第点、あげていい",""],
+  ["疲れは弱さじゃなく、稼働した証明",""],
+  ["誰も見てなくても、あなたは知ってる。それで十分",""],
+  ["休むのが上手な人が、長く続く人",""],
+  ["自分に優しい人は、結局いちばん強い",""],
+  ["できない日の自分も、チームの一員",""],
+  ["泣きたい日は、体重計もアプリも休んでいい",""],
+  ["他人の速度は、あなたの時刻表と関係ない",""],
+  ["まぁまぁの日々が、上々の人生をつくる",""],
+  ["息抜きは、息継ぎ。泳ぎ続けるために必要",""],
+  ["今日のあなたには今日のベストしか出せない。それでいい",""],
+  ["弱音は吐いていい。吐いたら軽くなるから",""],
+  ["自分を責める時間で、お茶が一杯飲める",""],
+  ["明日やる、は立派な計画",""],
+  ["あなたの代わりはいない。だから消耗品扱いしない",""],
+  ["充電中の機械を、誰も怠け者と呼ばない",""],
+  ["よくやってるね、と自分に言うのは無料",""],
+  ["ため息は、深呼吸の親戚",""],
+  ["立ち止まるのは、地図を見ている時間",""],
+  ["うまくいかない日は、データ収集の日",""],
+  ["甘やかすのと大切にするのは違う。あなたは後者",""],
+  ["今日も生きてる。基礎点が高い",""],
+  ["肩の力を抜くと、だいたい上手くいく",""],
+  ["花マルは、もらうものじゃなく自分でつけるもの",""],
+  ["限界まで頑張らないのが、プロの続け方",""],
+  ["あなたのままで、進んでいる",""],
+  /* オリジナル: 夢・未来・お金 */
+  ["夢は大声で言わなくていい。毎日小声で呼べば来る",""],
+  ["未来は突然来ない。今日の続きとして来る",""],
+  ["貯金と習慣は、複利で増える",""],
+  ["学んだことは、誰にも取られない財産",""],
+  ["1日1ページは、年に365ページの本",""],
+  ["お金の勉強は、未来の家族へのプレゼント",""],
+  ["知識は軽い。いくら持っても荷物にならない",""],
+  ["夢の途中経過を、ちゃんと眺める人は強い",""],
+  ["なりたい自分は、今日の予定に入れた分だけ近づく",""],
+  ["畑は嘘をつかない。まいた分だけ",""],
+  ["10年後のあなたが、今日を振り返って笑ってる",""],
+  ["資格は紙切れじゃなく、努力の領収書",""],
+  ["未来貯金に、元本割れはない",""],
+  ["小さな夢を叶えた人が、大きな夢の叶え方を知る",""],
+  ["今日の1タップは、夢への定期便",""],
+  ["勉強した朝の分だけ、選べる未来が増える",""],
+  ["夢に締切はない。今日には締切がある。だから今日の分だけ",""],
+  ["通帳の数字より、続いた日数",""],
+  ["自分に投資して、損した人はいない",""],
+  ["ひとつ叶えたら、次の夢を考えるのも楽しみのうち",""],
+  ["願うだけの夢は星、動く夢は目的地",""],
+  ["積み立てた朝は、いつかまとめて返ってくる",""],
+  ["学びは、若返りの薬",""],
+  ["未来のあなたの職員室で、この話は笑い話",""],
+  ["ゴールテープは、毎日少しずつ手前に来ている",""],
+  /* オリジナル: 先生・家族 */
+  ["子どもに教えている『こつこつ』を、自分にも",""],
+  ["先生の元気は、教室の天気",""],
+  ["あなたが自分を大切にすると、子どもがそれを見て学ぶ",""],
+  ["お母さんの夢は、家族の追い風",""],
+  ["宿題を出す人が、自分の宿題もやってる。かっこいい",""],
+  ["教室で百回言う『大丈夫』を、自分にも一回",""],
+  ["子どもの寝息は、今日の仕事の完了通知",""],
+  ["母であり、先生であり、そして自分でもある",""],
+  ["家族のためのあなたと、あなたのためのあなた、両方大事",""],
+  ["通知表をつける人にも、花マルをつける人が要る。それはあなた",""],
+  ["今日も誰かの『先生』でいられた。すごいことだ",""],
+  ["子育ては長距離走。給水を忘れずに",""],
+  ["あなたの背中は、教科書より雄弁",""],
+  ["明日の授業も、今夜の睡眠から始まっている",""],
+  ["がんばるお母さんより、ごきげんなお母さん",""],
+  /* オリジナル: ユーモア */
+  ["ドローインは、世界最小のジム",""],
+  ["信号待ちは、無料のトレーニング時間",""],
+  ["お腹をへこませてる顔は、意外と普通の顔",""],
+  ["体重計に乗る勇気、実はけっこうある方だ",""],
+  ["昨日の自分に勝てなくても、一昨日の自分にはだいたい勝てる",""],
+  ["人生に必要な筋肉は、腹筋と、笑う筋肉",""],
+  ["継続のライバルは、三日坊主じゃなくソファ",""],
+  ["アプリを開いた回数も、そのうち自慢になる",""],
+  ["『あとでやる』のあとで、は今日のどこか",""],
+  ["冷蔵庫の前で3秒考えるだけで、未来が変わる",""],
+  ["階段は、上りエスカレーターの練習台",""],
+  ["ぽっこりお腹は、引っ込み思案なだけ",""],
+  ["やせたら着る服より、今日着てかわいい服",""],
+  ["深夜のラーメンは、朝の味噌汁に化ける",""],
+  ["敵は本能寺じゃなく、コンビニにあり",""],
+  ["筋肉痛は、体からのファンレター",""],
+  ["がまんの顔より、工夫のドヤ顔",""],
+  ["二部制睡眠、言い換えれば夜のシエスタ",""],
+  ["1kg減は、牛乳パック1本分の軽やかさ",""],
+  ["夢こつ手帳、今日も営業中",""],
+  /* オリジナル: 応援 */
+  ["大丈夫、ちゃんと進んでる",""],
+  ["今日という日も、あなたの味方",""],
+  ["雨の日は、根が水を飲む日",""],
+  ["遠回りに見える道も、あとで見れば近道",""],
+  ["比べるなら、昨日の空白と今日の1個",""],
+  ["小さな勇気を、毎日1回",""],
+  ["あなたの努力は、あなたが思うより積もっている",""],
+  ["うまくいく日を、体は準備している",""],
+  ["焦りは敵、楽しみは味方",""],
+  ["続けた人にだけ、見える景色がある",""],
+  ["今日の空も明日の体重も変わりやすい。だから面白い",""],
+  ["一歩の大きさは問わない。向きだけ合っていれば",""],
+  ["気分が乗らない日は形だけでいい。形が気分を連れてくる",""],
+  ["始めるのに完璧な日は、たぶん今日",""],
+  ["昨日を悔やむ時間で、今日を1タップ",""],
+  ["変化はいつも、気づいた時にはもう起きている",""],
+  ["あなたの頑張りの目撃者は、未来のあなた",""],
+  ["疑うより、続けてみる。答えは体が出す",""],
+  ["今日の小ささを、笑う人はここにいない",""],
+  ["積み重ねた日々にはいつか名前がつく。『実力』という名前が",""],
+  ["そのままのペースで、どうぞ",""],
+  ["めげない、比べない、やめない。ゆるく三原則",""],
+  ["あなたが今日この画面を開いた。それが続いている証拠",""],
+  ["がんばりは貯金、無理は借金",""],
+  ["夢の進捗、良好です",""],
+  ["366日目のあなたへ——一周ぶん、強くなってる",""]
+];
+function todaysQuote(){
+  /* 毎日ちがう1本を順ぐりに(全部めぐるまで同じ名言は出ない) */
+  var d = parseKey(keyFor(0));
+  var dayNum = Math.floor(d.getTime() / 86400000);
+  var n = QUOTES.length, step = 37;
+  while(gcd2(step, n) !== 1) step++;
+  return QUOTES[((dayNum % n) * step) % n];
+}
+function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
+
+function defaults(){
+  return { v:1, hv:9, gv:4,
+    habits:[
+      {id:"yoga",  emoji:"🧘", name:"朝のヨガ・ストレッチ", hint:"1ポーズ・30秒でもOK", time:"asa"},
+      {id:"kata",  emoji:"🧺", name:"ちょこっと片付け", hint:"1か所だけ・5分まで", time:"asa"},
+      {id:"kane",  emoji:"🎓", name:"未来への勉強", hint:"お金・資格など。動画1本・1ページでもOK", time:"asa"},
+      {id:"hon",   emoji:"📖", name:"読書", hint:"1ページでOK", time:"asa"},
+      {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru"},
+      {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩", time:"yoru"},
+      {id:"draw",  emoji:"🌬️", name:"ドローイン", hint:"信号待ち・食器洗いでお腹へこませ10秒", time:"yoru"},
+      {id:"junbi", emoji:"🪥", name:"寝かしつけフル装備", hint:"歯磨きまですませて添い寝へ→1時半はキッチン寄らずふとん直行", time:"yoru"},
+      {id:"knee",  emoji:"🦵", name:"ひざ倒し30秒", hint:"添い寝中やふとんで、ひざを立てて左右にパタンパタン", time:"yoru"}
+    ],
+    goal:{ start:63.9, target:56 },
+    log:{}, weight:{ "2026-07-10": 62.5 }, wake:{} };
+}
+function load(){
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){
+      var s = JSON.parse(raw);
+      if(s && s.habits && s.log){
+        if(!s.hv || s.hv < 9){ /* 2026-07 精選: 習慣セットを入れ替え(記録は残す) */
+          s.habits = defaults().habits;
+          s.hv = 9;
+        }
+        if(!s.wake) s.wake = {};
+        if(!s.gv || s.gv < 2){ /* 2026-07: まずの目標を56kgに(本人指定) */
+          if(s.goal && s.goal.target != null) s.goal.target = 56;
+          s.gv = 2;
+        }
+        if(s.gv < 3){ /* 2026-07: スタート体重は63.9(本人指定) */
+          if(s.goal) s.goal.start = 63.9;
+          else s.goal = { start: 63.9, target: 56 };
+          s.gv = 3;
+        }
+        if(s.gv < 4){ /* 2026-07-10: いまの体重62.5(本人申告)。未入力のときだけ初期値として記録 */
+          if(!s.weight || Object.keys(s.weight).length === 0){
+            if(!s.weight) s.weight = {};
+            s.weight["2026-07-10"] = 62.5;
+          }
+          s.gv = 4;
+        }
+        return s;
+      }
+    }
+  }catch(e){}
+  return defaults();
+}
+var S = load();
+save();
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ toast("保存できませんでした"); } }
+
+/* --- dates: 深夜3時までは前日あつかい --- */
+function shiftedNow(){ return new Date(Date.now() - 3*3600*1000); }
+function fmt(d){
+  return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+}
+function keyFor(offset){
+  var d = shiftedNow(); d.setDate(d.getDate()+offset); return fmt(d);
+}
+function parseKey(k){
+  var p = k.split("-"); return new Date(+p[0], +p[1]-1, +p[2]);
+}
+function labelFor(offset){
+  var d = parseKey(keyFor(offset));
+  var md = (d.getMonth()+1) + "/" + d.getDate() + "(" + WD[d.getDay()] + ")";
+  if(offset===0) return "きょう " + md;
+  if(offset===-1) return "きのう " + md;
+  return md;
+}
+function weekKeys(){ /* 今週(月〜日)の7日ぶんのキー */
+  var d = parseKey(keyFor(0));
+  var dow = (d.getDay()+6)%7; /* 月=0 */
+  d.setDate(d.getDate()-dow);
+  var arr=[];
+  for(var i=0;i<7;i++){ arr.push(fmt(d)); d.setDate(d.getDate()+1); }
+  return arr;
+}
+function countIn(keys, habitId){
+  var n=0;
+  for(var i=0;i<keys.length;i++){ var day=S.log[keys[i]]; if(day && day[habitId]) n++; }
+  return n;
+}
+function latestWeight(){
+  var ks = Object.keys(S.weight).sort();
+  if(!ks.length) return null;
+  var k = ks[ks.length-1];
+  return { k:k, v:S.weight[k] };
+}
+function dispDate(k){
+  var d = parseKey(k);
+  return (d.getMonth()+1) + "/" + d.getDate();
+}
+
+/* --- そだてるもの(テーマ) --- */
+var THEMES = {
+  hana:   { name:"はな",     stages:[["🌱","めが出た"],["🌿","そだってる"],["🪴","いいかんじ"],["🌸","花マル!"]], collect:"🍎", collectName:"実" },
+  chou:   { name:"ちょうちょ", stages:[["🥚","たまご"],["🐛","あおむし"],["🍃","さなぎ"],["🦋","ちょうちょ!"]], collect:"🦋", collectName:"ちょうちょ" },
+  kaeru:  { name:"カエル",   stages:[["🥚","たまご"],["🫧","おたまじゃくし"],["🐸","こがえる"],["🐸✨","けろっ!"]], collect:"🐸", collectName:"カエル" },
+  hiyoko: { name:"ひよこ",   stages:[["🥚","たまご"],["🐣","うまれた"],["🐤","ひよこ"],["🐔","りっぱ!"]], collect:"🐤", collectName:"ひよこ" }
+};
+function themeDef(){ return THEMES[S.theme] || THEMES.hana; }
+function bloomThreshold(){ /* 咲くラインは本丸(🌙)の数が基準。☀️のタップは全部ボーナス加点 */
+  var core = 0;
+  for(var i=0;i<S.habits.length;i++){ if(S.habits[i].time !== "asa") core++; }
+  if(!core) core = S.habits.length;
+  return Math.max(6, Math.ceil(core * 3.5));
+}
+function asaIdSet(){
+  var m = {};
+  for(var i=0;i<S.habits.length;i++){ if(S.habits[i].time==="asa") m[S.habits[i].id]=1; }
+  return m;
+}
+function weekTotals(){ /* 週の頭(月曜)キー → その週の🌙タップ合計(☀️は花に数えない) */
+  var m = {}, asa = asaIdSet();
+  for(var k in S.log){
+    var day = S.log[k], c = 0, id;
+    for(id in day){ if(day[id] && !asa[id]) c++; }
+    if(!c) continue;
+    var d = parseKey(k);
+    d.setDate(d.getDate() - (d.getDay()+6)%7);
+    var wk = fmt(d);
+    m[wk] = (m[wk]||0) + c;
+  }
+  return m;
+}
+function earnedWeeks(){ /* 咲ききった過去の週(今週はまだ育ち中) */
+  var t3 = bloomThreshold(), cur = weekKeys()[0], totals = weekTotals();
+  return Object.keys(totals).filter(function(w){ return w < cur && totals[w] >= t3; }).sort();
+}
+
+/* --- state --- */
+var tab = "today";
+var dayOffset = 0;
+var pendingConfirm = {};
+var yearOpen = false;
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+  });
+}
+function toast(msg){
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._tm);
+  t._tm = setTimeout(function(){ t.classList.remove("show"); }, 1600);
+}
+
+/* --- header --- */
+function renderHeader(){
+  document.getElementById("dlabel").textContent = labelFor(dayOffset);
+  document.getElementById("dprev").disabled = dayOffset <= -7;
+  document.getElementById("dnext").disabled = dayOffset >= 0;
+  var wk = weekKeys(), total = 0;
+  for(var i=0;i<S.habits.length;i++){
+    if(S.habits[i].time !== "asa") total += countIn(wk, S.habits[i].id);
+  }
+  var t3 = bloomThreshold(), t2 = Math.ceil(t3*0.55), t1 = Math.max(2, Math.ceil(t3*0.17));
+  var si = total>=t3 ? 3 : total>=t2 ? 2 : total>=t1 ? 1 : 0;
+  var td = themeDef(), st = td.stages[si];
+  var n = earnedWeeks().length;
+  document.getElementById("plant").innerHTML =
+    '<span class="pico">'+st[0]+'</span><span class="plabel">'+st[1]+'</span><br>' +
+    '<span class="pcount">こんしゅう 🌙'+total+'こ</span>' +
+    (n>0 ? '<br><span class="plabel">'+td.collect+'×'+n+'</span>' : '');
+}
+
+/* --- today --- */
+function goalCardHtml(){
+  var g = S.goal;
+  if(g && g.start != null && g.target != null){
+    var lw = latestWeight();
+    var cur = lw ? lw.v : g.start;
+    var lost = Math.round((g.start - cur)*10)/10;
+    var rem = Math.round((cur - g.target)*10)/10;
+    var span = g.start - g.target;
+    var prog = span > 0 ? Math.max(0, Math.min(1, (g.start - cur)/span)) : 0;
+    var head, sub;
+    if(rem <= 0){ head = "🌸 もくひょう たっせい!"; sub = "ほんとうにすごい!"; prog = 1; }
+    else{
+      head = "あと " + rem.toFixed(1) + " kg";
+      sub = lost > 0 ? "−" + lost.toFixed(1) + " kg やせました 🎉" : (lost < 0 ? "水分のいたずら。順調です" : "ここからスタート");
+    }
+    return '<div class="card"><h2>ゆめまで</h2>' +
+      '<div class="goalnums"><span class="gbig">' + head + '</span><span class="gsub">' + sub + '</span></div>' +
+      '<div class="pbar"><div class="pfill" style="width:' + Math.round(prog*100) + '%"></div></div>' +
+      '<div class="pends"><span>🌱 ' + g.start.toFixed(1) + '</span><span>' + g.target.toFixed(1) + ' 🌸</span></div>' +
+      (lw ? '<div class="gsub" style="margin-top:6px">' + dispDate(lw.k) + ' の ' + lw.v.toFixed(1) + ' kg で計算中</div>' : '') +
+      '<div class="wupd"><button class="linkbtn" id="wtoggle">⚖️ 体重をこうしん(あすけんの数字をうつすだけ)</button>' +
+      '<div class="wrow" id="wrow" hidden><input id="win" type="number" inputmode="decimal" step="0.1" min="20" max="200" placeholder="' + cur.toFixed(1) + '"><span class="unit">kg</span>' +
+      '<button class="btn" id="wsave">とうろく</button></div></div></div>';
+  }
+  return '<div class="card"><h2>もくひょうをきめる(さいしょに1回だけ)</h2>' +
+    '<p class="note" style="margin:0 0 8px">あすけんの数字をうつすだけでOK。あとは「あと何kg」で表示します。</p>' +
+    '<div class="wrow" style="margin-bottom:8px"><input id="gstart" type="number" inputmode="decimal" step="0.1" min="20" max="200" placeholder="いまの体重"><span class="unit">kg</span></div>' +
+    '<div class="wrow"><input id="gtarget" type="number" inputmode="decimal" step="0.1" min="20" max="200" placeholder="もくひょう体重"><span class="unit">kg</span>' +
+    '<button class="btn" id="gsave">きめた!</button></div></div>';
+}
+function renderToday(){
+  var k = keyFor(dayOffset);
+  var day = S.log[k] || {};
+  var wk = weekKeys();
+  var todayKey = keyFor(0);
+  var q = todaysQuote();
+  var html = '<div class="quote"><small>きょうのことば</small>' +
+    '<span class="qtext">' + esc(q[0]) + '</span>' +
+    (q[1] ? '<span class="qby">— ' + esc(q[1]) + '</span>' : '') + '</div>';
+  html += '<p class="note">できた分だけタップ。できない日があっても大丈夫。</p>';
+  html += goalCardHtml();
+
+  var wakeVal = (S.wake && S.wake[k]) || "";
+  html += '<div class="card"><h2>おきた時間</h2><div class="wrow">' +
+    '<input id="wakein" type="time" value="'+wakeVal+'">' +
+    '<button class="btn ghost" id="wakenow">いま!</button>' +
+    '<button class="btn" id="wakesave">きろく</button></div>' +
+    (wakeVal ? '<div class="wsaved">✓ '+wakeVal+' におきた</div>' : '') +
+    '</div>';
+
+  function habitBtn(h){
+    var done = !!day[h.id];
+    var dots = "";
+    for(var j=0;j<7;j++){
+      var cls = (S.log[wk[j]] && S.log[wk[j]][h.id]) ? "on" : "";
+      if(wk[j]===todayKey) cls += " today";
+      dots += '<i class="'+cls+'"></i>';
+    }
+    return '<button class="habit'+(done?" done":"")+'" data-habit="'+esc(h.id)+'">' +
+      '<span class="h-emoji">'+esc(h.emoji)+'</span>' +
+      '<span class="h-body"><span class="h-name">'+esc(h.name)+'</span>' +
+      '<span class="h-hint">'+esc(h.hint)+'</span>' +
+      '<span class="h-week">'+dots+'</span></span>' +
+      '<span class="h-check">✓</span></button>';
+  }
+  var asa = [], yoru = [];
+  S.habits.forEach(function(h){ (h.time==="asa" ? asa : yoru).push(h); });
+  var asaHtml = "", yoruHtml = "";
+  asa.forEach(function(h){ asaHtml += habitBtn(h); });
+  yoru.forEach(function(h){ yoruHtml += habitBtn(h); });
+  if(asa.length) asaHtml = '<p class="sect">💰 あさ — 未来貯金 <span class="sectsub">(花には数えません)</span></p>' + asaHtml;
+  if(yoru.length) yoruHtml = '<p class="sect">🌸 ひる・よる — ゆめの本丸 <span class="sectsub">(ここが花になります)</span></p>' + yoruHtml;
+  /* いま押すものが上に来る: 朝(3〜12時)はあさが上、午後からはゆめの本丸が上 */
+  var hr = new Date().getHours();
+  html += (hr >= 3 && hr < 12) ? (asaHtml + yoruHtml) : (yoruHtml + asaHtml);
+  document.getElementById("view-today").innerHTML = html;
+
+  var btns = document.querySelectorAll("#view-today .habit");
+  for(var b=0;b<btns.length;b++){
+    btns[b].addEventListener("click", function(){
+      var id = this.getAttribute("data-habit");
+      var kk = keyFor(dayOffset);
+      if(!S.log[kk]) S.log[kk] = {};
+      if(S.log[kk][id]){ delete S.log[kk][id]; }
+      else{
+        S.log[kk][id] = 1;
+        toast(PRAISE[Math.floor(Math.random()*PRAISE.length)]);
+      }
+      save(); renderHeader(); renderToday();
+    });
+  }
+  var wn = document.getElementById("wakenow");
+  if(wn) wn.addEventListener("click", function(){
+    var d = new Date();
+    document.getElementById("wakein").value =
+      String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+  });
+  var wks = document.getElementById("wakesave");
+  if(wks) wks.addEventListener("click", function(){
+    var v = document.getElementById("wakein").value;
+    if(!v){ toast("時間を入れてね"); return; }
+    if(!S.wake) S.wake = {};
+    S.wake[keyFor(dayOffset)] = v;
+    save(); toast("おはよう記録 ⏰"); renderToday();
+  });
+  var wt = document.getElementById("wtoggle");
+  if(wt) wt.addEventListener("click", function(){
+    var r = document.getElementById("wrow");
+    r.hidden = !r.hidden;
+    if(!r.hidden) document.getElementById("win").focus();
+  });
+  var ws = document.getElementById("wsave");
+  if(ws) ws.addEventListener("click", function(){
+    var v = parseFloat(document.getElementById("win").value);
+    if(!(v >= 20 && v <= 200)){ toast("20〜200の数字で入れてね"); return; }
+    var kk = keyFor(dayOffset);
+    S.weight[kk] = Math.round(v*10)/10;
+    if(!S.log[kk]) S.log[kk] = {};
+    var hasScale = S.habits.some(function(h){ return h.id==="scale"; });
+    if(hasScale) S.log[kk]["scale"] = 1;
+    save(); toast("こうしんしました ⚖️"); renderHeader(); renderToday();
+  });
+  var gs = document.getElementById("gsave");
+  if(gs) gs.addEventListener("click", function(){
+    var st = parseFloat(document.getElementById("gstart").value);
+    var tg = parseFloat(document.getElementById("gtarget").value);
+    if(!(st >= 20 && st <= 200) || !(tg >= 20 && tg <= 200)){ toast("2つとも数字で入れてね"); return; }
+    S.goal = { start: Math.round(st*10)/10, target: Math.round(tg*10)/10 };
+    if(Object.keys(S.weight).length === 0) S.weight[keyFor(0)] = S.goal.start;
+    save(); toast("もくひょう、きまり! 🌸"); renderHeader(); renderToday();
+  });
+}
+
+/* --- log --- */
+function weightChartSVG(){
+  var todayT = parseKey(keyFor(0)).getTime();
+  var from = todayT - 89*86400000;
+  var pts = Object.keys(S.weight).map(function(k){
+    return { t:parseKey(k).getTime(), v:S.weight[k] };
+  }).filter(function(p){ return p.t >= from && p.t <= todayT; })
+    .sort(function(a,b){ return a.t-b.t; });
+  if(pts.length===0) return '<p class="note" style="margin:0">体重をきろくすると、ここにグラフが育ちます 🌱</p>';
+  if(pts.length===1) return '<div class="bignum">'+pts[0].v+' kg</div><p class="note" style="margin:4px 0 0">あと1回きろくすると、線になります</p>';
+
+  var W=320, H=150, pad=14, padL=38;
+  var min=Infinity, max=-Infinity;
+  pts.forEach(function(p){ if(p.v<min)min=p.v; if(p.v>max)max=p.v; });
+  min-=0.4; max+=0.4;
+  var tgt = (S.goal && S.goal.target != null) ? S.goal.target : null;
+  if(tgt != null && tgt <= min && min - tgt <= 3) min = tgt - 0.3;
+  if(tgt != null && tgt >= max && tgt - max <= 3) max = tgt + 0.3;
+  var t0=pts[0].t, t1=pts[pts.length-1].t;
+  function X(t){ return t1===t0 ? (padL+W)/2 : padL + (t-t0)/(t1-t0)*(W-padL-pad); }
+  function Y(v){ return pad + (max-v)/(max-min)*(H-pad*2-14); }
+  var svg = '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block" role="img" aria-label="体重の推移グラフ">';
+  [max-0.4, (max+min)/2, min+0.4].forEach(function(gv){
+    var gy = Y(gv);
+    svg += '<line x1="'+padL+'" y1="'+gy+'" x2="'+(W-pad)+'" y2="'+gy+'" stroke="var(--line)" stroke-width="1"/>' +
+      '<text x="'+(padL-5)+'" y="'+(gy+4)+'" text-anchor="end" font-size="10" fill="var(--sub)">'+gv.toFixed(1)+'</text>';
+  });
+  if(tgt != null && tgt > min && tgt < max){
+    var ty = Y(tgt);
+    svg += '<line x1="'+padL+'" y1="'+ty+'" x2="'+(W-pad)+'" y2="'+ty+'" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4"/>' +
+      '<text x="'+(W-pad)+'" y="'+(ty-5)+'" text-anchor="end" font-size="10" fill="var(--accent)">🌸 もくひょう '+tgt.toFixed(1)+'</text>';
+  }
+  var path = "";
+  pts.forEach(function(p,i){ path += (i?"L":"M") + X(p.t).toFixed(1) + " " + Y(p.v).toFixed(1) + " "; });
+  svg += '<path d="'+path+'" fill="none" stroke="var(--peach)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+  pts.forEach(function(p){
+    svg += '<circle cx="'+X(p.t).toFixed(1)+'" cy="'+Y(p.v).toFixed(1)+'" r="3" fill="var(--peach)"/>';
+  });
+  var last = pts[pts.length-1];
+  svg += '<circle cx="'+X(last.t).toFixed(1)+'" cy="'+Y(last.v).toFixed(1)+'" r="5.5" fill="var(--peach)" stroke="var(--card)" stroke-width="2"/>';
+  svg += '</svg>';
+  var diff = Math.round((last.v - pts[0].v)*10)/10;
+  var days = Math.round((last.t - pts[0].t)/86400000);
+  var dtxt = diff===0 ? "キープ中(それも立派)" :
+    (days+"日で <b>"+(diff>0?"+":"−")+Math.abs(diff)+" kg</b>" + (diff<0 ? " やせました 🎉" : "(水分のいたずら。気にしない)"));
+  return '<div class="bignum">'+last.v+' <small style="font-size:14px;color:var(--sub)">kg(さいしん)</small></div>' +
+    '<div class="chartwrap">'+svg+'</div><div class="diff">'+dtxt+'</div>';
+}
+
+function renderLog(){
+  var td = themeDef(), t3 = bloomThreshold();
+  var earned = earnedWeeks();
+  var wkNow = weekKeys(), totalNow = 0;
+  for(var i=0;i<S.habits.length;i++){
+    if(S.habits[i].time !== "asa") totalNow += countIn(wkNow, S.habits[i].id);
+  }
+  var chtml = '<div class="card"><h2>あつめた'+esc(td.collectName)+'</h2>';
+  if(earned.length){
+    chtml += '<div class="collectgrid">';
+    earned.forEach(function(w){
+      chtml += '<span class="citem">'+td.collect+'<small>'+dispDate(w)+'〜</small></span>';
+    });
+    chtml += '</div>';
+  }else{
+    chtml += '<p class="note" style="margin:0">🌙(よる)の合計が週'+t3+'こまで育つと、つぎの月曜にここへ増えます。</p>';
+  }
+  if(totalNow >= t3){
+    chtml += '<p class="note" style="margin:8px 0 0">'+td.stages[3][0]+' こんしゅうのぶんは、月曜に'+esc(td.collectName)+'になります!</p>';
+  }
+  chtml += '</div>';
+
+  /* ☀️ 未来貯金(朝活の積み立て。花には数えない) */
+  var mcard = "";
+  var asaList = S.habits.filter(function(h){ return h.time==="asa"; });
+  if(asaList.length){
+    var nowK = keyFor(0), ym = nowK.slice(0,7), yr = nowK.slice(0,4);
+    var arows = "", tAll = 0;
+    asaList.forEach(function(h){
+      var cm = 0, cy = 0, ca = 0;
+      for(var lk in S.log){
+        if(S.log[lk][h.id]){
+          ca++;
+          if(lk.slice(0,4)===yr) cy++;
+          if(lk.slice(0,7)===ym) cm++;
+        }
+      }
+      tAll += ca;
+      arows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
+        '<span class="cnt">今月 '+cm+'回 <small>/ 今年 '+cy+' / 通算 '+ca+'</small></span></div>';
+    });
+    mcard = '<div class="card"><h2>あさの積み立て</h2>' + arows +
+      '<p class="note" style="margin:10px 0 0">通算 '+tAll+'回。花には数えない、減らない、静かに貯まる資産です。</p></div>';
+  }
+
+  var html = '<p class="sect">🌸 ゆめ(ダイエット)</p>' + chtml +
+    '<div class="card"><h2>たいじゅう(90日)</h2>' + weightChartSVG() + '</div>';
+
+  /* おきた時間(7日) */
+  var wakes = [];
+  for(var wo=-6; wo<=0; wo++){
+    var wkk = keyFor(wo);
+    if(S.wake && S.wake[wkk]) wakes.push({k:wkk, v:S.wake[wkk]});
+  }
+  var wcard = '<div class="card"><h2>おきた時間(7日)</h2>';
+  if(wakes.length){
+    var mins = 0, wrows = "";
+    wakes.forEach(function(w){
+      var p = w.v.split(":");
+      mins += (+p[0])*60 + (+p[1]);
+      wrows += '<div class="wk"><span>⏰ '+dispDate(w.k)+'</span><span class="cnt">'+w.v+'</span></div>';
+    });
+    var avg = Math.round(mins/wakes.length);
+    wcard += wrows + '<p class="note" style="margin:8px 0 0">7日平均 '+String(Math.floor(avg/60)).padStart(2,"0")+':'+String(avg%60).padStart(2,"0")+'</p>';
+  }else{
+    wcard += '<p class="note" style="margin:0">「きょう」の おきた時間 から記録できます</p>';
+  }
+  wcard += '</div>';
+  html += '<p class="sect">💰 未来貯金(あさ)</p>' + mcard + wcard;
+  html += '<p class="sect">📋 ふりかえり</p>';
+
+  /* 14日グリッド */
+  var keys=[]; for(var o=-13;o<=0;o++) keys.push(keyFor(o));
+  var cols = keys.length;
+  var grid = '<div class="ggrid" style="grid-template-columns:auto repeat('+cols+',17px)">';
+  grid += '<span></span>';
+  keys.forEach(function(k){ grid += '<span class="gday">'+parseKey(k).getDate()+'</span>'; });
+  S.habits.forEach(function(h){
+    grid += '<span class="glabel">'+esc(h.emoji)+'</span>';
+    keys.forEach(function(k){
+      var on = S.log[k] && S.log[k][h.id];
+      grid += '<span class="gcell'+(on?" on":"")+'"></span>';
+    });
+  });
+  grid += '</div>';
+  html += '<div class="card"><h2>この14日</h2><div class="gridwrap">'+grid+'</div></div>';
+
+  /* 今週・先週 */
+  var wk = weekKeys();
+  var lastWk = wk.map(function(k){ var d=parseKey(k); d.setDate(d.getDate()-7); return fmt(d); });
+  var rows = "";
+  S.habits.forEach(function(h){
+    rows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
+      '<span class="cnt">'+countIn(wk,h.id)+'回 <small>(先週 '+countIn(lastWk,h.id)+'回)</small></span></div>';
+  });
+  html += '<div class="card"><h2>こんしゅうの回数</h2>'+rows+
+    '<p class="note" style="margin:10px 0 0">0回の週があっても、また始めればチャラです。</p></div>';
+
+  /* ことしの畑(年間ヒートマップ、タップで開閉) */
+  var yr = keyFor(0).slice(0,4);
+  var ycard = '<div class="card"><h2>ことしの畑('+yr+'年)</h2>';
+  if(yearOpen){
+    var dayTotals = {}, yearTaps = 0;
+    for(var lk2 in S.log){
+      if(lk2.slice(0,4) !== yr) continue;
+      var cc = 0;
+      for(var id2 in S.log[lk2]){ if(S.log[lk2][id2]) cc++; }
+      if(cc){ dayTotals[lk2] = cc; yearTaps += cc; }
+    }
+    var yg = '<div class="yearwrap"><div class="ygrid">';
+    for(var mo=0; mo<12; mo++){
+      yg += '<span class="ymon">'+(mo+1)+'月</span>';
+      var dim = new Date(+yr, mo+1, 0).getDate();
+      for(var dd=1; dd<=31; dd++){
+        if(dd <= dim){
+          var dk = yr+'-'+String(mo+1).padStart(2,'0')+'-'+String(dd).padStart(2,'0');
+          var cv = dayTotals[dk] || 0;
+          var lv = cv>=6 ? 4 : cv>=4 ? 3 : cv>=2 ? 2 : cv>=1 ? 1 : 0;
+          yg += '<span class="ycell'+(lv?' l'+lv:'')+'"></span>';
+        }else{
+          yg += '<span class="ycell empty"></span>';
+        }
+      }
+    }
+    yg += '</div></div>';
+    var yFlowers = earnedWeeks().filter(function(w){ return w.slice(0,4)===yr; }).length;
+    var asaSet = asaIdSet(), yChokin = 0;
+    for(var lk3 in S.log){
+      if(lk3.slice(0,4) !== yr) continue;
+      for(var id3 in S.log[lk3]){ if(S.log[lk3][id3] && asaSet[id3]) yChokin++; }
+    }
+    ycard += yg +
+      '<p class="note" style="margin:8px 0 0">色がこい日ほどタップが多い日。ことしの合計 '+yearTaps+'回 / '+themeDef().collect+'×'+yFlowers+' / ☀️貯金 '+yChokin+'回</p>' +
+      '<button class="linkbtn" id="yearbtn">とじる</button>';
+  }else{
+    ycard += '<button class="linkbtn" id="yearbtn">📅 タップで1年ぜんぶみる</button>';
+  }
+  ycard += '</div>';
+  html += ycard;
+
+  document.getElementById("view-log").innerHTML = html;
+  var gw = document.querySelector("#view-log .gridwrap");
+  if(gw) gw.scrollLeft = gw.scrollWidth;
+  var yb = document.getElementById("yearbtn");
+  if(yb) yb.addEventListener("click", function(){ yearOpen = !yearOpen; renderLog(); });
+}
+
+/* --- settings --- */
+function renderSet(){
+  var html = '<div class="card"><h2>しゅうかんの編集</h2><div id="hedit">';
+  S.habits.forEach(function(h,i){
+    html += '<div class="edit-row" data-i="'+i+'">' +
+      '<div class="edit-line">' +
+      '<input class="in-emoji" value="'+esc(h.emoji)+'" maxlength="4" aria-label="絵文字">' +
+      '<input class="in-name" value="'+esc(h.name)+'" maxlength="14" aria-label="名前">' +
+      '<button class="mini tglt" style="color:var(--accent)" aria-label="あさ・よる切替">'+(h.time==="asa"?"☀️":"🌙")+'</button>' +
+      '<button class="mini act-del">けす</button></div>' +
+      '<div class="edit-line"><input class="in-hint" value="'+esc(h.hint)+'" maxlength="40" aria-label="ヒント"></div>' +
+      '</div>';
+  });
+  html += '</div><div class="btnrow"><button class="btn ghost" id="haddbtn">+ ふやす</button>' +
+    '<button class="btn" id="hsavebtn">変更をほぞん</button></div></div>';
+
+  var tdcur = S.theme || "hana";
+  html += '<div class="card"><h2>そだてるもの</h2><div class="btnrow">';
+  Object.keys(THEMES).forEach(function(key){
+    var t = THEMES[key];
+    html += '<button class="btn '+(key===tdcur?"":"ghost")+' tpick" data-t="'+key+'">'+t.stages[3][0]+' '+esc(t.name)+'</button>';
+  });
+  html += '</div><p class="note" style="margin:8px 0 0">'+themeDef().stages.map(function(s){return s[0];}).join(" → ")+' と育って、'+themeDef().collect+' があつまります</p></div>';
+
+  var g = S.goal || {};
+  html += '<div class="card"><h2>もくひょう体重</h2>' +
+    '<div class="edit-line">' +
+    '<input class="in-name" id="set-gstart" type="number" inputmode="decimal" step="0.1" min="20" max="200" value="' + (g.start != null ? g.start : "") + '" placeholder="スタート" aria-label="スタート体重">' +
+    '<input class="in-name" id="set-gtarget" type="number" inputmode="decimal" step="0.1" min="20" max="200" value="' + (g.target != null ? g.target : "") + '" placeholder="もくひょう" aria-label="目標体重"></div>' +
+    '<div class="btnrow"><button class="btn ghost" id="set-gsave">もくひょうをほぞん</button></div></div>';
+
+  html += '<div class="card"><h2>バックアップ</h2>' +
+    '<p class="note" style="margin:0 0 8px">データはこのスマホの中だけに保存されます。機種変更の前に「書き出す」の文字をコピーして、LINEのKeepメモなどに貼っておくと安心です。</p>' +
+    '<textarea class="backup" id="bktext" placeholder="ここに貼り付けて「読み込む」"></textarea>' +
+    '<div class="btnrow"><button class="btn ghost" id="bkout">書き出す</button>' +
+    '<button class="btn ghost" id="bkin">読み込む</button></div></div>';
+
+  html += '<div class="card"><h2>そのほか</h2>' +
+    '<p class="note" style="margin:0 0 10px">🌙 夜ふかしさん仕様:深夜3時までの記録は「前日」の分になります。<br>‹ ボタンで7日前までさかのぼって記録できます。</p>' +
+    '<button class="btn danger" id="wipe">データをぜんぶ消す</button></div>';
+
+  document.getElementById("view-set").innerHTML = html;
+
+  var tpicks = document.querySelectorAll(".tpick");
+  for(var tp=0;tp<tpicks.length;tp++){
+    tpicks[tp].addEventListener("click", function(){
+      S.theme = this.getAttribute("data-t");
+      save(); toast(themeDef().name + " にきまり!");
+      renderSet(); renderHeader();
+    });
+  }
+  document.getElementById("set-gsave").addEventListener("click", function(){
+    var st = parseFloat(document.getElementById("set-gstart").value);
+    var tg = parseFloat(document.getElementById("set-gtarget").value);
+    if(!(st >= 20 && st <= 200) || !(tg >= 20 && tg <= 200)){ toast("2つとも数字で入れてね"); return; }
+    S.goal = { start: Math.round(st*10)/10, target: Math.round(tg*10)/10 };
+    save(); toast("ほぞんしました 🌸"); renderHeader();
+  });
+  document.getElementById("hsavebtn").addEventListener("click", function(){
+    var rows = document.querySelectorAll("#hedit .edit-row");
+    for(var i=0;i<rows.length;i++){
+      var r = rows[i], idx = +r.getAttribute("data-i");
+      var name = r.querySelector(".in-name").value.trim();
+      if(name) S.habits[idx].name = name;
+      S.habits[idx].emoji = r.querySelector(".in-emoji").value.trim() || "✅";
+      S.habits[idx].hint = r.querySelector(".in-hint").value.trim();
+    }
+    save(); toast("ほぞんしました"); renderSet(); renderHeader();
+  });
+  document.getElementById("haddbtn").addEventListener("click", function(){
+    S.habits.push({id:"h"+Date.now(), emoji:"✨", name:"あたらしい習慣", hint:"", time:"yoru"});
+    save(); renderSet();
+  });
+  var tgls = document.querySelectorAll("#hedit .tglt");
+  for(var tg=0;tg<tgls.length;tg++){
+    tgls[tg].addEventListener("click", function(){
+      var idx = +this.closest(".edit-row").getAttribute("data-i");
+      S.habits[idx].time = S.habits[idx].time==="asa" ? "yoru" : "asa";
+      save(); toast(S.habits[idx].time==="asa" ? "あさに移動 ☀️" : "よるに移動 🌙");
+      renderSet();
+    });
+  }
+  var dels = document.querySelectorAll("#hedit .act-del");
+  for(var d=0;d<dels.length;d++){
+    dels[d].addEventListener("click", function(){
+      var row = this.closest(".edit-row"), idx = +row.getAttribute("data-i");
+      var id = S.habits[idx].id;
+      if(pendingConfirm["del"+id]){
+        delete pendingConfirm["del"+id];
+        S.habits.splice(idx,1);
+        save(); toast("けしました"); renderSet(); renderHeader();
+      }else{
+        pendingConfirm["del"+id] = true;
+        this.textContent = "ほんとにけす?";
+        toast("もう一度おすと消えます");
+      }
+    });
+  }
+  document.getElementById("bkout").addEventListener("click", function(){
+    var txt = JSON.stringify(S);
+    var ta = document.getElementById("bktext");
+    ta.value = txt; ta.select();
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast("コピーしました 📋"); },
+        function(){ toast("全選択したのでコピーしてね"); });
+    }else toast("全選択したのでコピーしてね");
+  });
+  document.getElementById("bkin").addEventListener("click", function(){
+    var ta = document.getElementById("bktext");
+    var s;
+    try{ s = JSON.parse(ta.value); }catch(e){ toast("読み込めない形式でした"); return; }
+    if(!s || !s.habits || !s.log){ toast("バックアップの文字ではないみたい"); return; }
+    if(pendingConfirm.imp){
+      delete pendingConfirm.imp;
+      S = s; save(); toast("読み込みました ✓");
+      renderHeader(); renderToday(); renderLog(); renderSet();
+    }else{
+      pendingConfirm.imp = true;
+      toast("もう一度おすと上書きされます");
+    }
+  });
+  document.getElementById("wipe").addEventListener("click", function(){
+    if(pendingConfirm.wipe){
+      delete pendingConfirm.wipe;
+      S = defaults(); save();
+      toast("まっさらにしました");
+      renderHeader(); renderToday(); renderLog(); renderSet();
+    }else{
+      pendingConfirm.wipe = true;
+      this.textContent = "ほんとに消す?(もう一度)";
+      toast("もう一度おすと全部消えます");
+    }
+  });
+}
+
+/* --- tabs & nav --- */
+function show(){
+  document.getElementById("view-today").hidden = tab!=="today";
+  document.getElementById("view-log").hidden = tab!=="log";
+  document.getElementById("view-set").hidden = tab!=="set";
+  var tabs = document.querySelectorAll(".tab");
+  for(var i=0;i<tabs.length;i++)
+    tabs[i].classList.toggle("active", tabs[i].getAttribute("data-tab")===tab);
+  if(tab==="today") renderToday();
+  if(tab==="log") renderLog();
+  if(tab==="set"){ pendingConfirm={}; renderSet(); }
+  renderHeader();
+}
+var tabBtns = document.querySelectorAll(".tab");
+for(var i=0;i<tabBtns.length;i++){
+  tabBtns[i].addEventListener("click", function(){
+    tab = this.getAttribute("data-tab"); show();
+  });
+}
+document.getElementById("dprev").addEventListener("click", function(){
+  if(dayOffset>-7){ dayOffset--; renderHeader(); renderToday(); }
+});
+document.getElementById("dnext").addEventListener("click", function(){
+  if(dayOffset<0){ dayOffset++; renderHeader(); renderToday(); }
+});
+
+show();
+})();
+</script>
