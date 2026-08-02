@@ -74,6 +74,11 @@ input,textarea{font:inherit; color:var(--ink);}
 .h-emoji{font-size:26px; width:34px; text-align:center; flex:none;}
 .h-body{flex:1; min-width:0;}
 .h-name{display:block; font-weight:800; font-size:16px;}
+.h-goal{font-size:11px; font-weight:700; color:var(--accent); background:var(--accent-soft); border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:2px;}
+.h-num{font-size:13px; font-weight:800; color:var(--accent);}
+.h-num small{font-size:10px; opacity:.7;}
+.habit.done:not(.full) .h-check{background:transparent; border-color:var(--accent);}
+.habit.done:not(.full){border-color:var(--line); background:var(--card);}
 .h-hint{display:block; font-size:12px; color:var(--sub); line-height:1.45;}
 .h-week{display:flex; gap:3px; margin-top:5px;}
 .h-week i{width:8px; height:8px; border-radius:50%; background:var(--line);}
@@ -612,15 +617,16 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:13, gv:4,
+  return { v:1, hv:15, gv:4,
     habits:[
       {id:"sanpo", emoji:"🚶", name:"あさんぽ", hint:"涼しいうちに外へ。5分でもOK", time:"asa"},
       {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"8月中に家中を!1か所でもOK", time:"asa"},
+      {id:"kane",  emoji:"🎓", name:"未来への勉強", hint:"お金・資格など。動画1本・1ページでもOK", time:"asa"},
       {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru"},
       {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru"},
       {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru"},
       {id:"draw",  emoji:"🌬️", name:"ドローイン", hint:"信号待ち・食器洗いでお腹へこませ10秒", time:"yoru"},
-      {id:"kabe",  emoji:"🧍", name:"壁ペタ", hint:"かかと・お尻・背中・後頭部を壁につけて30秒", time:"yoru"}
+      {id:"kabe",  emoji:"🧍", name:"壁ペタ", hint:"かかと・お尻・背中・後頭部を壁につけて30秒", time:"yoru", goal:3}
     ],
     goal:{ start:63.9, target:56 },
     log:{}, weight:{ "2026-07-31": 63.1 }, wake:{} };
@@ -631,9 +637,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 13){ /* 2026-07-31 精選+1万歩+片づけ目標(記録は残す) */
+        if(!s.hv || s.hv < 15){ /* 2026-07-31 精選+1万歩+片づけ目標+壁ペタ3回+勉強を朝に復帰(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 13;
+          s.hv = 15;
         }
         if(!s.wake) s.wake = {};
         if(!s.gv || s.gv < 2){ /* 2026-07: まずの目標を56kgに(本人指定) */
@@ -831,19 +837,25 @@ function renderToday(){
     '</div>';
 
   function habitBtn(h){
-    var done = !!day[h.id];
+    var n = day[h.id] || 0;
+    var done = n > 0;
+    var full = h.goal ? (n >= h.goal) : done;
     var dots = "";
     for(var j=0;j<7;j++){
       var cls = (S.log[wk[j]] && S.log[wk[j]][h.id]) ? "on" : "";
       if(wk[j]===todayKey) cls += " today";
       dots += '<i class="'+cls+'"></i>';
     }
-    return '<button class="habit'+(done?" done":"")+'" data-habit="'+esc(h.id)+'">' +
+    var check = h.goal
+      ? (full ? "✓" : '<span class="h-num">'+n+'<small>/'+h.goal+'</small></span>')
+      : "✓";
+    return '<button class="habit'+(done?" done":"")+(full?" full":"")+'" data-habit="'+esc(h.id)+'">' +
       '<span class="h-emoji">'+esc(h.emoji)+'</span>' +
-      '<span class="h-body"><span class="h-name">'+esc(h.name)+'</span>' +
+      '<span class="h-body"><span class="h-name">'+esc(h.name)+
+      (h.goal ? '<span class="h-goal">1日'+h.goal+'回</span>' : '')+'</span>' +
       '<span class="h-hint">'+esc(h.hint)+'</span>' +
       '<span class="h-week">'+dots+'</span></span>' +
-      '<span class="h-check">✓</span></button>';
+      '<span class="h-check">'+check+'</span></button>';
   }
   var asa = [], yoru = [];
   S.habits.forEach(function(h){ (h.time==="asa" ? asa : yoru).push(h); });
@@ -862,11 +874,26 @@ function renderToday(){
     btns[b].addEventListener("click", function(){
       var id = this.getAttribute("data-habit");
       var kk = keyFor(dayOffset);
+      var hb = null;
+      for(var hi=0; hi<S.habits.length; hi++){ if(S.habits[hi].id===id) hb = S.habits[hi]; }
       if(!S.log[kk]) S.log[kk] = {};
-      if(S.log[kk][id]){ delete S.log[kk][id]; }
-      else{
-        S.log[kk][id] = 1;
-        toast(PRAISE[Math.floor(Math.random()*PRAISE.length)]);
+      var cur = S.log[kk][id] || 0;
+      if(hb && hb.goal){
+        /* 1日◯回タイプ: タップのたびに +1、目標をこえたら0に戻る */
+        var next = cur + 1;
+        if(next > hb.goal) next = 0;
+        if(next === 0) delete S.log[kk][id];
+        else{
+          S.log[kk][id] = next;
+          toast(next >= hb.goal ? "きょうの"+hb.goal+"回、たっせい! 💮"
+                                : next + "回目 ◎ のこり" + (hb.goal - next) + "回");
+        }
+      }else{
+        if(cur){ delete S.log[kk][id]; }
+        else{
+          S.log[kk][id] = 1;
+          toast(PRAISE[Math.floor(Math.random()*PRAISE.length)]);
+        }
       }
       save(); renderHeader(); renderToday();
     });
