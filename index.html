@@ -617,11 +617,12 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:15, gv:4,
+  return { v:1, hv:16, gv:4,
     habits:[
       {id:"sanpo", emoji:"🚶", name:"あさんぽ", hint:"涼しいうちに外へ。5分でもOK", time:"asa"},
       {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"8月中に家中を!1か所でもOK", time:"asa"},
       {id:"kane",  emoji:"🎓", name:"未来への勉強", hint:"お金・資格など。動画1本・1ページでもOK", time:"asa"},
+      {id:"hasshin", emoji:"📣", name:"1日1発信", hint:"1行でもOK。誰に届かなくても、出したら勝ち", time:"asa"},
       {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru"},
       {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru"},
       {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru"},
@@ -637,9 +638,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 15){ /* 2026-07-31 精選+1万歩+片づけ目標+壁ペタ3回+勉強を朝に復帰(記録は残す) */
+        if(!s.hv || s.hv < 16){ /* 2026-08 朝に1日1発信を追加(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 15;
+          s.hv = 16;
         }
         if(!s.wake) s.wake = {};
         if(!s.gv || s.gv < 2){ /* 2026-07: まずの目標を56kgに(本人指定) */
