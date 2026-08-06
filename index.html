@@ -630,7 +630,38 @@ function defaults(){
       {id:"kabe",  emoji:"🧍", name:"壁ペタ", hint:"かかと・お尻・背中・後頭部を壁につけて30秒", time:"yoru", goal:3}
     ],
     goal:{ start:63.9, target:56 },
-    log:{}, weight:{ "2026-07-31": 63.1 }, wake:{} };
+    log:{}, weight:{ "2026-07-08": 63.9, "2026-07-31": 63.1 }, wake:{} };
+}
+/* 2026-08-06 復旧: Safari履歴消去で消えた7/20〜8/1の記録を、本人のスクリーンショット
+   (週ごとの回数)から復元。日付までは分からないため、週内のもっともらしい日に配置してある。
+   すでに記録がある日には手を触れない。 */
+var RECOVER = {
+  "2026-07-20":{sanpo:1,kata:1,walk:1,soda:1,draw:1},
+  "2026-07-21":{sanpo:1,walk:1,soda:1,otsu:1},
+  "2026-07-22":{sanpo:1,kata:1,soda:1,draw:1},
+  "2026-07-23":{sanpo:1,walk:1,otsu:1,draw:1},
+  "2026-07-24":{sanpo:1,kata:1,soda:1,draw:1},
+  "2026-07-25":{sanpo:1,walk:1,soda:1,otsu:1},
+  "2026-07-26":{sanpo:1,kata:1,walk:1,otsu:1,draw:1},
+  "2026-07-27":{sanpo:1,walk:1,otsu:1,draw:1},
+  "2026-07-28":{sanpo:1,kata:1,draw:1},
+  "2026-07-29":{walk:1,soda:1},
+  "2026-07-30":{sanpo:1,otsu:1,draw:1},
+  "2026-07-31":{kata:1,kabe:1},
+  "2026-08-01":{sanpo:1,walk:1,draw:1,kabe:1}
+};
+function applyRecover(s){
+  if(!s.log) s.log = {};
+  for(var d in RECOVER){
+    if(!s.log[d] || Object.keys(s.log[d]).length === 0) s.log[d] = RECOVER[d];
+  }
+  if(!s.weight) s.weight = {};
+  if(s.weight["2026-07-08"] == null) s.weight["2026-07-08"] = 63.9;
+  if(s.weight["2026-07-31"] == null) s.weight["2026-07-31"] = 63.1;
+  if(!s.wake) s.wake = {};
+  if(!s.wake["2026-07-31"]) s.wake["2026-07-31"] = "06:00";
+  s.rv = 1;
+  return s;
 }
 function load(){
   try{
@@ -643,6 +674,7 @@ function load(){
           s.hv = 16;
         }
         if(!s.wake) s.wake = {};
+        if(!s.rv) applyRecover(s);
         if(!s.gv || s.gv < 2){ /* 2026-07: まずの目標を56kgに(本人指定) */
           if(s.goal && s.goal.target != null) s.goal.target = 56;
           s.gv = 2;
@@ -663,7 +695,7 @@ function load(){
       }
     }
   }catch(e){}
-  return defaults();
+  return applyRecover(defaults());
 }
 var S = load();
 save();
@@ -770,7 +802,7 @@ function toast(msg){
 /* --- header --- */
 function renderHeader(){
   document.getElementById("dlabel").textContent = labelFor(dayOffset);
-  document.getElementById("dprev").disabled = dayOffset <= -7;
+  document.getElementById("dprev").disabled = dayOffset <= -60;
   document.getElementById("dnext").disabled = dayOffset >= 0;
   var wk = weekKeys(), total = 0;
   for(var i=0;i<S.habits.length;i++){
@@ -1169,7 +1201,7 @@ function renderSet(){
     '<div class="btnrow"><button class="btn ghost" id="set-gsave">もくひょうをほぞん</button></div></div>';
 
   html += '<div class="card"><h2>バックアップ</h2>' +
-    '<p class="note" style="margin:0 0 8px">データはこのスマホの中だけに保存されます。機種変更の前に「書き出す」の文字をコピーして、LINEのKeepメモなどに貼っておくと安心です。</p>' +
+    '<p class="note" style="margin:0 0 8px">データはこのスマホの中だけに保存されます。<b>月に1回、「書き出す」の文字をコピーしてLINEのKeepメモに貼っておいてください。</b>Safariの履歴消去や機種変更で記録は消えますが、この文字さえあれば「読み込む」でぜんぶ戻せます。</p>' +
     '<textarea class="backup" id="bktext" placeholder="ここに貼り付けて「読み込む」"></textarea>' +
     '<div class="btnrow"><button class="btn ghost" id="bkout">書き出す</button>' +
     '<button class="btn ghost" id="bkin">読み込む</button></div></div>';
@@ -1292,7 +1324,7 @@ for(var i=0;i<tabBtns.length;i++){
   });
 }
 document.getElementById("dprev").addEventListener("click", function(){
-  if(dayOffset>-7){ dayOffset--; renderHeader(); renderToday(); }
+  if(dayOffset>-60){ dayOffset--; renderHeader(); renderToday(); }
 });
 document.getElementById("dnext").addEventListener("click", function(){
   if(dayOffset<0){ dayOffset++; renderHeader(); renderToday(); }
