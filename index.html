@@ -7,6 +7,7 @@
   --bg:#F2F4EB; --card:#FBFCF7; --ink:#2F352C; --sub:#77806F;
   --line:#E2E6D8; --accent:#55803F; --accent-soft:#E7EFDC;
   --peach:#D97E4A; --peach-soft:#F8E9DE; --danger:#B25541;
+  --gold:#B8860B; --gold-soft:#FAF2DE;
   --shadow:0 1px 3px rgba(47,53,44,.07);
 }
 @media (prefers-color-scheme: dark){
@@ -14,6 +15,7 @@
     --bg:#191E18; --card:#232922; --ink:#EAEDE3; --sub:#99A28F;
     --line:#333B31; --accent:#9CC57F; --accent-soft:#2E3A28;
     --peach:#E39A6B; --peach-soft:#3A2E24; --danger:#DB8570;
+    --gold:#E8B65A; --gold-soft:#3A3320;
     --shadow:0 1px 3px rgba(0,0,0,.3);
   }
 }
@@ -21,12 +23,14 @@
   --bg:#F2F4EB; --card:#FBFCF7; --ink:#2F352C; --sub:#77806F;
   --line:#E2E6D8; --accent:#55803F; --accent-soft:#E7EFDC;
   --peach:#D97E4A; --peach-soft:#F8E9DE; --danger:#B25541;
+  --gold:#B8860B; --gold-soft:#FAF2DE;
   --shadow:0 1px 3px rgba(47,53,44,.07);
 }
 :root[data-theme="dark"]{
   --bg:#191E18; --card:#232922; --ink:#EAEDE3; --sub:#99A28F;
   --line:#333B31; --accent:#9CC57F; --accent-soft:#2E3A28;
   --peach:#E39A6B; --peach-soft:#3A2E24; --danger:#DB8570;
+  --gold:#E8B65A; --gold-soft:#3A3320;
   --shadow:0 1px 3px rgba(0,0,0,.3);
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -42,16 +46,17 @@ button:focus-visible, input:focus-visible, textarea:focus-visible{outline:2px so
 input,textarea{font:inherit; color:var(--ink);}
 
 /* ---------- header ---------- */
-.top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin:4px 2px 14px;}
+.top{display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin:4px 2px 14px;}
+.top > div:first-child{min-width:0;}
 .appname{font-size:13px; letter-spacing:.18em; color:var(--sub); font-weight:700;}
 .datebar{display:flex; align-items:center; gap:4px; margin-top:2px;}
-.datebar .dlabel{font-size:22px; font-weight:800; letter-spacing:.02em; min-width:9em;}
-.dbtn{width:34px; height:34px; border-radius:50%; font-size:17px; color:var(--sub); background:var(--card); box-shadow:var(--shadow);}
+.datebar .dlabel{font-size:19px; font-weight:800; letter-spacing:.01em; min-width:7.4em; white-space:nowrap;}
+.dbtn{flex:none; width:31px; height:31px; border-radius:50%; font-size:16px; color:var(--sub); background:var(--card); box-shadow:var(--shadow);}
 .dbtn:disabled{opacity:.3; cursor:default;}
-.plant{text-align:center; background:var(--card); border-radius:16px; padding:8px 12px 6px; box-shadow:var(--shadow); min-width:86px;}
+.plant{flex:none; text-align:center; background:var(--card); border-radius:16px; padding:8px 10px 7px; box-shadow:var(--shadow); min-width:100px;}
 .plant .pico{font-size:26px; line-height:1.2; display:block;}
-.plant .plabel{font-size:11px; color:var(--sub);}
-.plant .pcount{font-size:12px; color:var(--accent); font-weight:700;}
+.plant .plabel{display:block; font-size:11px; color:var(--sub); white-space:nowrap;}
+.plant .pcount{display:block; font-size:12px; color:var(--accent); font-weight:700; white-space:nowrap; margin-top:2px;}
 
 /* ---------- quote ---------- */
 .quote{text-align:center; padding:2px 12px 0; margin:0 0 10px;}
@@ -124,15 +129,26 @@ input,textarea{font:inherit; color:var(--ink);}
 .citem{display:flex; flex-direction:column; align-items:center; font-size:26px; line-height:1.2; background:var(--accent-soft); border-radius:12px; padding:8px 10px 4px; min-width:52px;}
 .citem small{font-size:10px; color:var(--sub); font-variant-numeric:tabular-nums;}
 .tpick{font-size:14px; padding:9px 12px;}
+.goldtop{display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; margin-bottom:10px;}
+.goldbig{font-size:30px; font-weight:800; color:var(--gold); font-variant-numeric:tabular-nums;}
+.rainbowbig{font-size:30px; font-weight:800; font-variant-numeric:tabular-nums;
+  background:linear-gradient(95deg,#D9534F,#E8933A,#C7A62E,#4F9A5E,#3D8AA8,#7A5FA8);
+  -webkit-background-clip:text; background-clip:text; color:transparent;}
+.goldunit{font-size:14px; color:var(--sub); margin-right:6px;}
+.coinbox{display:flex; flex-wrap:wrap; gap:3px; align-items:center; margin-bottom:12px;
+  background:var(--gold-soft); border-radius:12px; padding:10px;}
+.coin{font-size:17px; line-height:1;}
 .monthhead{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
 .monthhead .mlabel{font-size:16px; font-weight:800; font-variant-numeric:tabular-nums;}
 .mbtn{width:30px; height:30px; border-radius:50%; font-size:15px; color:var(--sub); background:var(--bg);}
 .mbtn:disabled{opacity:.25; cursor:default;}
 .mcal{display:grid; grid-template-columns:repeat(7,1fr); gap:4px;}
 .mcal .mh{font-size:10px; color:var(--sub); text-align:center; padding-bottom:2px;}
-.mcell{aspect-ratio:1; border-radius:7px; background:var(--line); opacity:.45;
+.mcell{position:relative; aspect-ratio:1; border-radius:7px; background:var(--line); opacity:.45;
   display:flex; align-items:center; justify-content:center; font-size:11px;
   font-variant-numeric:tabular-nums; color:var(--sub);}
+.mcell.gold::after{content:""; position:absolute; top:3px; right:3px; width:8px; height:8px;
+  border-radius:50%; background:var(--gold); box-shadow:0 0 0 1.5px var(--card);}
 .mcell.blank{background:transparent;}
 .mcell.l1{background:var(--accent); opacity:.32; color:var(--ink);}
 .mcell.l2{background:var(--accent); opacity:.55; color:var(--ink);}
@@ -634,17 +650,24 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:16, gv:4,
+  return { v:1, hv:21, gv:4,
     habits:[
-      {id:"sanpo", emoji:"🚶", name:"あさんぽ", hint:"涼しいうちに外へ。5分でもOK", time:"asa"},
-      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"8月中に家中を!1か所でもOK", time:"asa"},
+      /* 🌈 未来貯金(花には数えない) */
+      {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"asa"},
+      {id:"sanpo", emoji:"🚶", name:"さんぽ30分", hint:"朝が暗い日は夜でもOK。歩きながら発信も◎", time:"asa"},
+      {id:"hasshin", emoji:"📣", name:"1日1発信", hint:"1行でもOK。さんぽ中のひとことで◎", time:"asa"},
       {id:"kane",  emoji:"🎓", name:"未来への勉強", hint:"お金・資格など。動画1本・1ページでもOK", time:"asa"},
-      {id:"hasshin", emoji:"📣", name:"1日1発信", hint:"1行でもOK。誰に届かなくても、出したら勝ち", time:"asa"},
-      {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru"},
+      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"9月は紙ものをやっつける!1か所でもOK", time:"asa"},
+      /* 🌸 やせ習慣(花になる) */
       {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru"},
       {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru"},
-      {id:"draw",  emoji:"🌬️", name:"ドローイン", hint:"信号待ち・食器洗いでお腹へこませ10秒", time:"yoru"},
-      {id:"kabe",  emoji:"🧍", name:"壁ペタ", hint:"かかと・お尻・背中・後頭部を壁につけて30秒", time:"yoru", goal:3}
+      {id:"junbi", emoji:"🪥", name:"寝かしつけ直行", hint:"歯磨きまですませて添い寝へ→1時半はキッチン寄らずふとん直行", time:"yoru"},
+      {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru"},
+      {id:"kintore", emoji:"💪", name:"筋トレ", hint:"ドローイン・壁ペタ・スクワット、なんでも", time:"yoru", goal:3},
+      /* 🪙 資産(金貨がたまる。花には数えない) */
+      {id:"kinshu", emoji:"🍵", name:"禁酒", hint:"のまなかった日は、健康資産が1枚", time:"gold"},
+      {id:"taikin", emoji:"🏫", name:"6時退勤", hint:"終わってなくても切り上げる。持ち帰らず、続きは明日", time:"gold"},
+      {id:"okane",  emoji:"💴", name:"お金の行動", hint:"マネーフォワード確認・見直し・投資など、1つでも", time:"gold"}
     ],
     goal:{ start:63.9, target:56 },
     log:{}, weight:{ "2026-07-08": 63.9, "2026-07-31": 63.1 }, wake:{} };
@@ -686,9 +709,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 16){ /* 2026-08 朝に1日1発信を追加(記録は残す) */
+        if(!s.hv || s.hv < 21){ /* 2026-08-20 3グループ制+金貨(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 16;
+          s.hv = 21;
         }
         if(!s.wake) s.wake = {};
         if(!s.rv) applyRecover(s);
@@ -768,9 +791,9 @@ var THEMES = {
   hiyoko: { name:"ひよこ",   stages:[["🥚","たまご"],["🐣","うまれた"],["🐤","ひよこ"],["🐔","りっぱ!"]], collect:"🐤", collectName:"ひよこ" }
 };
 function themeDef(){ return THEMES[S.theme] || THEMES.hana; }
-function bloomThreshold(){ /* 咲くラインは本丸(🌙)の数が基準。☀️のタップは全部ボーナス加点 */
-  var core = 0;
-  for(var i=0;i<S.habits.length;i++){ if(S.habits[i].time !== "asa") core++; }
+function bloomThreshold(){ /* 咲くラインは🌸やせ習慣の数が基準。🌈未来貯金と🪙資産は花に数えない */
+  var core = 0, t;
+  for(var i=0;i<S.habits.length;i++){ t = S.habits[i].time; if(t !== "asa" && t !== "gold") core++; }
   if(!core) core = S.habits.length;
   return Math.max(6, Math.ceil(core * 3.5));
 }
@@ -779,8 +802,29 @@ function asaIdSet(){
   for(var i=0;i<S.habits.length;i++){ if(S.habits[i].time==="asa") m[S.habits[i].id]=1; }
   return m;
 }
-function weekTotals(){ /* 週の頭(月曜)キー → その週の🌙タップ合計(☀️は花に数えない) */
-  var m = {}, asa = asaIdSet();
+function goldIdSet(){
+  var m = {};
+  for(var i=0;i<S.habits.length;i++){ if(S.habits[i].time==="gold") m[S.habits[i].id]=1; }
+  return m;
+}
+function noFlowerSet(){ /* 花に数えないもの = 🌈未来貯金 + 🪙資産 */
+  var m = {}, t;
+  for(var i=0;i<S.habits.length;i++){ t = S.habits[i].time; if(t==="asa" || t==="gold") m[S.habits[i].id]=1; }
+  return m;
+}
+function goldOn(dayKey){ /* その日に貯まった金貨の枚数 */
+  var g = goldIdSet(), day = S.log[dayKey], n = 0;
+  if(!day) return 0;
+  for(var id in day){ if(day[id] && g[id]) n++; }
+  return n;
+}
+function goldTotal(pref){ /* pref: "" 全期間 / "2026" 今年 / "2026-08" 今月 */
+  var n = 0;
+  for(var k in S.log){ if(!pref || k.slice(0,pref.length)===pref) n += goldOn(k); }
+  return n;
+}
+function weekTotals(){ /* 週の頭(月曜)キー → その週の🌸やせ習慣タップ合計(🌈🪙は数えない) */
+  var m = {}, asa = noFlowerSet();
   for(var k in S.log){
     var day = S.log[k], c = 0, id;
     for(id in day){ if(day[id] && !asa[id]) c++; }
@@ -824,16 +868,24 @@ function renderHeader(){
   document.getElementById("dnext").disabled = dayOffset >= 0;
   var wk = weekKeys(), total = 0;
   for(var i=0;i<S.habits.length;i++){
-    if(S.habits[i].time !== "asa") total += countIn(wk, S.habits[i].id);
+    var ht = S.habits[i].time;
+    if(ht !== "asa" && ht !== "gold") total += countIn(wk, S.habits[i].id);
   }
   var t3 = bloomThreshold(), t2 = Math.ceil(t3*0.55), t1 = Math.max(2, Math.ceil(t3*0.17));
   var si = total>=t3 ? 3 : total>=t2 ? 2 : total>=t1 ? 1 : 0;
   var td = themeDef(), st = td.stages[si];
   var n = earnedWeeks().length;
+  /* トップは「今週」だけ。月曜にぜんぶ0に戻る */
+  var gWeek = 0, rWeek = 0, asaSet = asaIdSet();
+  for(var w=0; w<wk.length; w++){
+    gWeek += goldOn(wk[w]);
+    var dayw = S.log[wk[w]];
+    if(dayw) for(var idw in dayw){ if(dayw[idw] && asaSet[idw]) rWeek++; }
+  }
   document.getElementById("plant").innerHTML =
-    '<span class="pico">'+st[0]+'</span><span class="plabel">'+st[1]+'</span><br>' +
-    '<span class="pcount">こんしゅう 🌙'+total+'こ</span>' +
-    (n>0 ? '<br><span class="plabel">'+td.collect+'×'+n+'</span>' : '');
+    '<span class="pico">'+st[0]+'</span><span class="plabel">'+st[1]+'</span>' +
+    '<span class="plabel" style="margin-top:3px">こんしゅう</span>' +
+    '<span class="pcount">🌸'+total+' 🌈'+rWeek+' 🪙'+gWeek+'</span>';
 }
 
 /* --- today --- */
@@ -908,16 +960,22 @@ function renderToday(){
       '<span class="h-week">'+dots+'</span></span>' +
       '<span class="h-check">'+check+'</span></button>';
   }
-  var asa = [], yoru = [];
-  S.habits.forEach(function(h){ (h.time==="asa" ? asa : yoru).push(h); });
-  var asaHtml = "", yoruHtml = "";
+  var asa = [], yoru = [], gold = [];
+  S.habits.forEach(function(h){
+    if(h.time==="asa") asa.push(h);
+    else if(h.time==="gold") gold.push(h);
+    else yoru.push(h);
+  });
+  var asaHtml = "", yoruHtml = "", goldHtml = "";
   asa.forEach(function(h){ asaHtml += habitBtn(h); });
   yoru.forEach(function(h){ yoruHtml += habitBtn(h); });
-  if(asa.length) asaHtml = '<p class="sect">💰 あさ — 未来貯金 <span class="sectsub">(花には数えません)</span></p>' + asaHtml;
-  if(yoru.length) yoruHtml = '<p class="sect">🌸 ひる・よる — ゆめの本丸 <span class="sectsub">(ここが花になります)</span></p>' + yoruHtml;
-  /* いま押すものが上に来る: 朝(3〜12時)はあさが上、午後からはゆめの本丸が上 */
+  gold.forEach(function(h){ goldHtml += habitBtn(h); });
+  if(asa.length) asaHtml = '<p class="sect">🌈 未来貯金 <span class="sectsub">(花には数えません)</span></p>' + asaHtml;
+  if(yoru.length) yoruHtml = '<p class="sect">🌸 やせ習慣 <span class="sectsub">(ここが花になります)</span></p>' + yoruHtml;
+  if(gold.length) goldHtml = '<p class="sect">🪙 資産 <span class="sectsub">(できた日は金貨が1枚)</span></p>' + goldHtml;
+  /* いま押すものが上に来る: 朝(3〜12時)は貯金が上、午後からはやせ習慣が上 */
   var hr = new Date().getHours();
-  html += (hr >= 3 && hr < 12) ? (asaHtml + yoruHtml) : (yoruHtml + asaHtml);
+  html += (hr >= 3 && hr < 12) ? (asaHtml + yoruHtml + goldHtml) : (yoruHtml + goldHtml + asaHtml);
   document.getElementById("view-today").innerHTML = html;
 
   var btns = document.querySelectorAll("#view-today .habit");
@@ -943,7 +1001,8 @@ function renderToday(){
         if(cur){ delete S.log[kk][id]; }
         else{
           S.log[kk][id] = 1;
-          toast(PRAISE[Math.floor(Math.random()*PRAISE.length)]);
+          toast(hb && hb.time === "gold" ? "🪙 金貨が1枚たまりました!"
+                                         : PRAISE[Math.floor(Math.random()*PRAISE.length)]);
         }
       }
       save(); renderHeader(); renderToday();
@@ -1055,19 +1114,19 @@ function renderLog(){
     });
     chtml += '</div>';
   }else{
-    chtml += '<p class="note" style="margin:0">🌙(よる)の合計が週'+t3+'こまで育つと、つぎの月曜にここへ増えます。</p>';
+    chtml += '<p class="note" style="margin:0">🌸やせ習慣の合計が週'+t3+'こまで育つと、つぎの月曜にここへ増えます。</p>';
   }
   if(totalNow >= t3){
     chtml += '<p class="note" style="margin:8px 0 0">'+td.stages[3][0]+' こんしゅうのぶんは、月曜に'+esc(td.collectName)+'になります!</p>';
   }
   chtml += '</div>';
 
-  /* ☀️ 未来貯金(朝活の積み立て。花には数えない) */
+  /* 🌈 未来貯金の積み立て(花には数えない) */
   var mcard = "";
   var asaList = S.habits.filter(function(h){ return h.time==="asa"; });
   if(asaList.length){
     var nowK = keyFor(0), ym = nowK.slice(0,7), yr = nowK.slice(0,4);
-    var arows = "", tAll = 0;
+    var arows = "", tAll = 0, tYear = 0, tMonth = 0;
     asaList.forEach(function(h){
       var cm = 0, cy = 0, ca = 0;
       for(var lk in S.log){
@@ -1077,16 +1136,48 @@ function renderLog(){
           if(lk.slice(0,7)===ym) cm++;
         }
       }
-      tAll += ca;
+      tAll += ca; tYear += cy; tMonth += cm;
       arows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
         '<span class="cnt">今月 '+cm+'回 <small>/ 今年 '+cy+' / 通算 '+ca+'</small></span></div>';
     });
-    mcard = '<div class="card"><h2>あさの積み立て</h2>' + arows +
-      '<p class="note" style="margin:10px 0 0">通算 '+tAll+'回。花には数えない、減らない、静かに貯まる資産です。</p></div>';
+    mcard = '<div class="card"><h2>🌈 未来貯金</h2>' +
+      '<div class="goldtop"><span class="rainbowbig">'+tAll+'</span><span class="goldunit">回</span>' +
+      '<span class="gsub">今月 '+tMonth+'回 / 今年 '+tYear+'回</span></div>' + arows +
+      '<p class="note" style="margin:10px 0 0">花には数えない、減らない、静かに貯まる資産です。</p></div>';
+  }
+
+  /* 🪙 資産(金貨) */
+  var gcard = "";
+  var goldList = S.habits.filter(function(h){ return h.time==="gold"; });
+  if(goldList.length){
+    var nowK2 = keyFor(0), ym2 = nowK2.slice(0,7), yr2 = nowK2.slice(0,4);
+    var gAll = goldTotal(""), gYear = goldTotal(yr2), gMonth = goldTotal(ym2);
+    var grows = "";
+    goldList.forEach(function(h){
+      var cm=0, cy=0, ca=0;
+      for(var lk in S.log){
+        if(S.log[lk][h.id]){
+          ca++;
+          if(lk.slice(0,4)===yr2) cy++;
+          if(lk.slice(0,7)===ym2) cm++;
+        }
+      }
+      grows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
+        '<span class="cnt">今月 '+cm+'枚 <small>/ 今年 '+cy+' / 通算 '+ca+'</small></span></div>';
+    });
+    var coins = "";
+    for(var ci=0; ci<Math.min(gAll, 40); ci++) coins += '<span class="coin">🪙</span>';
+    gcard = '<div class="card"><h2>🪙 資産(ゴールド)</h2>' +
+      '<div class="goldtop"><span class="goldbig">'+gAll+'</span><span class="goldunit">枚</span>' +
+      '<span class="gsub">今月 '+gMonth+'枚 / 今年 '+gYear+'枚</span></div>' +
+      (coins ? '<div class="coinbox">'+coins+(gAll>40 ? '<span class="gsub">…</span>' : '')+'</div>' : '') +
+      grows +
+      '<p class="note" style="margin:10px 0 0">金貨は減りません。できなかった日は、ただ0枚の日です。</p></div>';
   }
 
   var html = '<p class="sect">🌸 ゆめ(ダイエット)</p>' + chtml +
-    '<div class="card"><h2>たいじゅう(90日)</h2>' + weightChartSVG() + '</div>';
+    '<div class="card"><h2>たいじゅう(90日)</h2>' + weightChartSVG() + '</div>' +
+    (gcard ? '<p class="sect">🪙 資産</p>' + gcard : '');
 
   /* おきた時間(7日) */
   var wakes = [];
@@ -1108,7 +1199,7 @@ function renderLog(){
     wcard += '<p class="note" style="margin:0">「きょう」の おきた時間 から記録できます</p>';
   }
   wcard += '</div>';
-  html += '<p class="sect">💰 未来貯金(あさ)</p>' + mcard + wcard;
+  html += '<p class="sect">🌈 未来貯金</p>' + mcard + wcard;
   html += '<p class="sect">📋 ふりかえり</p>';
 
   /* 14日グリッド */
@@ -1150,14 +1241,16 @@ function renderLog(){
   var cal = '<div class="mcal">';
   ["月","火","水","木","金","土","日"].forEach(function(w){ cal += '<span class="mh">'+w+'</span>'; });
   for(var bl=0; bl<firstDow; bl++) cal += '<span class="mcell blank"></span>';
-  var mTaps = 0, mDays = 0;
+  var mTaps = 0, mDays = 0, mGold = 0;
   for(var dd=1; dd<=dim; dd++){
     var dk = ymKey + "-" + String(dd).padStart(2,"0");
     var cv = 0;
     if(S.log[dk]) for(var idk in S.log[dk]){ if(S.log[dk][idk]) cv++; }
     if(cv){ mTaps += cv; mDays++; }
     var lv = cv>=6 ? 4 : cv>=4 ? 3 : cv>=2 ? 2 : cv>=1 ? 1 : 0;
-    cal += '<span class="mcell'+(lv?' l'+lv:'')+(dk===todayK?' today':'')+'">'+dd+'</span>';
+    var gq = goldOn(dk);
+    if(gq) mGold += gq;
+    cal += '<span class="mcell'+(lv?' l'+lv:'')+(gq?' gold':'')+(dk===todayK?' today':'')+'">'+dd+'</span>';
   }
   cal += '</div>';
 
@@ -1179,7 +1272,8 @@ function renderLog(){
     cal +
     '<div class="msum"><span>きろくした日 <b>'+mDays+'</b>/'+dim+'日</span>' +
     '<span>タップ <b>'+mTaps+'</b>こ</span>' +
-    '<span>'+themeDef().collect+' <b>'+mFlowers+'</b></span></div>' +
+    '<span>'+themeDef().collect+' <b>'+mFlowers+'</b></span>' +
+    '<span>🪙 <b>'+mGold+'</b></span></div>' +
     '<div style="margin-top:12px">'+mRows+'</div></div>';
 
   /* ことしの畑(年間ヒートマップ、タップで開閉) */
@@ -1216,7 +1310,7 @@ function renderLog(){
       for(var id3 in S.log[lk3]){ if(S.log[lk3][id3] && asaSet[id3]) yChokin++; }
     }
     ycard += yg +
-      '<p class="note" style="margin:8px 0 0">色がこい日ほどタップが多い日。ことしの合計 '+yearTaps+'回 / '+themeDef().collect+'×'+yFlowers+' / ☀️貯金 '+yChokin+'回</p>' +
+      '<p class="note" style="margin:8px 0 0">色がこい日ほどタップが多い日。ことしの合計 '+yearTaps+'回 / '+themeDef().collect+'×'+yFlowers+' / 🌈貯金 '+yChokin+'回</p>' +
       '<button class="linkbtn" id="yearbtn">とじる</button>';
   }else{
     ycard += '<button class="linkbtn" id="yearbtn">📅 タップで1年ぜんぶみる</button>';
@@ -1243,12 +1337,13 @@ function renderSet(){
       '<div class="edit-line">' +
       '<input class="in-emoji" value="'+esc(h.emoji)+'" maxlength="4" aria-label="絵文字">' +
       '<input class="in-name" value="'+esc(h.name)+'" maxlength="14" aria-label="名前">' +
-      '<button class="mini tglt" style="color:var(--accent)" aria-label="あさ・よる切替">'+(h.time==="asa"?"☀️":"🌙")+'</button>' +
+      '<button class="mini tglt" style="color:var(--accent)" aria-label="グループの切替">'+(h.time==="asa"?"🌈":h.time==="gold"?"🪙":"🌸")+'</button>' +
       '<button class="mini act-del">けす</button></div>' +
       '<div class="edit-line"><input class="in-hint" value="'+esc(h.hint)+'" maxlength="40" aria-label="ヒント"></div>' +
       '</div>';
   });
-  html += '</div><div class="btnrow"><button class="btn ghost" id="haddbtn">+ ふやす</button>' +
+  html += '</div><p class="note" style="margin:8px 2px 0">🌈未来貯金 / 🌸やせ習慣 / 🪙資産 のボタンをおすと、グループを切りかえられます</p>' +
+    '<div class="btnrow"><button class="btn ghost" id="haddbtn">+ ふやす</button>' +
     '<button class="btn" id="hsavebtn">変更をほぞん</button></div></div>';
 
   var tdcur = S.theme || "hana";
@@ -1312,8 +1407,10 @@ function renderSet(){
   for(var tg=0;tg<tgls.length;tg++){
     tgls[tg].addEventListener("click", function(){
       var idx = +this.closest(".edit-row").getAttribute("data-i");
-      S.habits[idx].time = S.habits[idx].time==="asa" ? "yoru" : "asa";
-      save(); toast(S.habits[idx].time==="asa" ? "あさに移動 ☀️" : "よるに移動 🌙");
+      var cur = S.habits[idx].time;
+      var nxt = cur==="asa" ? "yoru" : cur==="yoru" ? "gold" : "asa";
+      S.habits[idx].time = nxt;
+      save(); toast(nxt==="asa" ? "未来貯金に移動 🌈" : nxt==="gold" ? "資産に移動 🪙" : "やせ習慣に移動 🌸");
       renderSet();
     });
   }
