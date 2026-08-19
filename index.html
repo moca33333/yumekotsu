@@ -124,6 +124,23 @@ input,textarea{font:inherit; color:var(--ink);}
 .citem{display:flex; flex-direction:column; align-items:center; font-size:26px; line-height:1.2; background:var(--accent-soft); border-radius:12px; padding:8px 10px 4px; min-width:52px;}
 .citem small{font-size:10px; color:var(--sub); font-variant-numeric:tabular-nums;}
 .tpick{font-size:14px; padding:9px 12px;}
+.monthhead{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
+.monthhead .mlabel{font-size:16px; font-weight:800; font-variant-numeric:tabular-nums;}
+.mbtn{width:30px; height:30px; border-radius:50%; font-size:15px; color:var(--sub); background:var(--bg);}
+.mbtn:disabled{opacity:.25; cursor:default;}
+.mcal{display:grid; grid-template-columns:repeat(7,1fr); gap:4px;}
+.mcal .mh{font-size:10px; color:var(--sub); text-align:center; padding-bottom:2px;}
+.mcell{aspect-ratio:1; border-radius:7px; background:var(--line); opacity:.45;
+  display:flex; align-items:center; justify-content:center; font-size:11px;
+  font-variant-numeric:tabular-nums; color:var(--sub);}
+.mcell.blank{background:transparent;}
+.mcell.l1{background:var(--accent); opacity:.32; color:var(--ink);}
+.mcell.l2{background:var(--accent); opacity:.55; color:var(--ink);}
+.mcell.l3{background:var(--accent); opacity:.8; color:var(--card); font-weight:700;}
+.mcell.l4{background:var(--accent); opacity:1; color:var(--card); font-weight:800;}
+.mcell.today{box-shadow:0 0 0 2px var(--peach);}
+.msum{display:flex; gap:14px; flex-wrap:wrap; margin-top:12px; font-size:13px;}
+.msum b{font-size:18px; color:var(--accent); font-variant-numeric:tabular-nums;}
 .yearwrap{overflow-x:auto; padding-bottom:4px;}
 .ygrid{display:grid; grid-template-columns:auto repeat(31, 9px); gap:2px; min-width:370px; align-items:center;}
 .ymon{font-size:9px; color:var(--sub); padding-right:5px; text-align:right; white-space:nowrap;}
@@ -785,6 +802,7 @@ var tab = "today";
 var dayOffset = 0;
 var pendingConfirm = {};
 var yearOpen = false;
+var monthOffset = 0;
 
 function esc(s){
   return String(s).replace(/[&<>"']/g, function(c){
@@ -1120,6 +1138,50 @@ function renderLog(){
   html += '<div class="card"><h2>こんしゅうの回数</h2>'+rows+
     '<p class="note" style="margin:10px 0 0">0回の週があっても、また始めればチャラです。</p></div>';
 
+  /* こんげつの畑(月ごとのカレンダー・‹›で前後の月へ) */
+  var mBase = parseKey(keyFor(0));
+  var mDate = new Date(mBase.getFullYear(), mBase.getMonth() + monthOffset, 1);
+  var yy = mDate.getFullYear(), mm = mDate.getMonth();
+  var dim = new Date(yy, mm+1, 0).getDate();
+  var firstDow = (new Date(yy, mm, 1).getDay() + 6) % 7; /* 月=0 */
+  var ymKey = yy + "-" + String(mm+1).padStart(2,"0");
+  var todayK = keyFor(0);
+
+  var cal = '<div class="mcal">';
+  ["月","火","水","木","金","土","日"].forEach(function(w){ cal += '<span class="mh">'+w+'</span>'; });
+  for(var bl=0; bl<firstDow; bl++) cal += '<span class="mcell blank"></span>';
+  var mTaps = 0, mDays = 0;
+  for(var dd=1; dd<=dim; dd++){
+    var dk = ymKey + "-" + String(dd).padStart(2,"0");
+    var cv = 0;
+    if(S.log[dk]) for(var idk in S.log[dk]){ if(S.log[dk][idk]) cv++; }
+    if(cv){ mTaps += cv; mDays++; }
+    var lv = cv>=6 ? 4 : cv>=4 ? 3 : cv>=2 ? 2 : cv>=1 ? 1 : 0;
+    cal += '<span class="mcell'+(lv?' l'+lv:'')+(dk===todayK?' today':'')+'">'+dd+'</span>';
+  }
+  cal += '</div>';
+
+  var mFlowers = earnedWeeks().filter(function(w){
+    var wd = parseKey(w); wd.setDate(wd.getDate()+3); /* 週の真ん中(木曜)がどの月か */
+    return wd.getFullYear()===yy && wd.getMonth()===mm;
+  }).length;
+  var mRows = "";
+  S.habits.forEach(function(h){
+    var c = 0;
+    for(var lk in S.log){ if(lk.slice(0,7)===ymKey && S.log[lk][h.id]) c++; }
+    mRows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span><span class="cnt">'+c+'回</span></div>';
+  });
+
+  html += '<div class="card">' +
+    '<div class="monthhead"><button class="mbtn" id="mprev" aria-label="前の月">‹</button>' +
+    '<span class="mlabel">'+yy+'年 '+(mm+1)+'月のはたけ</span>' +
+    '<button class="mbtn" id="mnext" aria-label="次の月"'+(monthOffset>=0?' disabled':'')+'>›</button></div>' +
+    cal +
+    '<div class="msum"><span>きろくした日 <b>'+mDays+'</b>/'+dim+'日</span>' +
+    '<span>タップ <b>'+mTaps+'</b>こ</span>' +
+    '<span>'+themeDef().collect+' <b>'+mFlowers+'</b></span></div>' +
+    '<div style="margin-top:12px">'+mRows+'</div></div>';
+
   /* ことしの畑(年間ヒートマップ、タップで開閉) */
   var yr = keyFor(0).slice(0,4);
   var ycard = '<div class="card"><h2>ことしの畑('+yr+'年)</h2>';
@@ -1167,6 +1229,10 @@ function renderLog(){
   if(gw) gw.scrollLeft = gw.scrollWidth;
   var yb = document.getElementById("yearbtn");
   if(yb) yb.addEventListener("click", function(){ yearOpen = !yearOpen; renderLog(); });
+  var mp = document.getElementById("mprev");
+  if(mp) mp.addEventListener("click", function(){ monthOffset--; renderLog(); });
+  var mn = document.getElementById("mnext");
+  if(mn) mn.addEventListener("click", function(){ if(monthOffset<0){ monthOffset++; renderLog(); } });
 }
 
 /* --- settings --- */
@@ -1281,13 +1347,27 @@ function renderSet(){
     var s;
     try{ s = JSON.parse(ta.value); }catch(e){ toast("読み込めない形式でした"); return; }
     if(!s || !s.habits || !s.log){ toast("バックアップの文字ではないみたい"); return; }
+    var addDays = 0, d;
+    for(d in s.log){ if(!S.log[d] || Object.keys(S.log[d]).length === 0) addDays++; }
     if(pendingConfirm.imp){
       delete pendingConfirm.imp;
-      S = s; save(); toast("読み込みました ✓");
+      /* 記録は「合体」する。いまある記録は消さない(古いバックアップを読んでも安全) */
+      var merged = {}, k;
+      for(k in s.log) merged[k] = s.log[k];
+      for(k in S.log){ if(S.log[k] && Object.keys(S.log[k]).length) merged[k] = S.log[k]; }
+      var mw = {}, mk = {};
+      for(k in s.weight) mw[k] = s.weight[k];
+      for(k in S.weight) mw[k] = S.weight[k];
+      for(k in (s.wake||{})) mk[k] = s.wake[k];
+      for(k in (S.wake||{})) mk[k] = S.wake[k];
+      s.log = merged; s.weight = mw; s.wake = mk;
+      S = s; save();
+      toast(addDays ? addDays + "日ぶん、記録がふえました ✓" : "読み込みました(記録はそのまま)");
       renderHeader(); renderToday(); renderLog(); renderSet();
     }else{
       pendingConfirm.imp = true;
-      toast("もう一度おすと上書きされます");
+      toast(addDays ? "もう一度おすと " + addDays + "日ぶん追加します"
+                    : "新しい記録はないみたい。もう一度おすと設定だけ読み込みます");
     }
   });
   document.getElementById("wipe").addEventListener("click", function(){
