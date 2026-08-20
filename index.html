@@ -650,14 +650,14 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:21, gv:4,
+  return { v:1, hv:23, gv:4,
     habits:[
       /* 🌈 未来貯金(花には数えない) */
       {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"asa"},
-      {id:"sanpo", emoji:"🚶", name:"さんぽ30分", hint:"朝が暗い日は夜でもOK。歩きながら発信も◎", time:"asa"},
+      {id:"sanpo", emoji:"🚶", name:"さんぽ", hint:"朝が暗い日は夜でもOK。歩きながら発信も◎", time:"asa"},
       {id:"hasshin", emoji:"📣", name:"1日1発信", hint:"1行でもOK。さんぽ中のひとことで◎", time:"asa"},
       {id:"kane",  emoji:"🎓", name:"未来への勉強", hint:"お金・資格など。動画1本・1ページでもOK", time:"asa"},
-      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"9月は紙ものをやっつける!1か所でもOK", time:"asa"},
+      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"毎日30分を目標に!5分でもOK", time:"asa"},
       /* 🌸 やせ習慣(花になる) */
       {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru"},
       {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru"},
@@ -709,9 +709,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 21){ /* 2026-08-20 3グループ制+金貨(記録は残す) */
+        if(!s.hv || s.hv < 23){ /* 2026-08 かたづけ・さんぽの文言を更新(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 21;
+          s.hv = 23;
         }
         if(!s.wake) s.wake = {};
         if(!s.rv) applyRecover(s);
