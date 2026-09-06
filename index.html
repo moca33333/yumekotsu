@@ -1,1529 +1,1938 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAOOUlEQVR42u2de1RVVR7H99nnXODyuBB4AREEIZUSVAjS0hFS0/FVLp0cZ5XULNbKZOyxahprprJW4yyXk+WjprDUpmhGm7RwkhSDzEcpBRI+ApWHvOHy5l7ui3PO/MFEJPeee7jPs8/9ff9gAfu89j6f/fvt/duPQz3wcgYCgSwJQxGAAA4QwAECOEAABwjgAAEcIIADBHCAAA4QwAECARwggAMEcIAADhDAAQI4QAAHCOAAyVWMd2bbP1A51lMGtHqAA1AQexHZ48IAEE65hSxBYYAJ595XTpQwwARQIk84pMOELClhAAv3PCqJiDCABSAiBzgIxYJcRBjAAhBB5IbPZUYGQflioPjAhJBnOWRPhvRzykBhgQkhxnJ4IRmSzTuG0oESkLpbASwk6GIwkAEmRLpwABmSLRlGfvmfPumOnOWbzINm06DRYDYYTHq9Uacz9Pfr+3p13a3dzReqzw2yg2O65uo569Km3G0aNBnNBoNJbzDpB4y6AYO239DXN9Bb317doKlzUfl40L8w8qsZnX0ahlYwtELp6x9s6YBPv/noaMknY7qmztCvDo4UOGDLgT/Vtl6TGR9YfjazV9ctfEC9pnas1+zSdgqkmgfNHb1t8vMvWH7eVGfQ8jwvYFcu1ZaN9Zp9Az0CqSVVp/r1ffJrf2D5tbN4xA8YddZSa9uu8YgfO3D9AqnXmn+UZfsUy7IFrjcN2O10LF/QOCCQ2qPrkmX/hZEUGTSmx6nCeYQ4jmU5luNZluNu+l3MjYxmg9X2AWu248kNJr1gm8Mkti5SGGOaxjTGmKbo4d8xRWOK6tZ2mmxdyp3tU8qdX02wCceS9FWr56wTPobjbSNC0wyFKLtPt1yNaIW1pEF2ENlyVRjTmLJhp89cLnr/xJtIMmvvGEk5FD+FUlTlo+33hg6eboUb5xSjr8JXUp1bDGFQBMFTD8IBZBBaqrAFA8hzcIDZILdsMZABfJDhVkyDRm9+08LRFCSnUVk7oC4syy+vLqEoiuVYjmNZjuN4duTvQwEx1lag4vVH96v8QywmnSg7cvDU/rE+WGTohL9mWY1AvHbopcqGi8hWfG8o2EXjodjXz78PBcQoCnf0tUlq2JaRlLkzD5qbOutdGnhQ+gbYc0GsEEhV+vjbvMJPTJsJGtaXZ29FIJqp9PV3epjL3y7gvLS34vF2KKZoa0kKWmHHBWlMC6QqGAWSY8tUnnuC5RW/Exo0Do0aXuF57mrTZTsu2Nhx49CZDxWMz+gkjmMv1pXJshidP/DmIrPB0Mxdt91DY5rjWJbneI5jeZYbGrMd+uX/PzmWYxHPu70gKUxhGtMUNdTypEf8Sf/0J2ZZ9nzVadd1ypzb8iDGckSERD28MEcG1ZFH/JnLRd7Y5nBda4OiKLk0lhlSWh7E9FZYuyZhSDIjnDf2VlzaSeHkAoerM+LEt4ChwoEJJB4OjpeL5SAnIwwpgS+WE1rAuL9w99krxdZSn1n9ym0x05GlOeWPv/2gtbMClaod6/9pMamwNP/j0+9bOzEpLuWplS950AQ6K5oOk31AAAfIU3DApB4kx0lAYDlAAAfII70Vd/kUofB5kH9weMh4a6k+lkZTh0LyAmcJzNJQ+gUInBgcECoRz+Jgn8UJo7LugSM0aNy27HdlUB33fLG9pOqMe+7lIBzEuBWB+TuEOXJyMkIMHDSWSfNIeFKZrOBwWyeWxgzA4ea3Q45bwXJxKxjcCoIhe8vq0XYh+IyXc9Xc1fDCBxsZrBg1aXRox5+Rf7K82+eQUojCePSk0aGFTD9PKTWaDRpX7jvovbPPW7uakIRnhopZigcRUhCCCKmruipL01f/KulehPhfrpIdXjfLsRw7tLWX+92HHfOif7FJ3LDfoejhFQwUhU9WHDte+pnU4qRSdCuxEQnq4AivqqNRodHgVkTJZPa6jRgGTAMAB+zSgezYBBfgQCO2mPU+OMByiHYrBm+DwyxJY4klOXmfRyCAA4QgQoqcNG6pNfQ/9U6WfZddPXfdkrRVAgeUV5e89d+tdnxwQ1S8wTdg14Y8ZH0DB4DDM4PaFKLWZmYvmLlM4JiWrsb3ju9wERmO7FMFcNz8zQPnopa1YMOcaQsEjtEa+nflb/HgTo8u3ZdBVnAwzpvXE+gXtGH5pqnR0wTDKqbd+Vs0va2OTNHgec6RWL4CLIebLUdU2MTH73te+KuOCKGalqppsSnTYlPGPhuU8vcLnKiOnxQ52Wg2FJUfPVryn7F+lBTcigcsx7zkRWszsq0tShipxJjkxJhkx9ubK2atmTEp7a3Pt3b2aeQBB5Zfg9TfN3DDsmezFmwQQ4ZzNTE8/s+/3RYbHi+PNgeW2a5Z6VPmvJq1+47Jd3vq4YMDQp5e9UqMOg4sB3LRro1o7DNJw1TqJ+5/Yf3SPwYHhHj2+QP8Ap9auTk0SI1+OVXMu3orA1q9K+b7nLn8pVbfR41eqMLzFndGV/r6L01bvTBlhRR2Eh62H+uXPrP14PPDTBjNxsaOugC/oNEH8zzf3NmApLfozdHlkJ7dfIGhFRnJi1bMWhOoVEmw5v3l/Zy2nhbPPoMjcJC6UshX4ZcxffHi1PuDA26R5hOWV5e0OxA7ga6sPbolMCwjeVHmjCWBlkw0sjKVJu+r3POVpxwn8rFlzybHpSJb39T5oOjtkqrTCMHAm7uUGJM8f8bSmfHpY1o0VtV4ee/xnV39mqFBFrtHT1T+IU+ufCE2PEH4sB5d145PX23sqEMIRmVdr8jQCbMTM2YnzhunihjrdMMj3x44XpbP8zym8IKZy5bPWtPe05JXnHujvXqsAYyc5ZvGqcKFD+vq1/z9k5c0hHsTYvbneGj+Y5nTF9txYkVt6b++2tPR144Qig1PyFqYMxyb4nju+Pef5Z87MCjuu/aZ0xevzci2GYrQ9La9duhFO8Kjkt2fQ+qW4+NT+1T+wam3zhZ/Sld/x4Gv95ZdPzfUSlh51+8WpCwf+R15TOEl6atSEmbtP7G7uqVKONj60Pz1d06da/Omrd1N2w9t7tZ2IhmJnpYZ5+AlFD4Kl24GXXrtW3XI+OhxsbYrilF75NzB946/0dRRjxC6feKMp1dtTopLtfjFhUClau60BT4Kn6rGyxYHVFNvnf3kyhcTxk+xed8b7dXbD2/u1XVL7e2aTYMyb3NwPLevcFegX1BSXIrAsHtx+dGC7w4PGLXD/1wz75GbwpSjl6MtSVs1ZcLtuQXbu/o7hv8fEhC6NjM7TVwM/lLdhbePbjPKcVK0EyyH2TToUuOBEOJ5vqL2+/Spc0dv4mYw6YvLC/Z88XpZ9TkzaxqZVHr9XFiQekLYRGRrt7G7b5/f3NnQ1tPsq/Bbdudv1i97JkY9ScyDnb504t1jb4hsu5DV4HDaZ7zcEyedFDl50wN/Gx6G6Nf3FV34vPiHggGjTuCsmfF3PrwwJ8g/2OYy+fOVpxJjkkPE7QXIcezBU/uLyo9Ktt57FxwIoeS41DXzft+t7Txfdfq7qtOmQZOYs4KUqkfu3TgjPt1Zj6HV9+UWbP+xoULKTkEqcBCxw/Wi1PtWz81yfPbytaYre754XeIdE6d8NcEJbQ439FmcouqWqsqGiuS4O/x8lHY3fQq+O7SvcJc0Vy86sZ/idXAMWUoF43NrVKIdZ7b1tOw+suWbH7/y1PIF98PBONGOSdOzUIiKjUhIikudMSltUuRk+/rSxeUFh8/mkbL831lfl5XnF6kRQpGhExKjk6ZGJydGJ9nsqgiopvVqXnFufXsNQrAcklgFB9wyMTw+LjwhfvzU+MgpAX6BDl6wR9eV/82/z1wp4r11YTfjXGvmNs8SqFRFhERFhcVEhUZHhU2MHhfnxKmjBpP+WOlnhaX5JG4j48QvljNETPqaGp0UplKHBanDVGp1cGRESJTS198lJWvUfnnh6JcXPh8Zhkewyl6yxsNkNs5OzBAzNOqINL1txT8UnL50woMrZiVlNsiwHDzi9xXuVAdH2NfXsBkFv3TjwsmK4xfrSnnYNMZFEVLk4mhpmEr98kM7lD5O8yYNmrrzlV9/W3myV9cjj3fpXLNBUm+ls09z+Gzeg/c86qARqm+vKbt+7vurZz2+aMBLu7Iu6racrDiWOf3XNofgR0tn0FY2XrxUW1ZRVyrBKTnSNBuExTl4nv/07Ecb73tezMH9+r6alqqrTVcqGyrqNbXQnpAQHC4yHuU1JTfaqy2uDzCY9A0ddfXtNXVt12taqrzKa7jCbLjWcriIj7zi3D+seM5PoWzvaWnpamzuamjqrG/ubND0tBIxJEYKGa7qrcBnzOUBByb0uUFuKGFM9NMDGQh2MAYhue7sA8aD0FLFsskJkEGwWwE+iCtJaHOApAEHGA+yyhDLOG9ABnluBfggpdywl+QTyCCpQQp8SL+ssBfmGcggoysLfEi5fLCX5x/IkHoQDPiQZpkwkioLmBwkqaqCoVygBIgZW/FmPqSWd0ayZWSHi9ma/ebIP5/bu1H8ubnr/jHyz/Uf5rjnvlKuElg21eimN2TxPyLJsPgfV9xX4sYSS9zMiiw4a+9DzHuyxoEYPhy575gyCHDYWbGE34RwqjABwqmO3JeI1hUmpaVmrSjF1FFrx4ixDdaOceS+EjcYRK6VlUEshKy+GENo+RKHCIlddIboKkgEIuRGbjBEjYAM2c4+f2Jnts1jrEWlxES6rB0jJtIl5tkADk/yIfwWhfkQThW+MulkyGfdirU38cTObJuG3RoBNu3KgFYvcF8EuwlKSrue3CvyDY1uydocWxGATPx9AQ4QghVvIIADBHCAQAAHCOAAARwggAMEcIAADhDAAQI4QAAHCOAAgQAOEMABAjhAAAcI4ABJQf8D0ZtJI4giW8cAAAAASUVORK5CYII=">
-<title>夢こつ手帳</title>
+<meta name="apple-mobile-web-app-title" content="せきがえ君">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" href="icon.png">
+<title>せきがえ君</title>
 <style>
 :root{
-  --bg:#F2F4EB; --card:#FBFCF7; --ink:#2F352C; --sub:#77806F;
-  --line:#E2E6D8; --accent:#55803F; --accent-soft:#E7EFDC;
-  --peach:#D97E4A; --peach-soft:#F8E9DE; --danger:#B25541;
-  --gold:#B8860B; --gold-soft:#FAF2DE;
-  --shadow:0 1px 3px rgba(47,53,44,.07);
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#463A2F; --muted:#95836F;
+  --line:#EADDC9; --line2:#D9C9AF;
+  --red:#F1595C; --red-deep:#D9464A; --red-soft:#FFE7E4;
+  --sky:#3E97D4; --sky-soft:#E0F1FC;
+  --pink:#F06E9C; --pink-soft:#FFE6EF;
+  --sun:#FFB931; --sun-soft:#FFF3D6;
+  --mint:#43B08A; --mint-soft:#E0F5EC;
+  --board:#3E6B57; --board-ink:#EAF5EF;
+  --shadow:0 2px 0 rgba(70,58,47,.10);
+  --radius:14px;
+  --ok:#2E9E77; --warn:#E8A020; --bad:#D9464A;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#191E18; --card:#232922; --ink:#EAEDE3; --sub:#99A28F;
-    --line:#333B31; --accent:#9CC57F; --accent-soft:#2E3A28;
-    --peach:#E39A6B; --peach-soft:#3A2E24; --danger:#DB8570;
-    --gold:#E8B65A; --gold-soft:#3A3320;
-    --shadow:0 1px 3px rgba(0,0,0,.3);
+    --paper:#241D14; --card:#31281B; --ink:#F5ECDD; --muted:#B5A48D;
+    --line:#4A3E2C; --line2:#5C4E38;
+    --red:#F1595C; --red-deep:#E4676A; --red-soft:#4E2A26;
+    --sky:#5FAEE3; --sky-soft:#26384A;
+    --pink:#F587AE; --pink-soft:#4A2C38;
+    --sun:#FFC24B; --sun-soft:#4A3C1E;
+    --mint:#57C29C; --mint-soft:#24413A;
+    --board:#31543F; --board-ink:#DDEEE4;
+    --shadow:0 2px 0 rgba(0,0,0,.25);
   }
 }
 :root[data-theme="light"]{
-  --bg:#F2F4EB; --card:#FBFCF7; --ink:#2F352C; --sub:#77806F;
-  --line:#E2E6D8; --accent:#55803F; --accent-soft:#E7EFDC;
-  --peach:#D97E4A; --peach-soft:#F8E9DE; --danger:#B25541;
-  --gold:#B8860B; --gold-soft:#FAF2DE;
-  --shadow:0 1px 3px rgba(47,53,44,.07);
+  --paper:#FFF9F0; --card:#FFFFFF; --ink:#463A2F; --muted:#95836F;
+  --line:#EADDC9; --line2:#D9C9AF;
+  --red:#F1595C; --red-deep:#D9464A; --red-soft:#FFE7E4;
+  --sky:#3E97D4; --sky-soft:#E0F1FC;
+  --pink:#F06E9C; --pink-soft:#FFE6EF;
+  --sun:#FFB931; --sun-soft:#FFF3D6;
+  --mint:#43B08A; --mint-soft:#E0F5EC;
+  --board:#3E6B57; --board-ink:#EAF5EF;
+  --shadow:0 2px 0 rgba(70,58,47,.10);
 }
 :root[data-theme="dark"]{
-  --bg:#191E18; --card:#232922; --ink:#EAEDE3; --sub:#99A28F;
-  --line:#333B31; --accent:#9CC57F; --accent-soft:#2E3A28;
-  --peach:#E39A6B; --peach-soft:#3A2E24; --danger:#DB8570;
-  --gold:#E8B65A; --gold-soft:#3A3320;
-  --shadow:0 1px 3px rgba(0,0,0,.3);
+  --paper:#241D14; --card:#31281B; --ink:#F5ECDD; --muted:#B5A48D;
+  --line:#4A3E2C; --line2:#5C4E38;
+  --red:#F1595C; --red-deep:#E4676A; --red-soft:#4E2A26;
+  --sky:#5FAEE3; --sky-soft:#26384A;
+  --pink:#F587AE; --pink-soft:#4A2C38;
+  --sun:#FFC24B; --sun-soft:#4A3C1E;
+  --mint:#57C29C; --mint-soft:#24413A;
+  --board:#31543F; --board-ink:#DDEEE4;
+  --shadow:0 2px 0 rgba(0,0,0,.25);
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-html,body{background:var(--bg);}
+html,body{margin:0;padding:0;}
 body{
-  margin:0; color:var(--ink);
-  font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic","Meiryo",sans-serif;
-  font-size:16px; line-height:1.6;
+  background:var(--paper); color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","HiraMaruProN-W4","Zen Maru Gothic","BIZ UDGothic","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+  font-size:16px; line-height:1.55;
+  min-height:100vh;
+  touch-action:manipulation;
 }
-#app{max-width:480px; margin:0 auto; padding:14px 14px 92px;}
-button{font:inherit; color:inherit; border:none; background:none; cursor:pointer; padding:0;}
-button:focus-visible, input:focus-visible, textarea:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
-input,textarea{font:inherit; color:var(--ink);}
-
-/* ---------- header ---------- */
-.top{display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin:4px 2px 14px;}
-.top > div:first-child{min-width:0;}
-.appname{font-size:13px; letter-spacing:.18em; color:var(--sub); font-weight:700;}
-.datebar{display:flex; align-items:center; gap:4px; margin-top:2px;}
-.datebar .dlabel{font-size:19px; font-weight:800; letter-spacing:.01em; min-width:7.4em; white-space:nowrap;}
-.dbtn{flex:none; width:31px; height:31px; border-radius:50%; font-size:16px; color:var(--sub); background:var(--card); box-shadow:var(--shadow);}
-.dbtn:disabled{opacity:.3; cursor:default;}
-.plant{flex:none; text-align:center; background:var(--card); border-radius:16px; padding:8px 10px 7px; box-shadow:var(--shadow); min-width:100px;}
-.plant .pico{font-size:26px; line-height:1.2; display:block;}
-.plant .plabel{display:block; font-size:11px; color:var(--sub); white-space:nowrap;}
-.plant .pcount{display:block; font-size:12px; color:var(--accent); font-weight:700; white-space:nowrap; margin-top:2px;}
-
-/* ---------- quote ---------- */
-.quote{text-align:center; padding:2px 12px 0; margin:0 0 10px;}
-.quote small{display:block; color:var(--sub); font-size:10px; letter-spacing:.2em; margin-bottom:3px; font-weight:700;}
-.quote .qtext{font-size:14px; line-height:1.6;}
-.quote .qby{color:var(--sub); font-size:11px; margin-left:8px;}
-
-/* ---------- cards ---------- */
-.card{background:var(--card); border-radius:16px; padding:14px 16px; box-shadow:var(--shadow); margin-bottom:12px;}
-.card h2{font-size:13px; color:var(--sub); letter-spacing:.12em; margin:0 0 10px; font-weight:700;}
-.note{font-size:13px; color:var(--sub); margin:2px 2px 12px;}
-
-/* ---------- habit rows ---------- */
-.habit{
-  display:flex; width:100%; align-items:center; gap:12px; text-align:left;
-  background:var(--card); border-radius:16px; padding:13px 14px; box-shadow:var(--shadow);
-  margin-bottom:10px; border:2px solid transparent; transition:border-color .15s, background .15s;
+.g-low body, :root.g-low body{font-size:17px;}
+button{font-family:inherit; color:inherit;}
+input,select,textarea{
+  font-family:inherit; font-size:1em; color:var(--ink);
+  background:var(--card); border:2px solid var(--line2); border-radius:10px;
+  padding:8px 10px;
 }
-.habit.done{border-color:var(--accent); background:var(--accent-soft);}
-.h-emoji{font-size:26px; width:34px; text-align:center; flex:none;}
-.h-body{flex:1; min-width:0;}
-.h-name{display:block; font-weight:800; font-size:16px;}
-.h-goal{font-size:11px; font-weight:700; color:var(--accent); background:var(--accent-soft); border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:2px;}
-.h-num{font-size:13px; font-weight:800; color:var(--accent);}
-.h-num small{font-size:10px; opacity:.7;}
-.habit.done:not(.full) .h-check{background:transparent; border-color:var(--accent);}
-.habit.done:not(.full){border-color:var(--line); background:var(--card);}
-.h-hint{display:block; font-size:12px; color:var(--sub); line-height:1.45;}
-.h-week{display:flex; gap:3px; margin-top:5px;}
-.h-week i{width:8px; height:8px; border-radius:50%; background:var(--line);}
-.h-week i.on{background:var(--accent);}
-.h-week i.today{box-shadow:0 0 0 2px var(--accent-soft);}
-.h-check{
-  flex:none; width:34px; height:34px; border-radius:50%; border:2px solid var(--line);
-  display:flex; align-items:center; justify-content:center; font-size:18px; color:transparent;
-  transition:transform .15s;
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:3px solid var(--sky); outline-offset:1px;}
+
+/* ---------- app bar ---------- */
+.appbar{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:10px 14px 6px;
 }
-.habit.done .h-check{background:var(--accent); border-color:var(--accent); color:var(--card);}
-@media (prefers-reduced-motion: no-preference){
-  .habit.done .h-check{animation:pop .25s;}
-  @keyframes pop{50%{transform:scale(1.25);}}
+.logo{display:flex; align-items:center; gap:8px;}
+#mascot{width:38px; height:38px; object-fit:contain; flex:0 0 auto;}
+.logo .ttl{font-size:22px; font-weight:800; letter-spacing:.04em;}
+.logo .sub{font-size:12px; color:var(--muted); letter-spacing:.08em;}
+.appbar .sp{flex:1;}
+.gradeSwitch{display:flex; border:2px solid var(--line2); border-radius:999px; overflow:hidden; background:var(--card);}
+.gradeSwitch button{
+  border:0; background:transparent; padding:6px 14px; font-size:13px; font-weight:700; cursor:pointer; color:var(--muted);
+}
+.gradeSwitch button.on{background:var(--red); color:#fff;}
+.iconbtn{
+  border:2px solid var(--line2); background:var(--card); border-radius:999px;
+  padding:6px 12px; font-size:13px; font-weight:700; cursor:pointer; box-shadow:var(--shadow);
 }
 
-/* ---------- weight ---------- */
-.wrow{display:flex; gap:8px; align-items:center;}
-.wrow input{
-  flex:1; min-width:0; font-size:20px; font-weight:700; padding:9px 12px;
-  border:1.5px solid var(--line); border-radius:12px; background:var(--bg);
+/* ---------- tabs ---------- */
+.tabs{
+  display:flex; gap:6px; padding:6px 14px 0; overflow-x:auto;
+  border-bottom:3px solid var(--line);
+  scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{
+  flex:0 0 auto; border:3px solid var(--line); border-bottom:none;
+  border-radius:14px 14px 0 0; background:var(--card);
+  padding:9px 16px 7px; font-size:15px; font-weight:800; cursor:pointer;
+  color:var(--muted); position:relative; top:3px;
+}
+.tab .tico{margin-right:4px;}
+.tab.on{color:var(--ink); border-color:var(--line2); background:var(--paper); top:0; padding-bottom:10px;}
+main{padding:16px 14px 60px; max-width:1080px; margin:0 auto;}
+section.pane{display:none;}
+section.pane.on{display:block;}
+h2.ph{font-size:19px; font-weight:800; margin:4px 0 4px;}
+p.pd{margin:0 0 14px; color:var(--muted); font-size:13.5px;}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  border:0; border-radius:999px; cursor:pointer;
+  font-weight:800; font-size:15px; padding:11px 20px;
+  background:var(--card); color:var(--ink);
+  box-shadow:0 3px 0 var(--line2); border:2px solid var(--line2);
+}
+.btn:active{transform:translateY(2px); box-shadow:0 1px 0 var(--line2);}
+.btn.primary{background:var(--red); border-color:var(--red-deep); color:#fff; box-shadow:0 3px 0 var(--red-deep);}
+.btn.primary:active{box-shadow:0 1px 0 var(--red-deep);}
+.btn.blue{background:var(--sky); border-color:#2E7CB4; color:#fff; box-shadow:0 3px 0 #2E7CB4;}
+.btn.green{background:var(--mint); border-color:#2E8A6B; color:#fff; box-shadow:0 3px 0 #2E8A6B;}
+.btn.big{font-size:19px; padding:15px 30px;}
+.btn.sm{font-size:13px; padding:7px 14px;}
+.btn[disabled]{opacity:.45; pointer-events:none;}
+.seg{display:inline-flex; border:2px solid var(--line2); border-radius:999px; background:var(--card); overflow:hidden; flex-wrap:nowrap;}
+.seg button{border:0; background:transparent; padding:9px 15px; font-size:14px; font-weight:700; color:var(--muted); cursor:pointer; white-space:nowrap;}
+.seg button.on{background:var(--sun); color:#5A430E;}
+.row{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:10px 0;}
+.card{
+  background:var(--card); border:2px solid var(--line); border-radius:var(--radius);
+  padding:14px; box-shadow:var(--shadow); margin:0 0 14px;
+}
+.card h3{margin:0 0 8px; font-size:15.5px;}
+.hint{font-size:12.5px; color:var(--muted);}
+.badge{display:inline-block; border-radius:999px; padding:2px 10px; font-size:12px; font-weight:800;}
+.badge.b-boy{background:var(--sky-soft); color:var(--sky);}
+.badge.b-girl{background:var(--pink-soft); color:var(--pink);}
+.badge.b-total{background:var(--line); color:var(--muted);}
+
+/* ---------- roster ---------- */
+.rosterList{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px;}
+.stuRow{
+  display:flex; align-items:center; gap:8px;
+  background:var(--card); border:2px solid var(--line); border-radius:12px; padding:7px 10px;
+}
+.stuRow .nm{flex:1; font-weight:800; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.gtoggle{display:flex; border-radius:999px; overflow:hidden; border:2px solid var(--line);}
+.gtoggle button{border:0; background:transparent; font-size:12px; font-weight:800; padding:4px 9px; cursor:pointer; color:var(--muted);}
+.gtoggle button.onM{background:var(--sky); color:#fff;}
+.gtoggle button.onF{background:var(--pink); color:#fff;}
+.xbtn{border:0; background:transparent; color:var(--muted); font-size:17px; cursor:pointer; padding:2px 6px;}
+.xbtn:hover{color:var(--bad);}
+
+/* ---------- seat chart ---------- */
+.boardBar{
+  background:var(--board); color:var(--board-ink);
+  border-radius:10px; text-align:center; font-weight:800; letter-spacing:.35em;
+  padding:7px 0 8px; margin:0 auto 12px; font-size:14px;
+  border:3px solid rgba(0,0,0,.18); box-shadow:var(--shadow);
+}
+.chartWrap{overflow-x:auto; padding-bottom:6px;}
+.grid{display:grid; gap:8px; margin:0 auto;}
+.seat{
+  position:relative; border:2.5px solid var(--line2); border-radius:12px;
+  background:var(--card); box-shadow:var(--shadow);
+  min-height:58px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:4px 3px; overflow:hidden;
+}
+.seat .no{position:absolute; top:2px; left:6px; font-size:10.5px; color:var(--muted); font-weight:700; font-variant-numeric:tabular-nums;}
+.seat .gmark{position:absolute; top:2px; right:5px; font-size:10.5px; font-weight:800;}
+.seat .tmark{position:absolute; bottom:2px; right:5px; font-size:10px; font-weight:800; opacity:.85;}
+.seat .nm{font-weight:800; font-size:15px; text-align:center; line-height:1.25; word-break:break-all;}
+.seat .nm.empty{color:var(--line2); font-weight:700;}
+.seat.gM{background:var(--sky-soft);}
+.seat.gF{background:var(--pink-soft);}
+.seat.fixed .no{color:var(--red);}
+.seat.fixed{border-style:double; border-width:4px;}
+.seat.off{opacity:0; pointer-events:none;}
+.seat.offEdit{opacity:1; pointer-events:auto; border-style:dashed; background:transparent; box-shadow:none;}
+.seat.offEdit .nm{color:var(--line2);}
+.seat.pop{animation:pop .45s cubic-bezier(.2,1.6,.4,1) both;}
+@keyframes pop{0%{transform:scale(.2) rotate(-6deg); opacity:0;} 100%{transform:scale(1) rotate(0); opacity:1;}}
+.seat.tappable{cursor:pointer;}
+.seat.tappable:active{transform:scale(.96);}
+/* team tints via inline style; tmark shows 班 */
+
+/* big reveal chart */
+.revealChart .seat{min-height:72px;}
+.revealChart .seat .nm{font-size:19px;}
+
+/* ---------- editor controls ---------- */
+.stepper{display:inline-flex; align-items:center; gap:0; border:2px solid var(--line2); border-radius:999px; background:var(--card); overflow:hidden;}
+.stepper button{border:0; background:transparent; font-size:19px; font-weight:800; width:42px; height:38px; cursor:pointer; color:var(--red);}
+.stepper .val{min-width:34px; text-align:center; font-weight:800; font-variant-numeric:tabular-nums;}
+.teamChips{display:flex; gap:6px; flex-wrap:wrap;}
+.teamChip{
+  border:2.5px solid transparent; border-radius:999px; padding:6px 13px;
+  font-size:13px; font-weight:800; cursor:pointer; background:var(--card); box-shadow:var(--shadow);
+}
+.teamChip.on{border-color:var(--ink);}
+
+/* ---------- constraints ---------- */
+.consList{display:flex; flex-direction:column; gap:8px;}
+.consRow{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  background:var(--card); border:2px solid var(--line); border-radius:12px; padding:8px 12px;
+}
+.consRow .desc{flex:1; font-weight:700; font-size:14px; min-width:180px;}
+
+/* ---------- shuffle pane ---------- */
+.statusLine{display:flex; gap:14px; flex-wrap:wrap; font-size:13.5px; font-weight:700;}
+.statusLine .okc{color:var(--ok);} .statusLine .badc{color:var(--bad);}
+.drawChips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;}
+.drawChip{
+  border:2.5px solid var(--line2); background:var(--card); border-radius:999px;
+  padding:9px 16px; font-size:15px; font-weight:800; cursor:pointer; box-shadow:var(--shadow);
+}
+.drawChip:active{transform:scale(.95);}
+.drawChip.done{background:var(--mint-soft); border-color:var(--mint); color:var(--ink); cursor:default;}
+.drawChip.done .num{color:var(--mint); font-variant-numeric:tabular-nums;}
+
+/* ---------- overlay stage ---------- */
+.overlay{
+  position:fixed; inset:0; z-index:50; display:none;
+  background:var(--paper);
+  overflow:auto;
+}
+.overlay.on{display:flex;}
+/* margin:auto = safe centering: centers when content fits, top-aligns + scrolls when it doesn't */
+.stageInner{
+  margin:auto; display:flex; flex-direction:column; align-items:center;
+  padding:56px 14px 30px; width:100%;
+}
+.overlay .stageTitle{font-size:22px; font-weight:800; margin:0 0 6px; text-align:center; text-wrap:balance;}
+.overlay .stageSub{font-size:14px; color:var(--muted); margin:0 0 16px; text-align:center;}
+.stageArea{
+  width:min(560px,92vw); min-height:300px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+}
+.resultNum{
+  font-size:min(120px,24vw); font-weight:800; color:var(--red);
+  font-variant-numeric:tabular-nums; line-height:1;
+  animation:pop .5s cubic-bezier(.2,1.6,.4,1) both;
+}
+.resultName{font-size:24px; font-weight:800; text-align:center;}
+.stageBtns{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:18px;}
+.closeX{
+  position:fixed; top:14px; right:16px; z-index:55; border:2px solid var(--line2); background:var(--card);
+  border-radius:999px; width:42px; height:42px; font-size:18px; font-weight:800; cursor:pointer; color:var(--muted);
+  box-shadow:var(--shadow);
+}
+
+/* garapon */
+.gara{position:relative; width:220px; height:250px;}
+.garaDrum{
+  width:190px; height:190px; margin:0 auto; border-radius:26px;
+  background:var(--sun); border:5px solid #C88A16;
+  display:flex; align-items:center; justify-content:center;
+  transform:rotate(0deg);
+}
+.garaDrum.spin{animation:garaSpin 1.6s cubic-bezier(.4,.1,.4,1) both;}
+@keyframes garaSpin{0%{transform:rotate(0)} 100%{transform:rotate(1080deg)}}
+.garaDrum .win{width:90px; height:90px; border-radius:50%; background:var(--card); border:4px solid #C88A16; display:flex; align-items:center; justify-content:center; font-size:34px;}
+.garaBall{
+  position:absolute; left:50%; bottom:-6px; transform:translateX(-50%) scale(0);
+  width:64px; height:64px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:26px; font-weight:800; color:#fff;
+  border:4px solid rgba(0,0,0,.15);
+}
+.garaBall.out{animation:ballOut .8s cubic-bezier(.2,1.5,.4,1) both;}
+@keyframes ballOut{
+  0%{transform:translateX(-50%) translateY(-40px) scale(.1);}
+  60%{transform:translateX(-50%) translateY(14px) scale(1.08);}
+  100%{transform:translateX(-50%) translateY(0) scale(1);}
+}
+/* omikuji */
+.miku{position:relative; width:150px; height:260px; display:flex; flex-direction:column; align-items:center;}
+.mikuBox{
+  width:110px; height:170px; border-radius:14px 14px 20px 20px;
+  background:var(--red); border:4px solid var(--red-deep);
+  display:flex; align-items:flex-end; justify-content:center; padding-bottom:14px;
+  color:#fff; font-weight:800; font-size:20px; writing-mode:vertical-rl; letter-spacing:.3em;
+}
+.miku.shake .mikuBox{animation:mikuShake 1.3s ease-in-out both;}
+@keyframes mikuShake{
+  0%,100%{transform:rotate(0)} 10%{transform:rotate(-14deg)} 25%{transform:rotate(12deg)}
+  40%{transform:rotate(-12deg)} 55%{transform:rotate(10deg)} 70%{transform:rotate(-8deg)} 85%{transform:rotate(6deg)}
+}
+.mikuStick{
+  position:absolute; top:6px; left:50%; transform:translate(-50%,80px);
+  width:34px; height:120px; background:#F3E3C2; border:3px solid #C9A96A; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:20px; color:#7A5A1E; z-index:-1;
   font-variant-numeric:tabular-nums;
 }
-.wrow .unit{color:var(--sub); font-size:14px;}
-.btn{
-  background:var(--accent); color:var(--card); font-weight:800; border-radius:12px;
-  padding:10px 18px; font-size:15px;
+.miku.outStick .mikuStick{animation:stickOut .7s cubic-bezier(.2,1.4,.4,1) both; z-index:1;}
+@keyframes stickOut{0%{transform:translate(-50%,80px);}100%{transform:translate(-50%,-64px);}}
+/* roulette */
+.rouWrap{position:relative; width:240px; height:260px;}
+.rouArrow{position:absolute; top:0; left:50%; transform:translateX(-50%); z-index:2;
+  width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:22px solid var(--ink);}
+.rouWheel{position:absolute; top:16px; left:50%; transform:translateX(-50%);
+  width:220px; height:220px; border-radius:50%; border:6px solid var(--ink);
+  background:conic-gradient(var(--red) 0 45deg, var(--sun) 45deg 90deg, var(--sky) 90deg 135deg, var(--mint) 135deg 180deg,
+    var(--pink) 180deg 225deg, var(--grape,#8F6FD0) 225deg 270deg, var(--red) 270deg 315deg, var(--sun) 315deg 360deg);
 }
-.btn.ghost{background:var(--accent-soft); color:var(--accent);}
-.btn.danger{background:transparent; color:var(--danger); border:1.5px solid var(--danger); font-weight:700;}
-.wsaved{font-size:13px; color:var(--accent); font-weight:700; margin-top:8px;}
-.goalnums{display:flex; gap:12px; align-items:baseline; flex-wrap:wrap;}
-.gbig{font-size:25px; font-weight:800; color:var(--peach); font-variant-numeric:tabular-nums;}
-.gsub{font-size:13px; color:var(--sub);}
-.pbar{position:relative; height:14px; background:var(--line); border-radius:999px; margin:12px 0 4px; overflow:hidden;}
-.pfill{position:absolute; left:0; top:0; bottom:0; background:var(--accent); border-radius:999px; min-width:6px; transition:width .4s;}
-.pends{display:flex; justify-content:space-between; font-size:11px; color:var(--sub); font-variant-numeric:tabular-nums;}
-.wupd{margin-top:10px;}
-.linkbtn{color:var(--accent); font-weight:700; font-size:14px; padding:6px 2px;}
-.sect{font-size:12px; color:var(--sub); letter-spacing:.14em; margin:18px 4px 8px; font-weight:700;}
-.sectsub{font-weight:400; letter-spacing:0; opacity:.85;}
-.collectgrid{display:flex; flex-wrap:wrap; gap:8px;}
-.citem{display:flex; flex-direction:column; align-items:center; font-size:26px; line-height:1.2; background:var(--accent-soft); border-radius:12px; padding:8px 10px 4px; min-width:52px;}
-.citem small{font-size:10px; color:var(--sub); font-variant-numeric:tabular-nums;}
-.tpick{font-size:14px; padding:9px 12px;}
-.goldtop{display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; margin-bottom:10px;}
-.goldbig{font-size:30px; font-weight:800; color:var(--gold); font-variant-numeric:tabular-nums;}
-.rainbowbig{font-size:30px; font-weight:800; font-variant-numeric:tabular-nums;
-  background:linear-gradient(95deg,#D9534F,#E8933A,#C7A62E,#4F9A5E,#3D8AA8,#7A5FA8);
-  -webkit-background-clip:text; background-clip:text; color:transparent;}
-.goldunit{font-size:14px; color:var(--sub); margin-right:6px;}
-.coinbox{display:flex; flex-wrap:wrap; gap:3px; align-items:center; margin-bottom:12px;
-  background:var(--gold-soft); border-radius:12px; padding:10px;}
-.coin{font-size:17px; line-height:1;}
-.monthhead{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
-.monthhead .mlabel{font-size:16px; font-weight:800; font-variant-numeric:tabular-nums;}
-.mbtn{width:30px; height:30px; border-radius:50%; font-size:15px; color:var(--sub); background:var(--bg);}
-.mbtn:disabled{opacity:.25; cursor:default;}
-.mcal{display:grid; grid-template-columns:repeat(7,1fr); gap:4px;}
-.mcal .mh{font-size:10px; color:var(--sub); text-align:center; padding-bottom:2px;}
-.mcell{position:relative; aspect-ratio:1; border-radius:7px; background:var(--line); opacity:.45;
-  display:flex; align-items:center; justify-content:center; font-size:11px;
-  font-variant-numeric:tabular-nums; color:var(--sub);}
-.mcell.gold::after{content:""; position:absolute; top:3px; right:3px; width:8px; height:8px;
-  border-radius:50%; background:var(--gold); box-shadow:0 0 0 1.5px var(--card);}
-.mcell.blank{background:transparent;}
-.mcell.l1{background:var(--accent); opacity:.32; color:var(--ink);}
-.mcell.l2{background:var(--accent); opacity:.55; color:var(--ink);}
-.mcell.l3{background:var(--accent); opacity:.8; color:var(--card); font-weight:700;}
-.mcell.l4{background:var(--accent); opacity:1; color:var(--card); font-weight:800;}
-.mcell.today{box-shadow:0 0 0 2px var(--peach);}
-.msum{display:flex; gap:14px; flex-wrap:wrap; margin-top:12px; font-size:13px;}
-.msum b{font-size:18px; color:var(--accent); font-variant-numeric:tabular-nums;}
-.yearwrap{overflow-x:auto; padding-bottom:4px;}
-.ygrid{display:grid; grid-template-columns:auto repeat(31, 9px); gap:2px; min-width:370px; align-items:center;}
-.ymon{font-size:9px; color:var(--sub); padding-right:5px; text-align:right; white-space:nowrap;}
-.ycell{width:9px; height:9px; border-radius:2px; background:var(--line); opacity:.45;}
-.ycell.empty{opacity:0;}
-.ycell.l1{background:var(--accent); opacity:.3;}
-.ycell.l2{background:var(--accent); opacity:.55;}
-.ycell.l3{background:var(--accent); opacity:.78;}
-.ycell.l4{background:var(--accent); opacity:1;}
+.rouCenter{position:absolute; top:16px; left:50%; transform:translateX(-50%);
+  width:220px; height:220px; display:flex; align-items:center; justify-content:center; z-index:1;}
+.rouCenter .n{background:var(--card); border:4px solid var(--ink); border-radius:50%;
+  width:110px; height:110px; display:flex; align-items:center; justify-content:center;
+  font-size:44px; font-weight:800; font-variant-numeric:tabular-nums;}
+/* simple */
+.simpleBox{font-size:60px; font-weight:800; font-variant-numeric:tabular-nums; color:var(--muted);}
 
-/* ---------- log view ---------- */
-.bignum{font-size:26px; font-weight:800; font-variant-numeric:tabular-nums;}
-.chartwrap{overflow-x:auto;}
-.diff{font-size:13px; color:var(--sub); margin-top:4px;}
-.diff b{color:var(--peach);}
-.gridwrap{overflow-x:auto; padding-bottom:4px;}
-.ggrid{display:grid; gap:4px; font-size:11px; color:var(--sub); min-width:340px;}
-.gcell{width:17px; height:17px; border-radius:5px; background:var(--line); opacity:.55;}
-.gcell.on{background:var(--accent); opacity:1;}
-.gcell.future{opacity:.18;}
-.glabel{white-space:nowrap; display:flex; align-items:center; font-size:14px;}
-.gday{text-align:center; width:17px;}
-.wk{display:flex; justify-content:space-between; align-items:baseline; padding:7px 2px; border-bottom:1px dashed var(--line); font-size:14px;}
-.wk:last-child{border-bottom:none;}
-.wk .cnt{font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums;}
-.wk .cnt small{color:var(--sub); font-weight:400;}
-
-/* ---------- settings ---------- */
-.edit-row{border-bottom:1px dashed var(--line); padding:10px 0;}
-.edit-row:last-child{border-bottom:none;}
-.edit-row.is-off{opacity:.5;}
-.edit-line{display:flex; gap:8px; margin-bottom:6px;}
-.edit-line input{border:1.5px solid var(--line); border-radius:10px; padding:7px 10px; background:var(--bg); font-size:16px;}
-.in-emoji{width:56px; text-align:center; flex:none;}
-.in-name{flex:1; min-width:0;}
-.in-hint{flex:1; min-width:0; font-size:14px !important; color:var(--sub);}
-.mini{font-size:13px; color:var(--danger); padding:4px 8px; font-weight:700;}
-textarea.backup{
-  width:100%; height:96px; border:1.5px solid var(--line); border-radius:12px;
-  background:var(--bg); padding:10px; font-size:12px; font-family:ui-monospace,monospace;
+/* ---------- history ---------- */
+.histList{display:flex; flex-direction:column; gap:8px;}
+.histRow{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  background:var(--card); border:2px solid var(--line); border-radius:12px; padding:10px 14px;
 }
-.btnrow{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;}
-
-/* ---------- tab bar ---------- */
-.tabbar{
-  position:fixed; bottom:0; left:0; right:0; display:flex; justify-content:center; gap:6px;
-  background:var(--card); border-top:1px solid var(--line);
-  padding:8px 10px calc(10px + env(safe-area-inset-bottom));
+.histRow .dt{font-weight:800; font-variant-numeric:tabular-nums;}
+.histRow .meta{color:var(--muted); font-size:13px; flex:1;}
+.histRow .thumb{
+  width:92px; height:69px; object-fit:cover; border-radius:8px;
+  border:2px solid var(--line); cursor:pointer; background:#FFF9F0;
 }
-.tab{flex:1; max-width:150px; text-align:center; border-radius:12px; padding:7px 4px; color:var(--sub); font-size:12px; font-weight:700;}
-.tab .ticon{display:block; font-size:19px;}
-.tab.active{background:var(--accent-soft); color:var(--accent);}
 
 /* ---------- toast ---------- */
 #toast{
-  position:fixed; left:50%; bottom:96px; transform:translateX(-50%);
-  background:var(--ink); color:var(--bg); font-weight:800; font-size:15px;
-  padding:9px 20px; border-radius:999px; opacity:0; pointer-events:none;
-  transition:opacity .25s, transform .25s; white-space:nowrap; z-index:9;
+  position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(80px);
+  background:var(--ink); color:var(--paper); border-radius:999px;
+  padding:10px 22px; font-weight:800; font-size:14px; z-index:99;
+  transition:transform .25s ease; max-width:90vw; text-align:center;
 }
-#toast.show{opacity:1; transform:translateX(-50%) translateY(-6px);}
-</style>
+#toast.on{transform:translateX(-50%) translateY(0);}
 
-<div id="app">
-  <header class="top">
-    <div>
-      <div class="appname">夢こつ手帳</div>
-      <div class="datebar">
-        <button class="dbtn" id="dprev" aria-label="前の日">‹</button>
-        <span class="dlabel" id="dlabel"></span>
-        <button class="dbtn" id="dnext" aria-label="次の日">›</button>
+/* ---------- modal ---------- */
+.modalBack{position:fixed; inset:0; background:rgba(40,30,20,.45); z-index:60; display:none; align-items:center; justify-content:center; padding:16px;}
+.modalBack.on{display:flex;}
+.modal{
+  background:var(--paper); border:3px solid var(--line2); border-radius:18px;
+  padding:18px; width:min(640px,94vw); max-height:86vh; overflow:auto;
+}
+.modal h3{margin:0 0 10px; font-size:17px;}
+.pickerList{display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:8px;}
+.pickBtn{border:2px solid var(--line2); background:var(--card); border-radius:10px; padding:9px 6px; font-weight:800; cursor:pointer; font-size:14px;}
+.pickBtn:active{transform:scale(.95);}
+
+/* ---------- help ---------- */
+.helpSec{
+  background:var(--card); border:2px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow); margin:0 0 10px; overflow:hidden;
+}
+.helpSec summary{
+  list-style:none; cursor:pointer; font-weight:800; font-size:15px;
+  padding:13px 16px; -webkit-user-select:none; user-select:none;
+}
+.helpSec summary::-webkit-details-marker{display:none;}
+.helpSec[open] summary{border-bottom:2px dashed var(--line);}
+.helpBody{padding:12px 18px 14px; font-size:14px;}
+.helpBody p{margin:8px 0;}
+.helpBody ol,.helpBody ul{margin:8px 0; padding-left:1.4em;}
+.helpBody li{margin:6px 0;}
+.helpBody b{color:var(--red-deep);}
+
+.confetti{position:fixed; width:10px; height:16px; z-index:80; pointer-events:none; top:-20px;}
+@keyframes confFall{0%{transform:translateY(-5vh) rotate(0);}100%{transform:translateY(110vh) rotate(720deg);}}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01s !important; transition-duration:.01s !important;}
+}
+@media (max-width:640px){
+  .logo .ttl{font-size:18px;}
+  .seat .nm{font-size:13px;}
+}
+</style>
+<header class="appbar">
+  <div class="logo">
+    <img id="mascot" src="mascot.png" alt="" onerror="this.remove()">
+    <span class="ttl" id="appTitle">せきがえ君</span><span class="sub">SEKIGAE-KUN</span>
+  </div>
+  <button class="iconbtn" id="classBtn">🏫</button>
+  <div class="sp"></div>
+  <div class="gradeSwitch" role="group" aria-label="学年モード">
+    <button id="gLow">低学年</button><button id="gHigh">高学年</button>
+  </div>
+  <button class="iconbtn" id="sndBtn">🔊</button>
+  <button class="iconbtn" id="bgmBtn">🎵</button>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab on" data-pane="shuffle"><span class="tico">🎰</span><span class="tt" data-k="tabShuffle">せきがえ</span></button>
+  <button class="tab" data-pane="roster"><span class="tico">👦</span><span class="tt" data-k="tabRoster">めいぼ</span></button>
+  <button class="tab" data-pane="layout"><span class="tico">🪑</span><span class="tt" data-k="tabLayout">ざせき</span></button>
+  <button class="tab" data-pane="omake"><span class="tico">🎯</span><span class="tt" data-k="tabOmake">くじびき</span></button>
+  <button class="tab" data-pane="history"><span class="tico">📚</span><span class="tt" data-k="tabHistory">きろく</span></button>
+  <button class="tab" data-pane="rules"><span class="tico">🤝</span><span class="tt" data-k="tabRules">やくそく</span></button>
+  <button class="tab" data-pane="settings"><span class="tico">⚙️</span><span class="tt" data-k="tabSettings">せってい</span></button>
+</nav>
+
+<main>
+  <!-- ============ 名簿 ============ -->
+  <section class="pane" id="pane-roster">
+    <h2 class="ph" data-k="rosterH">めいぼ</h2>
+    <p class="pd" data-k="rosterD">クラスのみんなの名前と性別を登録します(最大45人)。</p>
+    <div class="row" id="rosterStats" style="gap:8px; margin-top:0;">
+      <span class="badge b-boy" id="rcBoy" style="font-size:15px; padding:6px 14px;">男子 0</span>
+      <span class="badge b-girl" id="rcGirl" style="font-size:15px; padding:6px 14px;">女子 0</span>
+      <span class="badge b-total" id="rcTotal" style="font-size:15px; padding:6px 14px;">合計 0</span>
+    </div>
+    <div class="card">
+      <div class="row">
+        <input type="text" id="newName" placeholder="名前" style="flex:1; min-width:150px;" maxlength="12">
+        <div class="seg" id="newGender">
+          <button data-g="M" class="on">男子</button><button data-g="F">女子</button>
+        </div>
+        <button class="btn primary" id="addStu" data-k="add">ついか</button>
+      </div>
+      <div class="row">
+        <button class="btn sm" id="bulkOpen" data-k="bulk">まとめて登録(コピペ)</button>
+        <button class="btn sm" id="rosterClear" data-k="rosterClear">めいぼを全部けす</button>
       </div>
     </div>
-    <div class="plant" id="plant"></div>
-  </header>
+    <div class="rosterList" id="rosterList"></div>
+  </section>
 
-  <main>
-    <section id="view-today"></section>
-    <section id="view-log" hidden></section>
-    <section id="view-set" hidden></section>
-  </main>
+  <!-- ============ 座席 ============ -->
+  <section class="pane" id="pane-layout">
+    <h2 class="ph" data-k="layoutH">ざせきの形</h2>
+    <p class="pd" data-k="layoutD">教室に合わせて席を作ります。編集モードを選んで席をタップ!</p>
+    <div class="card">
+      <div class="row">
+        <span data-k="rows">たて</span>
+        <span class="stepper"><button id="rowMinus">−</button><span class="val" id="rowVal">5</span><button id="rowPlus">+</button></span>
+        <span data-k="cols">よこ</span>
+        <span class="stepper"><button id="colMinus">−</button><span class="val" id="colVal">6</span><button id="colPlus">+</button></span>
+        <span class="hint" id="seatCount"></span>
+      </div>
+      <div class="row">
+        <div class="seg" id="editMode">
+          <button data-m="onoff" class="on" data-k="emOnoff">席あり/なし</button>
+          <button data-m="fixed" data-k="emFixed">指定席</button>
+          <button data-m="gender" data-k="emGender">男女</button>
+          <button data-m="team" data-k="emTeam">班</button>
+        </div>
+      </div>
+      <div class="row" id="teamRow" style="display:none;">
+        <div class="teamChips" id="teamChips"></div>
+      </div>
+      <p class="hint" id="editHint"></p>
+    </div>
+    <div class="boardBar" data-k="board">こくばん</div>
+    <div class="chartWrap"><div class="grid" id="editGrid"></div></div>
+  </section>
+
+  <!-- ============ 条件 ============ -->
+  <section class="pane" id="pane-rules">
+    <h2 class="ph" data-k="rulesH">はいちのやくそく</h2>
+    <p class="pd" data-k="rulesD">「この子とこの子は離す」などの配慮を設定します。指定席・男女席は「ざせき」タブで。</p>
+    <div class="card">
+      <h3 data-k="rulesAdd">離すペアを追加</h3>
+      <div class="row">
+        <select id="consA"></select>
+        <span data-k="and">と</span>
+        <select id="consB"></select>
+      </div>
+      <div class="row">
+        <div class="seg" id="consType">
+          <button data-t="adj" class="on" data-k="ctAdj">となりにしない(周囲1マス)</button>
+          <button data-t="dist" data-k="ctDist">距離を指定</button>
+        </div>
+      </div>
+      <div class="row" id="distRow" style="display:none;">
+        <span data-k="vgap">たてに</span>
+        <span class="stepper"><button id="vgMinus">−</button><span class="val" id="vgVal">2</span><button id="vgPlus">+</button></span>
+        <span data-k="hgap">よこに</span>
+        <span class="stepper"><button id="hgMinus">−</button><span class="val" id="hgVal">2</span><button id="hgPlus">+</button></span>
+        <span class="hint" data-k="gapHint">人分より近くにしない</span>
+      </div>
+      <div class="row"><button class="btn primary" id="consAdd" data-k="add2">ついか</button></div>
+    </div>
+    <div class="consList" id="consList"></div>
+    <div class="card" style="margin-top:14px;">
+      <h3 data-k="histRule">前にとなりだった子</h3>
+      <div class="row">
+        <span data-k="histRuleTxt">さいきん</span>
+        <span class="stepper"><button id="hdMinus">−</button><span class="val" id="hdVal">3</span><button id="hdPlus">+</button></span>
+        <span data-k="histRuleTxt2">回の席がえでとなりだった子とは、なるべくとなりにしない</span>
+      </div>
+      <p class="hint" data-k="histRuleHint">※「ぜったい」ではなく「なるべく」です。先生の設定が最優先。</p>
+    </div>
+  </section>
+
+  <!-- ============ 席替え ============ -->
+  <section class="pane on" id="pane-shuffle">
+    <h2 class="ph" data-k="shufH">せきがえ</h2>
+    <p class="pd" data-k="shufD">じゅんびができたら、ボタンをおしてね!</p>
+    <div class="card">
+      <div class="statusLine" id="shufStatus"></div>
+    </div>
+    <div class="card">
+      <div class="row">
+        <span data-k="scope">はんい:</span>
+        <div class="seg" id="scopeSeg">
+          <button data-s="all" class="on" data-k="scopeAll">クラスぜんいん</button>
+          <button data-s="team" data-k="scopeTeam">班の中だけ</button>
+        </div>
+      </div>
+      <div class="row">
+        <span data-k="fx">えんしゅつ:</span>
+        <div class="seg" id="fxSeg">
+          <button data-f="gara" class="on">🎡 ガラポン</button>
+          <button data-f="miku">⛩ おみくじ</button>
+          <button data-f="rou">🎯 ルーレット</button>
+          <button data-f="plain" data-k="fxPlain">シンプル</button>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="justify-content:center; gap:16px; margin-top:18px;">
+      <button class="btn primary big" id="btnBatch" data-k="btnBatch">🎉 いっきに せきがえ!</button>
+      <button class="btn blue big" id="btnKuji" data-k="btnKuji">🎟 ひとりずつ くじびき</button>
+    </div>
+    <div id="kujiArea" style="display:none;">
+      <div class="card" style="margin-top:18px;">
+        <h3 id="kujiTitle"></h3>
+        <p class="hint" data-k="kujiHint">自分の名前をタップして、くじをひこう!</p>
+        <div class="drawChips" id="drawChips"></div>
+        <div class="row" style="justify-content:center; margin-top:14px;">
+          <button class="btn green big" id="btnReveal" disabled data-k="btnReveal">🥁 はっぴょう!</button>
+          <button class="btn sm" id="btnKujiCancel" data-k="cancel">やめる</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ おまけくじ ============ -->
+  <section class="pane" id="pane-omake">
+    <h2 class="ph" data-k="omakeH">なんでもくじびき</h2>
+    <p class="pd" data-k="omakeD">発表の順番きめ、係きめ、日直あてなど、いろいろ使えるくじです。</p>
+    <div class="card">
+      <div class="row">
+        <span data-k="omakeFrom">だれの中から?</span>
+        <select id="omakeScope"></select>
+      </div>
+      <div class="row">
+        <div class="seg" id="omakeType">
+          <button data-t="one" class="on" data-k="omakeOne">1人えらぶ</button>
+          <button data-t="order" data-k="omakeOrder">順番をきめる</button>
+        </div>
+      </div>
+      <div class="row" style="justify-content:center;">
+        <button class="btn primary big" id="omakeGo" data-k="omakeGo">🎲 くじをひく!</button>
+      </div>
+    </div>
+    <div class="card" id="omakeResult" style="display:none;"></div>
+  </section>
+
+  <!-- ============ 履歴 ============ -->
+  <section class="pane" id="pane-history">
+    <h2 class="ph" data-k="histH">せきがえのきろく</h2>
+    <p class="pd" data-k="histD">これまでの座席が日付つきで残ります。タップで表示、画像保存もできます。</p>
+    <div class="histList" id="histList"></div>
+  </section>
+
+  <!-- ============ 設定 ============ -->
+  <section class="pane" id="pane-settings">
+    <h2 class="ph" data-k="setH">せってい</h2>
+    <p class="pd"> </p>
+    <div class="card">
+      <h3 data-k="setSnd">音</h3>
+      <div class="row">
+        <div class="seg" id="sndSeg">
+          <button data-s="fun" class="on" data-k="sndFun">にぎやか</button>
+          <button data-s="calm" data-k="sndCalm">おちつき</button>
+          <button data-s="off" data-k="sndOff">なし</button>
+        </div>
+        <button class="btn sm" id="sndTest">🔔 おとのテスト</button>
+      </div>
+      <div class="row">
+        <span style="font-weight:700;">BGM:</span>
+        <div class="seg" id="bgmSeg">
+          <button data-b="wakuwaku" class="on">🎉 わくわく</button>
+          <button data-b="yuttari">🍃 ゆったり</button>
+          <button data-b="genki">⚡ げんき</button>
+        </div>
+      </div>
+      <p class="hint">BGMのオン/オフは画面右上の🎵ボタン。効果音・BGMともに「なし」にすると鳴りません。<br>
+      🔇音が鳴らないときのチェック:①本体横の消音スイッチ ②本体横の音量ボタンで音量アップ(着信音量とは別の「メディア音量」です) ③Bluetoothイヤホンにつながっていないか ④「おとのテスト」を押して確認</p>
+    </div>
+    <div class="card">
+      <h3 data-k="setCls">クラスのかんり</h3>
+      <p class="hint" data-k="setClsHint">新年度になったら新しいクラスを追加すれば、前の年度の記録を残したまま使えます。</p>
+      <div class="row">
+        <button class="btn sm" id="classMgr" data-k="setClsBtn">🏫 クラスの切り替え・追加</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3 data-k="setData">データのほかん</h3>
+      <p class="hint" data-k="setDataHint">データはこのiPad(この端末のブラウザ)の中だけに保存されます。念のため、ときどきバックアップしておくと安心です。</p>
+      <div class="row">
+        <button class="btn sm" id="expData" data-k="expData">バックアップを書き出す</button>
+        <button class="btn sm" id="impData" data-k="impData">バックアップを読み込む</button>
+        <input type="file" id="impFile" accept=".json,application/json" style="display:none;">
+      </div>
+    </div>
+    <div class="card">
+      <h3 data-k="setDanger">データのさくじょ</h3>
+      <div class="row">
+        <button class="btn sm" id="clearHist" data-k="clearHist">きろくを全部けす</button>
+        <button class="btn sm" id="clearAll" data-k="clearAll">すべてのデータをけす</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>📖 つかいかた</h3>
+      <p class="hint">タップすると それぞれの せつめいが ひらきます。</p>
+
+    <details class="helpSec" open>
+      <summary>🚀 きほんの ながれ(はじめての人はここから)</summary>
+      <div class="helpBody">
+        <ol>
+          <li><b>👦めいぼ</b> — クラス全員の名前と性別を登録します。Excelや名簿ソフトから「名前 性別」の形でコピーして「まとめて登録」に貼り付けると速いです。</li>
+          <li><b>🪑ざせき</b> — 教室に合わせて席を作ります。「たて」「よこ」でマスの数を決めて、使わない席は「席あり/なし」モードでタップして消します。<br>
+          さらに編集モードを切り替えると:<br>
+          ・<b>指定席</b>…席をタップして、必ずそこに座る子を選ぶ(視力への配慮など)<br>
+          ・<b>男女</b>…タップするたびに「指定なし→男子席→女子席」と変わる<br>
+          ・<b>班</b>…班の色を選んでから席をタップすると色分けできる</li>
+          <li><b>🤝やくそく</b> — 「この子とこの子は離す」を登録します。「となりにしない」か、縦横の距離指定が選べます。</li>
+          <li><b>🎰せきがえ</b> — 準備ができたらここ!<br>
+          ・<b>🎉一括</b>…ボタン1つで全員の席が決まります(スクリーンに映すと盛り上がります)<br>
+          ・<b>🎟一人ずつくじ</b>…子どもが自分の名前をタップ→くじを引いて番号ゲット→全員引いたら「🥁はっぴょう!」</li>
+          <li>発表された席で良ければ「<b>✅けってい</b>」。これで📚きろくに日付つきで保存されます。</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="helpSec">
+      <summary>🎲 せきがえの しくみ(先生向けのひみつ)</summary>
+      <div class="helpBody">
+        <p>くじ引きは<b>演出</b>です。席は、くじを引く前にアプリが先生の設定をすべて守った形で決めています。だから配慮が必要な子も「たまたまその席になった」ように見えます。</p>
+        <p>守る順番(優先度):</p>
+        <ol>
+          <li><b>先生の配慮設定</b>(指定席・離すペア)— 必ず守る</li>
+          <li><b>男子席・女子席</b> — 原則守る</li>
+          <li><b>最近◯回の席がえで隣だった子と、なるべく隣にしない</b>(回数は🤝やくそくタブで変更。0にするとこのルールはオフ)</li>
+          <li><b>今の席から、なるべく遠くの席へ</b></li>
+        </ol>
+        <p>全部を同時に守れないときは、下のルールからゆるめて席を決め、メッセージでお知らせします。</p>
+        <p>💡「はんの なかだけ」を選ぶと、班のメンバーはそのままで班の中の席だけシャッフルできます。</p>
+      </div>
+    </details>
+
+    <details class="helpSec">
+      <summary>🏫 新年度・クラスがえのとき</summary>
+      <div class="helpBody">
+        <p>画面上部の<b>🏫ボタン</b>(クラス名が書いてあるボタン)を押すと、クラスの切り替え画面が開きます。</p>
+        <ol>
+          <li>「➕クラスを追加」に新しい名前(例:2027年度 4年1組)を入れて追加</li>
+          <li>新しいクラスで名簿を登録して使い始める</li>
+        </ol>
+        <p>前の年度のクラスは、名簿も席がえの記録もそのまま残ります。いつでも🏫ボタンで切り替えて見返せます。</p>
+      </div>
+    </details>
+
+    <details class="helpSec">
+      <summary>💾 データはどこに保存される?</summary>
+      <div class="helpBody">
+        <p>名簿や記録は、<b>この端末(iPadやiPhone)のブラウザの中だけ</b>に保存されます。インターネット上のサーバーには送られないので、児童の名前が外部に出ることはありません。</p>
+        <p>そのかわり:</p>
+        <ul>
+          <li>別の端末で開くと、データは空の状態から始まります(端末ごとに別々)</li>
+          <li>ブラウザの履歴・サイトデータを削除すると、アプリのデータも消えることがあります</li>
+        </ul>
+        <p>なので、<b>⚙️せってい→「バックアップを書き出す」</b>をときどき押して、ファイルを保存しておくのがおすすめです。「読み込む」でいつでも復元できます(全クラスまとめて保存されます)。</p>
+      </div>
+    </details>
+
+    <details class="helpSec">
+      <summary>🌐 Claude(クロード)がなくても使える?</summary>
+      <div class="helpBody">
+        <p>今、このアプリはClaudeのサイト(claude.ai)に置かれていて、開くにはClaudeアカウントでのログインが必要です。</p>
+        <p>ただし、アプリの正体は<b>1つのHTMLファイル</b>なので、Claude以外の場所にも置けます。おすすめは<b>GitHub Pages(ギットハブ ページズ)</b>という無料のサービスです:</p>
+        <ul>
+          <li>自分専用のURLができて、<b>ログイン不要・無料</b>でずっと使えます</li>
+          <li>Claudeの契約をやめても使い続けられます</li>
+          <li>引っ越しの作業はClaudeにお願いすればほとんどやってもらえます</li>
+        </ul>
+        <p>引っ越すとURLが変わるため、データは「バックアップを書き出す→新しいURL側で読み込む」で移します。<b>本格運用の前に引っ越しを済ませておく</b>と二度手間がありません。</p>
+      </div>
+    </details>
+
+    <details class="helpSec">
+      <summary>👥 他の先生に共有するには?</summary>
+      <div class="helpBody">
+        <p>方法は2つあります:</p>
+        <p><b>方法1:今のURLをそのまま共有</b><br>
+        このページを開いたときの画面枠(アプリの外側)にある<b>共有(Share)ボタン</b>で、リンクを知っている人が見られる設定に変えられます。ただし相手も<b>Claudeアカウント(無料でOK)</b>でログインする必要があるので、少しハードルがあります。</p>
+        <p><b>方法2:GitHub Pagesに置いてURLを配る(おすすめ)</b><br>
+        上の「🌐」の方法で引っ越せば、URLを教えるだけで<b>誰でもログインなしで</b>使えます。学年や学校全体に配るならこちらが確実です。</p>
+        <p>🔒 どちらの方法でも、共有されるのは<b>空のアプリ</b>です。名簿や記録は各先生の端末の中にしか保存されないため、<b>自分のクラスの児童名が他の先生に見えることはありません</b>。それぞれの先生が自分のクラスを登録して使う形になります。</p>
+      </div>
+    </details>
+
+    <details class="helpSec">
+      <summary>🔧 こまったときは</summary>
+      <div class="helpBody">
+        <ul>
+          <li><b>音が鳴らない</b> — iPhone/iPadのマナーモード(消音スイッチ)をオフに。アプリ側の音設定は右上の🔊ボタンでも変えられます。</li>
+          <li><b>「席が足りません」と出る</b> — 🪑ざせきタブで席の数(=たて×よこ−消した席)が児童数以上になっているか確認してください。</li>
+          <li><b>スクリーンに映したい</b> — iPadをプロジェクターや電子黒板につないで、🎰せきがえの発表画面をそのまま映せます。</li>
+          <li><b>ホーム画面から開きたい</b> — Safariでこのページを開き、共有ボタン→「ホーム画面に追加」。アプリのように使えます。</li>
+        </ul>
+      </div>
+    </details>
+    </div>
+    <p class="hint" style="text-align:center;">せきがえ君 v2.3</p>
+  </section>
+</main>
+
+<!-- draw / reveal overlay -->
+<div class="overlay" id="stage">
+  <button class="closeX" id="stageClose">✕</button>
+  <div class="stageInner">
+    <h2 class="stageTitle" id="stageTitle"></h2>
+    <p class="stageSub" id="stageSub"></p>
+    <div class="stageArea" id="stageArea"></div>
+    <div class="stageBtns" id="stageBtns"></div>
+  </div>
 </div>
 
-<nav class="tabbar">
-  <button class="tab active" data-tab="today"><span class="ticon">☀️</span>きょう</button>
-  <button class="tab" data-tab="log"><span class="ticon">📈</span>きろく</button>
-  <button class="tab" data-tab="set"><span class="ticon">⚙️</span>せってい</button>
-</nav>
-<div id="toast" role="status"></div>
+<!-- generic modal -->
+<div class="modalBack" id="modalBack">
+  <div class="modal" id="modalBody"></div>
+</div>
 
+<div id="toast"></div>
+<canvas id="pngCanvas" width="1600" height="1200" style="display:none;"></canvas>
 <script>
-(function(){
-"use strict";
-var KEY = "kotsu-v1";
-var WD = ["日","月","火","水","木","金","土"];
-var PRAISE = ["えらい!","その調子 🌱","ナイスです","未来の自分がよろこんでます","コツコツが最強","今日もひとつ ◎","いいね、その一歩","じぶんに花まる 💮","つづいてなくても、今日できた!"];
-var QUOTES = [
-  /* ことわざ・古典 */
-  ["継続は力なり",""],
-  ["ちりも積もれば山となる",""],
-  ["千里の道も一歩から","老子"],
-  ["足るを知る者は富む","老子"],
-  ["どんなにゆっくりでも、止まらなければ進んでいる","孔子"],
-  ["ローマは一日にして成らず",""],
-  ["急がば回れ",""],
-  ["七転び八起き",""],
-  ["石の上にも三年",""],
-  ["案ずるより産むが易し",""],
-  ["笑う門には福来る",""],
-  ["明日は明日の風が吹く",""],
-  ["休むも相場","相場の格言"],
-  ["為せば成る、為さねば成らぬ、何事も","上杉鷹山"],
-  ["積小為大 —— 小さな積み重ねが、大きな実りになる","二宮尊徳"],
-  /* 映画・芸能の人たち */
-  ["『不可能』という言葉には、『私はできる』とかくれている","オードリー・ヘプバーン"],
-  ["下を向いていたら、虹を見つけることはできない","チャップリン"],
-  ["人生はクローズアップで見れば悲劇、ロングショットで見れば喜劇","チャップリン"],
-  ["人生に必要なのは、勇気と想像力、そして少しのお金","チャップリン『ライムライト』"],
-  ["おごらず、人と比べず、面白がって、平気に生きればいい","樹木希林"],
-  ["生きてるだけで丸もうけ","明石家さんま"],
-  ["ダメなときほど、運はたまる","萩本欽一"],
-  ["真剣にやれよ、仕事じゃねぇんだぞ","タモリ"],
-  ["笑顔でいて。人生は素晴らしいものだから","マリリン・モンロー"],
-  ["悪魔のように細心に、天使のように大胆に","黒澤明"],
-  /* スポーツの人たち */
-  ["小さいことを積み重ねるのが、とんでもないところへ行くただひとつの道","イチロー"],
-  ["壁というのは、できる人にしかやってこない","イチロー"],
-  ["努力は必ず報われる。報われない努力は、まだ努力と呼ばない","王貞治"],
-  ["自分で自分をほめたい","有森裕子"],
-  ["夢は見るものではなく、かなえるもの","澤穂希"],
-  ["憧れるのをやめましょう","大谷翔平"],
-  /* 世界の言葉 */
-  ["焦らず、しかし休まず","ゲーテ"],
-  ["できると思ってもできないと思っても、どちらも正しい","ヘンリー・フォード"],
-  ["私は失敗したことがない。うまくいかない方法を一万通り見つけただけだ","エジソン"],
-  ["顔を太陽に向けていれば、影は見えない","ヘレン・ケラー"],
-  ["大切なのは、どれだけ多くをしたかではなく、どれだけ心をこめたか","マザー・テレサ"],
-  ["翼がないなら、翼を生やす努力をすればいい","ココ・シャネル"],
-  ["変えられるものを変える勇気を、変えられないものを受け入れる静けさを","ニーバー"],
-  ["今日という日は、残りの人生の最初の日",""],
-  /* 日本の言葉 */
-  ["つまづいたっていいじゃないか、にんげんだもの","相田みつを"],
-  ["置かれた場所で咲きなさい","渡辺和子"],
-  ["失敗したところでやめるから失敗になる。続ければ成功になる","松下幸之助"],
-  /* 夢こつ手帳オリジナル */
-  ["昨日の自分より1タップ多ければ、もう前進",""],
-  ["休んだ日は、充電した日",""],
-  ["未来のあなたは、今日のあなたに感謝してる",""],
-  ["花は毎週、貯金は毎日、夢は毎晩ちかづく",""],
-  ["できなかった日は数えない。できた日だけ数える",""],
-  ["5時に起きたあなたは、それだけでえらい",""],
-  ["体重は今日を映さない。1ヶ月のあなたを映す",""],
-  ["小さすぎる習慣は、失敗のしようがない",""],
-  ["今日もこの手帳をひらいた。それがもう習慣",""],
-  ["がんばらない工夫を、がんばれるのは才能",""],
-  ["二番寝も、りっぱな睡眠",""],
-  ["コップの水は半分もある",""],
-  ["まいた種は、忘れたころに芽を出す",""],
-  ["完璧な1日より、まあまあの100日",""],
-  ["夢に日付はいらない。今日の1タップがあればいい",""],
-  ["あなたのペースが、いちばん速い近道",""],
-  ["炭酸水は、明日のあなたへの仕送り",""],
-  ["1時半のふとん直行は、静かなファインプレー",""],
-  ["サボりは借金にならない。今日の1回は、まるまる貯金",""],
-  ["体重計の数字は天気。あなたの価値は気候",""],
-  ["ゆっくり減った体重は、ゆっくりしか戻らない",""],
-  ["今週の花より、ことしの畑",""],
-  ["よく寝た日は、それだけで100点",""],
-  ["未来のあなたは、いま作られている最中",""],
-  ["隣の芝生より、うちの畑",""],
-  ["先生のあなたも、自分に花マルをつけていい",""],
-  /* ことわざ・古典(追加) */
-  ["初心忘るべからず","世阿弥"],
-  ["好きこそ物の上手なれ",""],
-  ["思い立ったが吉日",""],
-  ["善は急げ",""],
-  ["蒔かぬ種は生えぬ",""],
-  ["果報は寝て待て",""],
-  ["人間万事塞翁が馬",""],
-  ["雨降って地固まる",""],
-  ["明けない夜はない",""],
-  ["早起きは三文の徳",""],
-  ["腹八分目に医者いらず",""],
-  ["一日一善",""],
-  ["温故知新","論語"],
-  ["一期一会",""],
-  ["日進月歩",""],
-  ["一念発起",""],
-  ["初志貫徹",""],
-  ["有言実行",""],
-  ["雲外蒼天",""],
-  ["実るほど頭を垂れる稲穂かな",""],
-  ["待てば海路の日和あり",""],
-  ["備えあれば憂いなし",""],
-  ["縁の下の力持ち",""],
-  ["芸は身を助ける",""],
-  ["学問に王道なし",""],
-  ["亀の甲より年の功",""],
-  ["三人寄れば文殊の知恵",""],
-  ["情けは人の為ならず",""],
-  ["習うより慣れろ",""],
-  ["六十の手習い",""],
-  ["大器晩成",""],
-  ["雨垂れ石を穿つ",""],
-  ["愚公、山を移す",""],
-  ["玉磨かざれば光なし",""],
-  ["人事を尽くして天命を待つ",""],
-  ["病は気から",""],
-  ["急いては事を仕損じる",""],
-  ["短気は損気",""],
-  ["桃栗三年柿八年",""],
-  ["志ある者は、事ついに成る","後漢書"],
-  ["隗より始めよ",""],
-  ["良薬は口に苦し",""],
-  /* 偉人・有名人(追加) */
-  ["早寝早起きは、人を健康に、裕福に、賢くする","フランクリン"],
-  ["今日の一日は、明日の二日分","フランクリン"],
-  ["ハングリーであれ。愚かであれ","スティーブ・ジョブズ"],
-  ["薬を10錠のむより、心から笑うほうがずっと効く","アンネ・フランク"],
-  ["未来を予測する最善の方法は、自分でつくること","アラン・ケイ"],
-  ["人の一生は、重き荷を負うて遠き道をゆくがごとし。急ぐべからず","徳川家康(伝)"],
-  ["この道より、我を生かす道なし。この道を歩く","武者小路実篤"],
-  ["やってみせ、言って聞かせて、させてみて、ほめてやらねば、人は動かじ","山本五十六"],
-  ["失敗は成功のマザー","長嶋茂雄"],
-  ["失敗を重ねてきた。だから成功した","マイケル・ジョーダン"],
-  ["努力だ。勉強だ。それが天才だ","野口英世"],
-  ["人生は、よろこばせごっこ","やなせたかし"],
-  ["なまけ者になりなさい","水木しげる"],
-  ["これでいいのだ","赤塚不二夫"],
-  ["幸福は、幸福を呼ぶ","宇野千代"],
-  ["今日一日、怒らず、恐れず、悲しまず","中村天風"],
-  ["本当に大切なものは、目に見えない","サン=テグジュペリ"],
-  ["過ちて改めざる、これを過ちという","孔子"],
-  ["何より大事なのは、人生を楽しむこと","オードリー・ヘプバーン"],
-  ["人が旅をするのは、到着するためではなく、旅そのもののため","ゲーテ"],
-  /* オリジナル: 朝 */
-  ["アラームより先に目が覚めた朝は、ちょっと得した気分でいい",""],
-  ["朝の1ページは、夜の10ページに勝る",""],
-  ["コーヒーの湯気は、がんばらない朝の味方",""],
-  ["朝活は前借りじゃなく、未来への前払い",""],
-  ["起きられた。それが今日の成功第一号",""],
-  ["朝の静けさは、あなただけの貸切り時間",""],
-  ["5分の片付けは、夜の自分への置き手紙",""],
-  ["布団の上の1ポーズで、そこはもうヨガ教室",""],
-  ["早起きの日は、人生がすこし長くなる",""],
-  ["朝日を浴びた分だけ、夜の眠りは深くなる",""],
-  ["まだ誰も起きていない時間、世界はあなたの自習室",""],
-  ["朝ごはんを作るあなたの背中は、もう働いている",""],
-  ["起きた時間を記録する。それだけで朝が締まる",""],
-  ["二度寝した朝も、起きたことに変わりはない",""],
-  ["今日の1ページが、来月のあなたの言葉になる",""],
-  ["朝のヨガは体操じゃなく、体へのあいさつ",""],
-  ["お弁当箱を閉める音は、今日もやりきる合図",""],
-  ["朝の脳は、一日でいちばん学びが安く買える市場",""],
-  ["静かな朝に読んだ1行は、一日中ついてくる",""],
-  ["朝活ゼロの日は、睡眠活が満点だった日",""],
-  ["起きてすぐの白湯は、内臓のラジオ体操",""],
-  ["今日はじめて動いた筋肉に、おはようと言おう",""],
-  ["朝の15分は、夜の1時間",""],
-  ["カーテンを開けるのも、りっぱな朝活",""],
-  ["朝のあなたは、昨日のあなたが育てた作品",""],
-  /* オリジナル: 夜・睡眠 */
-  ["眠気は敵じゃない。今日がんばった証拠",""],
-  ["寝るのが早い日は、痩せるのも早い日",""],
-  ["夜のスマホより、朝の自分",""],
-  ["ふとんは、世界でいちばん安い美容液",""],
-  ["添い寝は、残業手当のつかない大事な仕事",""],
-  ["1時半の廊下は、まっすぐ歩けば勝ち",""],
-  ["夜中に起きても、目をつぶればまだ夜のうち",""],
-  ["睡眠は削るものじゃなく、貯めるもの",""],
-  ["今日の疲れは今日のうちに、ふとんに預ける",""],
-  ["歯磨きを済ませた夜は、未来がひとつ軽くなる",""],
-  ["寝落ちは失神じゃなく、着地",""],
-  ["夜9時の眠気は、体からの正直な手紙",""],
-  ["よく寝る人は、よく痩せる",""],
-  ["羊を数えるより、今日できたことを数えて眠る",""],
-  ["深夜の空腹は、たいてい眠気の変装",""],
-  ["明日のことは、明日の自分がなんとかする",""],
-  ["寝る前の30秒ストレッチは、腰への子守唄",""],
-  ["夜は反省会をしない。感想戦は朝に",""],
-  ["今夜の睡眠が、明日の食欲を決める",""],
-  ["ふとんに入った時点で、今日は合格",""],
-  ["夜中のキッチンの灯りより、朝のキッチンの湯気",""],
-  ["眠れない夜も、横になっていれば体は休んでいる",""],
-  ["今日を無事に終えた。それがいちばんの成果",""],
-  ["夢は寝てる間も、起きてる間も見ていい",""],
-  ["消灯は、今日のあなたへの拍手",""],
-  /* オリジナル: お酒 */
-  ["炭酸水の泡も、乾杯の泡",""],
-  ["2杯目の前の1杯の水が、明日の顔を決める",""],
-  ["枝豆は、飲む人の味方ナンバーワン",""],
-  ["今日の1杯を美味しくするのは、昨日の節度",""],
-  ["ハイボールは細く長く、が粋",""],
-  ["グラスに注ぐと、お酒は美味しくなって量は減る",""],
-  ["つまみを皿に出す人は、飲み方の上級者",""],
-  ["酔いは楽しみ、締めは汁もの",""],
-  ["飲んだ日もタップした日は、負けてない",""],
-  ["お酒と仲良くする人は、お酒に飲まれない",""],
-  ["晩酌は文化。ドカ食いは事故。分けて考えていい",""],
-  ["冷奴は、罪悪感ゼロの相棒",""],
-  ["今夜の炭酸水1杯は、来月のマイナス1kg",""],
-  ["お酒の量より、おつまみの質",""],
-  ["乾杯は座ってから、が新しい合図",""],
-  ["飲みながらでも、賢く飲める",""],
-  ["週6で飲みながら痩せてる人が、ここにいる",""],
-  ["今日も美味しく飲めた。それは体が元気な証拠",""],
-  /* オリジナル: 食事・体重 */
-  ["野菜が先、はもう呼吸みたいなもの",""],
-  ["体重計は裁判官じゃなく、ただの気象台",""],
-  ["−0.1kgも、ちゃんとマイナス",""],
-  ["増えた日の数字は、明日の水分",""],
-  ["食べたものを責めない。次の一食で整える",""],
-  ["腹八分は、明日のお腹への思いやり",""],
-  ["ドカ食いしたくなる日は、たいてい寝不足の日",""],
-  ["よく噛むだけで、食事はコースになる",""],
-  ["痩せるとは、毎日をちょっとずつ選び直すこと",""],
-  ["1ヶ月前のあなたより、今のあなたは軽い",""],
-  ["停滞期は、体が新しい体重を覚えている時間",""],
-  ["昨日より減らない日も、先月よりは減っている",""],
-  ["味噌汁は、日本のプロテインスープ",""],
-  ["小さな空腹は、脂肪が燃えているBGM",""],
-  ["大きな旅も、0.1kgずつなら歩ける",""],
-  ["『まぁいっか』は、続く人の合言葉",""],
-  ["甘いものは悪じゃない。量だけが問題",""],
-  ["食べる速さを半分に、満足は2倍に",""],
-  ["あすけんに正直な人は、体にも正直",""],
-  ["今日の一食より、今月の百食",""],
-  ["痩せた自分を想像する時間も、ダイエットのうち",""],
-  ["水を飲む。それだけで体は仕事を始める",""],
-  ["体は毎日あなたのために働いている。労おう",""],
-  ["久しぶりの服が入る日は、突然くる",""],
-  ["gの増減で一喜一憂しない。kgの旅の途中だから",""],
-  /* オリジナル: 習慣・継続 */
-  ["習慣は歯磨きに似てる。最初だけ面倒、あとは勝手",""],
-  ["三日坊主も、10回やれば30日",""],
-  ["続けるコツは、やめる日を許すこと",""],
-  ["タップは1秒、効き目は一生",""],
-  ["昨日の空白より、今日の1個",""],
-  ["小さな習慣は、大きな夢の分割払い",""],
-  ["毎日やるより、やめないことが大事",""],
-  ["習慣に休日があってもいい。退職さえしなければ",""],
-  ["チェックの数だけ、未来が軽くなる",""],
-  ["やる気は出すものじゃなく、始めると湧くもの",""],
-  ["1週間の花は散っても、根は残る",""],
-  ["今日できた1個は、明日の2個の呼び水",""],
-  ["積み重ねは、裏切らない数少ないもの",""],
-  ["忘れてた習慣を思い出した日も、続いているうち",""],
-  ["完璧主義より、再開主義",""],
-  ["習慣が人をつくる。あなたはいま工事中",""],
-  ["0の日があっても、平均はちゃんと育つ",""],
-  ["めんどくさい日にやる1個は、3個分",""],
-  ["続いてる実感は、あとから追いかけてくる",""],
-  ["レールに乗るまでが仕事、乗ったら景色を楽しむ",""],
-  ["昨日の自分は他人。比べるなら先月の自分",""],
-  ["サボった翌日に開くアプリが、本物の相棒",""],
-  ["1日サボっても、失うのは1日分だけ",""],
-  ["あなたが続けている限り、失敗は途中経過",""],
-  ["大きく変わる人は、小さく始めた人",""],
-  ["今日の畑に、1マス色がついた",""],
-  ["積立は、途中で見るから楽しい",""],
-  ["休憩は中断じゃなく、習慣の一部",""],
-  ["気合いは3日、仕組みは一生",""],
-  ["始めた日のあなたに、いい報告をしよう",""],
-  /* オリジナル: 休む・自己肯定 */
-  ["がんばれない日は、がんばらない日ってだけ",""],
-  ["あなたはすでに、いろいろ続いている人",""],
-  ["今日の自分に及第点、あげていい",""],
-  ["疲れは弱さじゃなく、稼働した証明",""],
-  ["誰も見てなくても、あなたは知ってる。それで十分",""],
-  ["休むのが上手な人が、長く続く人",""],
-  ["自分に優しい人は、結局いちばん強い",""],
-  ["できない日の自分も、チームの一員",""],
-  ["泣きたい日は、体重計もアプリも休んでいい",""],
-  ["他人の速度は、あなたの時刻表と関係ない",""],
-  ["まぁまぁの日々が、上々の人生をつくる",""],
-  ["息抜きは、息継ぎ。泳ぎ続けるために必要",""],
-  ["今日のあなたには今日のベストしか出せない。それでいい",""],
-  ["弱音は吐いていい。吐いたら軽くなるから",""],
-  ["自分を責める時間で、お茶が一杯飲める",""],
-  ["明日やる、は立派な計画",""],
-  ["あなたの代わりはいない。だから消耗品扱いしない",""],
-  ["充電中の機械を、誰も怠け者と呼ばない",""],
-  ["よくやってるね、と自分に言うのは無料",""],
-  ["ため息は、深呼吸の親戚",""],
-  ["立ち止まるのは、地図を見ている時間",""],
-  ["うまくいかない日は、データ収集の日",""],
-  ["甘やかすのと大切にするのは違う。あなたは後者",""],
-  ["今日も生きてる。基礎点が高い",""],
-  ["肩の力を抜くと、だいたい上手くいく",""],
-  ["花マルは、もらうものじゃなく自分でつけるもの",""],
-  ["限界まで頑張らないのが、プロの続け方",""],
-  ["あなたのままで、進んでいる",""],
-  /* オリジナル: 夢・未来・お金 */
-  ["夢は大声で言わなくていい。毎日小声で呼べば来る",""],
-  ["未来は突然来ない。今日の続きとして来る",""],
-  ["貯金と習慣は、複利で増える",""],
-  ["学んだことは、誰にも取られない財産",""],
-  ["1日1ページは、年に365ページの本",""],
-  ["お金の勉強は、未来の家族へのプレゼント",""],
-  ["知識は軽い。いくら持っても荷物にならない",""],
-  ["夢の途中経過を、ちゃんと眺める人は強い",""],
-  ["なりたい自分は、今日の予定に入れた分だけ近づく",""],
-  ["畑は嘘をつかない。まいた分だけ",""],
-  ["10年後のあなたが、今日を振り返って笑ってる",""],
-  ["資格は紙切れじゃなく、努力の領収書",""],
-  ["未来貯金に、元本割れはない",""],
-  ["小さな夢を叶えた人が、大きな夢の叶え方を知る",""],
-  ["今日の1タップは、夢への定期便",""],
-  ["勉強した朝の分だけ、選べる未来が増える",""],
-  ["夢に締切はない。今日には締切がある。だから今日の分だけ",""],
-  ["通帳の数字より、続いた日数",""],
-  ["自分に投資して、損した人はいない",""],
-  ["ひとつ叶えたら、次の夢を考えるのも楽しみのうち",""],
-  ["願うだけの夢は星、動く夢は目的地",""],
-  ["積み立てた朝は、いつかまとめて返ってくる",""],
-  ["学びは、若返りの薬",""],
-  ["未来のあなたの職員室で、この話は笑い話",""],
-  ["ゴールテープは、毎日少しずつ手前に来ている",""],
-  /* オリジナル: 先生・家族 */
-  ["子どもに教えている『こつこつ』を、自分にも",""],
-  ["先生の元気は、教室の天気",""],
-  ["あなたが自分を大切にすると、子どもがそれを見て学ぶ",""],
-  ["お母さんの夢は、家族の追い風",""],
-  ["宿題を出す人が、自分の宿題もやってる。かっこいい",""],
-  ["教室で百回言う『大丈夫』を、自分にも一回",""],
-  ["子どもの寝息は、今日の仕事の完了通知",""],
-  ["母であり、先生であり、そして自分でもある",""],
-  ["家族のためのあなたと、あなたのためのあなた、両方大事",""],
-  ["通知表をつける人にも、花マルをつける人が要る。それはあなた",""],
-  ["今日も誰かの『先生』でいられた。すごいことだ",""],
-  ["子育ては長距離走。給水を忘れずに",""],
-  ["あなたの背中は、教科書より雄弁",""],
-  ["明日の授業も、今夜の睡眠から始まっている",""],
-  ["がんばるお母さんより、ごきげんなお母さん",""],
-  /* オリジナル: ユーモア */
-  ["ドローインは、世界最小のジム",""],
-  ["信号待ちは、無料のトレーニング時間",""],
-  ["お腹をへこませてる顔は、意外と普通の顔",""],
-  ["体重計に乗る勇気、実はけっこうある方だ",""],
-  ["昨日の自分に勝てなくても、一昨日の自分にはだいたい勝てる",""],
-  ["人生に必要な筋肉は、腹筋と、笑う筋肉",""],
-  ["継続のライバルは、三日坊主じゃなくソファ",""],
-  ["アプリを開いた回数も、そのうち自慢になる",""],
-  ["『あとでやる』のあとで、は今日のどこか",""],
-  ["冷蔵庫の前で3秒考えるだけで、未来が変わる",""],
-  ["階段は、上りエスカレーターの練習台",""],
-  ["ぽっこりお腹は、引っ込み思案なだけ",""],
-  ["やせたら着る服より、今日着てかわいい服",""],
-  ["深夜のラーメンは、朝の味噌汁に化ける",""],
-  ["敵は本能寺じゃなく、コンビニにあり",""],
-  ["筋肉痛は、体からのファンレター",""],
-  ["がまんの顔より、工夫のドヤ顔",""],
-  ["二部制睡眠、言い換えれば夜のシエスタ",""],
-  ["1kg減は、牛乳パック1本分の軽やかさ",""],
-  ["夢こつ手帳、今日も営業中",""],
-  /* オリジナル: 応援 */
-  ["大丈夫、ちゃんと進んでる",""],
-  ["今日という日も、あなたの味方",""],
-  ["雨の日は、根が水を飲む日",""],
-  ["遠回りに見える道も、あとで見れば近道",""],
-  ["比べるなら、昨日の空白と今日の1個",""],
-  ["小さな勇気を、毎日1回",""],
-  ["あなたの努力は、あなたが思うより積もっている",""],
-  ["うまくいく日を、体は準備している",""],
-  ["焦りは敵、楽しみは味方",""],
-  ["続けた人にだけ、見える景色がある",""],
-  ["今日の空も明日の体重も変わりやすい。だから面白い",""],
-  ["一歩の大きさは問わない。向きだけ合っていれば",""],
-  ["気分が乗らない日は形だけでいい。形が気分を連れてくる",""],
-  ["始めるのに完璧な日は、たぶん今日",""],
-  ["昨日を悔やむ時間で、今日を1タップ",""],
-  ["変化はいつも、気づいた時にはもう起きている",""],
-  ["あなたの頑張りの目撃者は、未来のあなた",""],
-  ["疑うより、続けてみる。答えは体が出す",""],
-  ["今日の小ささを、笑う人はここにいない",""],
-  ["積み重ねた日々にはいつか名前がつく。『実力』という名前が",""],
-  ["そのままのペースで、どうぞ",""],
-  ["めげない、比べない、やめない。ゆるく三原則",""],
-  ["あなたが今日この画面を開いた。それが続いている証拠",""],
-  ["がんばりは貯金、無理は借金",""],
-  ["夢の進捗、良好です",""],
-  ["366日目のあなたへ——一周ぶん、強くなってる",""]
-];
-function todaysQuote(){
-  /* 毎日ちがう1本を順ぐりに(全部めぐるまで同じ名言は出ない) */
-  var d = parseKey(keyFor(0));
-  var dayNum = Math.floor(d.getTime() / 86400000);
-  var n = QUOTES.length, step = 37;
-  while(gcd2(step, n) !== 1) step++;
-  return QUOTES[((dayNum % n) * step) % n];
-}
-function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
-
-function defaults(){
-  return { v:1, hv:26, gv:4,
-    habits:[
-      /* 🪙 未来貯金(金貨がたまる。花には数えない) */
-      {id:"kane",  emoji:"🎓", name:"学びの時間", hint:"お金・資格など。動画1本・1ページでもOK", time:"gold"},
-      {id:"hasshin", emoji:"📣", name:"1発信", hint:"1行でもOK。誰に届かなくても、出したら勝ち", time:"gold"},
-      {id:"kinshu", emoji:"🍵", name:"禁酒", hint:"のまなかった日は、健康資産が1枚", time:"gold"},
-      {id:"taikin", emoji:"🏫", name:"6時退勤", hint:"終わってなくても切り上げる。持ち帰らず、続きは明日", time:"gold"},
-      /* 🌸 やせ習慣(花になる) */
-      {id:"asuken", emoji:"🥗", name:"あすけん記録", hint:"食べたものを入力。ざっくりでもOK", time:"yoru"},
-      {id:"kintore", emoji:"💪", name:"筋トレ", hint:"信号待ちでお腹へこませ10秒でもOK", time:"yoru", goal:3},
-      /* 💤 おやすみ中(記録は残る。せっていで「もどす」と復活) */
-      {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"gold", off:true},
-      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"毎日30分を目標に!5分でもOK", time:"gold", off:true},
-      {id:"souji", emoji:"🧽", name:"そうじ", hint:"1か所さっとでOK。動いた分は歩数にもなる", time:"gold", off:true},
-      {id:"sanpo", emoji:"🚶", name:"さんぽ", hint:"朝が暗い日は夜でもOK", time:"gold", off:true},
-      {id:"okane",  emoji:"💴", name:"お金の行動", hint:"マネーフォワード確認・見直し・投資など、1つでも", time:"gold", off:true},
-      {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru", off:true},
-      {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru", off:true},
-      {id:"junbi", emoji:"🪥", name:"寝かしつけ直行", hint:"歯磨きまですませて添い寝へ→1時半はキッチン寄らずふとん直行", time:"yoru", off:true},
-      {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru", off:true}
-    ],
-    goal:{ start:63.9, target:56 },
-    log:{}, weight:{ "2026-07-08": 63.9, "2026-07-31": 63.1 }, wake:{}, earned:{} };
-}
-/* 2026-08-06 復旧: Safari履歴消去で消えた7/20〜8/1の記録を、本人のスクリーンショット
-   (週ごとの回数)から復元。日付までは分からないため、週内のもっともらしい日に配置してある。
-   すでに記録がある日には手を触れない。 */
-var RECOVER = {
-  "2026-07-20":{sanpo:1,kata:1,walk:1,soda:1,draw:1},
-  "2026-07-21":{sanpo:1,walk:1,soda:1,otsu:1},
-  "2026-07-22":{sanpo:1,kata:1,soda:1,draw:1},
-  "2026-07-23":{sanpo:1,walk:1,otsu:1,draw:1},
-  "2026-07-24":{sanpo:1,kata:1,soda:1,draw:1},
-  "2026-07-25":{sanpo:1,walk:1,soda:1,otsu:1},
-  "2026-07-26":{sanpo:1,kata:1,walk:1,otsu:1,draw:1},
-  "2026-07-27":{sanpo:1,walk:1,otsu:1,draw:1},
-  "2026-07-28":{sanpo:1,kata:1,draw:1},
-  "2026-07-29":{walk:1,soda:1},
-  "2026-07-30":{sanpo:1,otsu:1,draw:1},
-  "2026-07-31":{kata:1,kabe:1},
-  "2026-08-01":{sanpo:1,walk:1,draw:1,kabe:1}
-};
-function applyRecover(s){
-  if(!s.log) s.log = {};
-  for(var d in RECOVER){
-    if(!s.log[d] || Object.keys(s.log[d]).length === 0) s.log[d] = RECOVER[d];
-  }
-  if(!s.weight) s.weight = {};
-  if(s.weight["2026-07-08"] == null) s.weight["2026-07-08"] = 63.9;
-  if(s.weight["2026-07-31"] == null) s.weight["2026-07-31"] = 63.1;
-  if(!s.wake) s.wake = {};
-  if(!s.wake["2026-07-31"]) s.wake["2026-07-31"] = "06:00";
-  s.rv = 1;
-  return s;
-}
-function load(){
+/* ================= state (multi-class) ================= */
+const LS_KEY='sekigae-v2';
+const LS_KEY_OLD='sekigae-v1';
+const MAX_KIDS=45;
+const TEAMC=['#F1595C','#3E97D4','#E89B00','#2E9E77','#8F6FD0','#F07E3A','#F06E9C','#2FA9B8','#7CB342','#8D6E63'];
+function defState(name){return {
+  name:name||'クラス1',
+  grade:'low', fx:'gara', snd:'fun', bgmOn:true, bgmStyle:'wakuwaku', scope:'all', histDepth:3,
+  students:[], rows:5, cols:6, seats:{}, cons:[], history:[], current:null
+};}
+let DB={active:null,classes:{}};
+let S=null;
+(function loadDB(){
   try{
-    var raw = localStorage.getItem(KEY);
+    const raw=localStorage.getItem(LS_KEY);
     if(raw){
-      var s = JSON.parse(raw);
-      if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 26){ /* 2026-08 未来貯金を金貨に統合(記録は残す) */
-          s.habits = defaults().habits;
-          s.hv = 26;
-        }
-        if(!s.wake) s.wake = {};
-        if(!s.rv) applyRecover(s);
-        if(!s.gv || s.gv < 2){ /* 2026-07: まずの目標を56kgに(本人指定) */
-          if(s.goal && s.goal.target != null) s.goal.target = 56;
-          s.gv = 2;
-        }
-        if(s.gv < 3){ /* 2026-07: スタート体重は63.9(本人指定) */
-          if(s.goal) s.goal.start = 63.9;
-          else s.goal = { start: 63.9, target: 56 };
-          s.gv = 3;
-        }
-        if(s.gv < 4){ /* 2026-07-10: いまの体重62.5(本人申告)。未入力のときだけ初期値として記録 */
-          if(!s.weight || Object.keys(s.weight).length === 0){
-            if(!s.weight) s.weight = {};
-            s.weight["2026-07-10"] = 62.5;
-          }
-          s.gv = 4;
-        }
-        return s;
-      }
+      const d=JSON.parse(raw);
+      if(d&&d.classes&&d.active&&d.classes[d.active]){DB=d;}
     }
   }catch(e){}
-  return applyRecover(defaults());
-}
-var S = load();
-save();
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ toast("保存できませんでした"); } }
-
-/* --- dates: 深夜3時までは前日あつかい --- */
-function shiftedNow(){ return new Date(Date.now() - 3*3600*1000); }
-function fmt(d){
-  return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
-}
-function keyFor(offset){
-  var d = shiftedNow(); d.setDate(d.getDate()+offset); return fmt(d);
-}
-function parseKey(k){
-  var p = k.split("-"); return new Date(+p[0], +p[1]-1, +p[2]);
-}
-function labelFor(offset){
-  var d = parseKey(keyFor(offset));
-  var md = (d.getMonth()+1) + "/" + d.getDate() + "(" + WD[d.getDay()] + ")";
-  if(offset===0) return "きょう " + md;
-  if(offset===-1) return "きのう " + md;
-  return md;
-}
-function weekKeys(){ /* 今週(月〜日)の7日ぶんのキー */
-  var d = parseKey(keyFor(0));
-  var dow = (d.getDay()+6)%7; /* 月=0 */
-  d.setDate(d.getDate()-dow);
-  var arr=[];
-  for(var i=0;i<7;i++){ arr.push(fmt(d)); d.setDate(d.getDate()+1); }
-  return arr;
-}
-function countIn(keys, habitId){
-  var n=0;
-  for(var i=0;i<keys.length;i++){ var day=S.log[keys[i]]; if(day && day[habitId]) n++; }
-  return n;
-}
-function latestWeight(){
-  var ks = Object.keys(S.weight).sort();
-  if(!ks.length) return null;
-  var k = ks[ks.length-1];
-  return { k:k, v:S.weight[k] };
-}
-function dispDate(k){
-  var d = parseKey(k);
-  return (d.getMonth()+1) + "/" + d.getDate();
-}
-
-/* --- そだてるもの(テーマ) --- */
-var THEMES = {
-  hana:   { name:"はな",     stages:[["🌱","めが出た"],["🌿","そだってる"],["🪴","いいかんじ"],["🌸","花マル!"]], collect:"🍎", collectName:"実" },
-  chou:   { name:"ちょうちょ", stages:[["🥚","たまご"],["🐛","あおむし"],["🍃","さなぎ"],["🦋","ちょうちょ!"]], collect:"🦋", collectName:"ちょうちょ" },
-  kaeru:  { name:"カエル",   stages:[["🥚","たまご"],["🫧","おたまじゃくし"],["🐸","こがえる"],["🐸✨","けろっ!"]], collect:"🐸", collectName:"カエル" },
-  hiyoko: { name:"ひよこ",   stages:[["🥚","たまご"],["🐣","うまれた"],["🐤","ひよこ"],["🐔","りっぱ!"]], collect:"🐤", collectName:"ひよこ" }
-};
-function themeDef(){ return THEMES[S.theme] || THEMES.hana; }
-function activeHabits(){ /* おやすみ中(off)をのぞいた、いま使っている習慣 */
-  return S.habits.filter(function(h){ return !h.off; });
-}
-function bloomThreshold(){ /* 咲くラインは🌸やせ習慣の数が基準。🌈未来貯金と🪙資産は花に数えない */
-  var core = 0, t, act = activeHabits();
-  for(var i=0;i<act.length;i++){ t = act[i].time; if(t !== "asa" && t !== "gold") core++; }
-  if(!core) core = act.length;
-  return Math.max(6, Math.ceil(core * 3.5));
-}
-function asaIdSet(){
-  var m = {};
-  for(var i=0;i<S.habits.length;i++){ if(S.habits[i].time==="asa") m[S.habits[i].id]=1; }
-  return m;
-}
-function goldIdSet(){
-  var m = {};
-  for(var i=0;i<S.habits.length;i++){ if(S.habits[i].time==="gold") m[S.habits[i].id]=1; }
-  return m;
-}
-function noFlowerSet(){ /* 花に数えないもの = 🌈未来貯金 + 🪙資産 */
-  var m = {}, t;
-  for(var i=0;i<S.habits.length;i++){ t = S.habits[i].time; if(t==="asa" || t==="gold") m[S.habits[i].id]=1; }
-  return m;
-}
-function goldOn(dayKey){ /* その日に貯まった金貨の枚数 */
-  var g = goldIdSet(), day = S.log[dayKey], n = 0;
-  if(!day) return 0;
-  for(var id in day){ if(day[id] && g[id]) n++; }
-  return n;
-}
-function goldTotal(pref){ /* pref: "" 全期間 / "2026" 今年 / "2026-08" 今月 */
-  var n = 0;
-  for(var k in S.log){ if(!pref || k.slice(0,pref.length)===pref) n += goldOn(k); }
-  return n;
-}
-function weekTotals(){ /* 週の頭(月曜)キー → その週の🌸やせ習慣タップ合計(🌈🪙は数えない) */
-  var m = {}, asa = noFlowerSet();
-  for(var k in S.log){
-    var day = S.log[k], c = 0, id;
-    for(id in day){ if(day[id] && !asa[id]) c++; }
-    if(!c) continue;
-    var d = parseKey(k);
-    d.setDate(d.getDate() - (d.getDay()+6)%7);
-    var wk = fmt(d);
-    m[wk] = (m[wk]||0) + c;
+  if(!DB.active){
+    // migrate old single-class data if present
+    let old=null;
+    try{const rawOld=localStorage.getItem(LS_KEY_OLD);if(rawOld)old=JSON.parse(rawOld);}catch(e){}
+    const id='c'+Date.now().toString(36);
+    DB.classes[id]=Object.assign(defState('2026年度のクラス'),old||{});
+    DB.classes[id].name=DB.classes[id].name||'2026年度のクラス';
+    DB.active=id;
   }
-  return m;
-}
-function earnedWeeks(){ /* 咲ききった過去の週(今週はまだ育ち中)
-  一度もらった花は永久に残す。習慣を増減しても咲くラインが変わるだけで、
-  過去のコレクションが減ることはない。 */
-  var t3 = bloomThreshold(), cur = weekKeys()[0], totals = weekTotals();
-  if(!S.earned) S.earned = {};
-  var changed = false;
-  for(var w in totals){
-    if(w < cur && totals[w] >= t3 && !S.earned[w]){ S.earned[w] = 1; changed = true; }
-  }
-  if(changed) save();
-  return Object.keys(S.earned).sort();
-}
-
-/* --- state --- */
-var tab = "today";
-var dayOffset = 0;
-var pendingConfirm = {};
-var yearOpen = false;
-var monthOffset = 0;
-
-function esc(s){
-  return String(s).replace(/[&<>"']/g, function(c){
-    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+  // ensure every class has all fields
+  Object.keys(DB.classes).forEach(id=>{
+    DB.classes[id]=Object.assign(defState(DB.classes[id].name),DB.classes[id]);
+    // v2.0: old BGM style names -> new 3 styles
+    const sm={kawaii:'wakuwaku',odayaka:'yuttari',nigiyaka:'wakuwaku'};
+    const c=DB.classes[id];
+    if(sm[c.bgmStyle])c.bgmStyle=sm[c.bgmStyle];
+    if(['wakuwaku','yuttari','genki'].indexOf(c.bgmStyle)<0)c.bgmStyle='wakuwaku';
   });
-}
-function toast(msg){
-  var t = document.getElementById("toast");
-  t.textContent = msg;
-  t.classList.add("show");
-  clearTimeout(t._tm);
-  t._tm = setTimeout(function(){ t.classList.remove("show"); }, 1600);
-}
-
-/* --- header --- */
-function renderHeader(){
-  document.getElementById("dlabel").textContent = labelFor(dayOffset);
-  document.getElementById("dprev").disabled = dayOffset <= -60;
-  document.getElementById("dnext").disabled = dayOffset >= 0;
-  var wk = weekKeys(), total = 0;
-  for(var i=0;i<S.habits.length;i++){
-    var ht = S.habits[i].time;
-    if(ht !== "asa" && ht !== "gold") total += countIn(wk, S.habits[i].id);
-  }
-  var t3 = bloomThreshold(), t2 = Math.ceil(t3*0.55), t1 = Math.max(2, Math.ceil(t3*0.17));
-  var si = total>=t3 ? 3 : total>=t2 ? 2 : total>=t1 ? 1 : 0;
-  var td = themeDef(), st = td.stages[si];
-  var n = earnedWeeks().length;
-  /* トップは「今週」だけ。月曜にぜんぶ0に戻る */
-  var gWeek = 0;
-  for(var w=0; w<wk.length; w++) gWeek += goldOn(wk[w]);
-  document.getElementById("plant").innerHTML =
-    '<span class="pico">'+st[0]+'</span><span class="plabel">'+st[1]+'</span>' +
-    '<span class="plabel" style="margin-top:3px">こんしゅう</span>' +
-    '<span class="pcount">🌸'+total+'こ 🪙'+gWeek+'まい</span>';
-}
-
-/* --- today --- */
-function goalCardHtml(){
-  var g = S.goal;
-  if(g && g.start != null && g.target != null){
-    var lw = latestWeight();
-    var cur = lw ? lw.v : g.start;
-    var lost = Math.round((g.start - cur)*10)/10;
-    var rem = Math.round((cur - g.target)*10)/10;
-    var span = g.start - g.target;
-    var prog = span > 0 ? Math.max(0, Math.min(1, (g.start - cur)/span)) : 0;
-    var head, sub;
-    if(rem <= 0){ head = "🌸 もくひょう たっせい!"; sub = "ほんとうにすごい!"; prog = 1; }
-    else{
-      head = "あと " + rem.toFixed(1) + " kg";
-      sub = lost > 0 ? "−" + lost.toFixed(1) + " kg やせました 🎉" : (lost < 0 ? "水分のいたずら。順調です" : "ここからスタート");
-    }
-    return '<div class="card"><h2>ゆめまで</h2>' +
-      '<div class="goalnums"><span class="gbig">' + head + '</span><span class="gsub">' + sub + '</span></div>' +
-      '<div class="pbar"><div class="pfill" style="width:' + Math.round(prog*100) + '%"></div></div>' +
-      '<div class="pends"><span>🌱 ' + g.start.toFixed(1) + '</span><span>' + g.target.toFixed(1) + ' 🌸</span></div>' +
-      (lw ? '<div class="gsub" style="margin-top:6px">' + dispDate(lw.k) + ' の ' + lw.v.toFixed(1) + ' kg で計算中</div>' : '') +
-      '<div class="wupd"><button class="linkbtn" id="wtoggle">⚖️ 体重をこうしん(あすけんの数字をうつすだけ)</button>' +
-      '<div class="wrow" id="wrow" hidden><input id="win" type="number" inputmode="decimal" step="0.1" min="20" max="200" placeholder="' + cur.toFixed(1) + '"><span class="unit">kg</span>' +
-      '<button class="btn" id="wsave">とうろく</button></div></div></div>';
-  }
-  return '<div class="card"><h2>もくひょうをきめる(さいしょに1回だけ)</h2>' +
-    '<p class="note" style="margin:0 0 8px">あすけんの数字をうつすだけでOK。あとは「あと何kg」で表示します。</p>' +
-    '<div class="wrow" style="margin-bottom:8px"><input id="gstart" type="number" inputmode="decimal" step="0.1" min="20" max="200" placeholder="いまの体重"><span class="unit">kg</span></div>' +
-    '<div class="wrow"><input id="gtarget" type="number" inputmode="decimal" step="0.1" min="20" max="200" placeholder="もくひょう体重"><span class="unit">kg</span>' +
-    '<button class="btn" id="gsave">きめた!</button></div></div>';
-}
-function renderToday(){
-  var k = keyFor(dayOffset);
-  var day = S.log[k] || {};
-  var wk = weekKeys();
-  var todayKey = keyFor(0);
-  var q = todaysQuote();
-  var html = '<div class="quote"><small>きょうのことば</small>' +
-    '<span class="qtext">' + esc(q[0]) + '</span>' +
-    (q[1] ? '<span class="qby">— ' + esc(q[1]) + '</span>' : '') + '</div>';
-  html += '<p class="note">できた分だけタップ。できない日があっても大丈夫。</p>';
-  html += goalCardHtml();
-
-  var wakeVal = (S.wake && S.wake[k]) || "";
-  html += '<div class="card"><h2>おきた時間</h2><div class="wrow">' +
-    '<input id="wakein" type="time" value="'+wakeVal+'">' +
-    '<button class="btn ghost" id="wakenow">いま!</button>' +
-    '<button class="btn" id="wakesave">きろく</button></div>' +
-    (wakeVal ? '<div class="wsaved">✓ '+wakeVal+' におきた</div>' : '') +
-    '</div>';
-
-  function habitBtn(h){
-    var n = day[h.id] || 0;
-    var done = n > 0;
-    var full = h.goal ? (n >= h.goal) : done;
-    var dots = "";
-    for(var j=0;j<7;j++){
-      var cls = (S.log[wk[j]] && S.log[wk[j]][h.id]) ? "on" : "";
-      if(wk[j]===todayKey) cls += " today";
-      dots += '<i class="'+cls+'"></i>';
-    }
-    var check = h.goal
-      ? (full ? "✓" : '<span class="h-num">'+n+'<small>/'+h.goal+'</small></span>')
-      : "✓";
-    return '<button class="habit'+(done?" done":"")+(full?" full":"")+'" data-habit="'+esc(h.id)+'">' +
-      '<span class="h-emoji">'+esc(h.emoji)+'</span>' +
-      '<span class="h-body"><span class="h-name">'+esc(h.name)+
-      (h.goal ? '<span class="h-goal">1日'+h.goal+'回</span>' : '')+'</span>' +
-      '<span class="h-hint">'+esc(h.hint)+'</span>' +
-      '<span class="h-week">'+dots+'</span></span>' +
-      '<span class="h-check">'+check+'</span></button>';
-  }
-  var asa = [], yoru = [], gold = [];
-  activeHabits().forEach(function(h){
-    if(h.time==="asa") asa.push(h);
-    else if(h.time==="gold") gold.push(h);
-    else yoru.push(h);
-  });
-  var asaHtml = "", yoruHtml = "", goldHtml = "";
-  asa.forEach(function(h){ asaHtml += habitBtn(h); });
-  yoru.forEach(function(h){ yoruHtml += habitBtn(h); });
-  gold.forEach(function(h){ goldHtml += habitBtn(h); });
-  if(asa.length) asaHtml = '<p class="sect">🌈 そのほか</p>' + asaHtml;
-  if(yoru.length) yoruHtml = '<p class="sect">🌸 やせ習慣 <span class="sectsub">(ここが花になります)</span></p>' + yoruHtml;
-  if(gold.length) goldHtml = '<p class="sect">🪙 未来資産 <span class="sectsub">(できた日は金貨が1枚)</span></p>' + goldHtml;
-  /* いま押すものが上に来る: 朝(3〜12時)は貯金が上、午後からはやせ習慣が上 */
-  var hr = new Date().getHours();
-  html += (hr >= 3 && hr < 12) ? (asaHtml + yoruHtml + goldHtml) : (yoruHtml + goldHtml + asaHtml);
-  document.getElementById("view-today").innerHTML = html;
-
-  var btns = document.querySelectorAll("#view-today .habit");
-  for(var b=0;b<btns.length;b++){
-    btns[b].addEventListener("click", function(){
-      var id = this.getAttribute("data-habit");
-      var kk = keyFor(dayOffset);
-      var hb = null;
-      for(var hi=0; hi<S.habits.length; hi++){ if(S.habits[hi].id===id) hb = S.habits[hi]; }
-      if(!S.log[kk]) S.log[kk] = {};
-      var cur = S.log[kk][id] || 0;
-      if(hb && hb.goal){
-        /* 1日◯回タイプ: タップのたびに +1、目標をこえたら0に戻る */
-        var next = cur + 1;
-        if(next > hb.goal) next = 0;
-        if(next === 0) delete S.log[kk][id];
-        else{
-          S.log[kk][id] = next;
-          toast(next >= hb.goal ? "きょうの"+hb.goal+"回、たっせい! 💮"
-                                : next + "回目 ◎ のこり" + (hb.goal - next) + "回");
-        }
-      }else{
-        if(cur){ delete S.log[kk][id]; }
-        else{
-          S.log[kk][id] = 1;
-          toast(hb && hb.time === "gold" ? "🪙 金貨が1枚たまりました!"
-                                         : PRAISE[Math.floor(Math.random()*PRAISE.length)]);
-        }
-      }
-      save(); renderHeader(); renderToday();
-    });
-  }
-  var wn = document.getElementById("wakenow");
-  if(wn) wn.addEventListener("click", function(){
-    var d = new Date();
-    document.getElementById("wakein").value =
-      String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
-  });
-  var wks = document.getElementById("wakesave");
-  if(wks) wks.addEventListener("click", function(){
-    var v = document.getElementById("wakein").value;
-    if(!v){ toast("時間を入れてね"); return; }
-    if(!S.wake) S.wake = {};
-    S.wake[keyFor(dayOffset)] = v;
-    save(); toast("おはよう記録 ⏰"); renderToday();
-  });
-  var wt = document.getElementById("wtoggle");
-  if(wt) wt.addEventListener("click", function(){
-    var r = document.getElementById("wrow");
-    r.hidden = !r.hidden;
-    if(!r.hidden) document.getElementById("win").focus();
-  });
-  var ws = document.getElementById("wsave");
-  if(ws) ws.addEventListener("click", function(){
-    var v = parseFloat(document.getElementById("win").value);
-    if(!(v >= 20 && v <= 200)){ toast("20〜200の数字で入れてね"); return; }
-    var kk = keyFor(dayOffset);
-    S.weight[kk] = Math.round(v*10)/10;
-    if(!S.log[kk]) S.log[kk] = {};
-    var hasScale = S.habits.some(function(h){ return h.id==="scale"; });
-    if(hasScale) S.log[kk]["scale"] = 1;
-    save(); toast("こうしんしました ⚖️"); renderHeader(); renderToday();
-  });
-  var gs = document.getElementById("gsave");
-  if(gs) gs.addEventListener("click", function(){
-    var st = parseFloat(document.getElementById("gstart").value);
-    var tg = parseFloat(document.getElementById("gtarget").value);
-    if(!(st >= 20 && st <= 200) || !(tg >= 20 && tg <= 200)){ toast("2つとも数字で入れてね"); return; }
-    S.goal = { start: Math.round(st*10)/10, target: Math.round(tg*10)/10 };
-    if(Object.keys(S.weight).length === 0) S.weight[keyFor(0)] = S.goal.start;
-    save(); toast("もくひょう、きまり! 🌸"); renderHeader(); renderToday();
-  });
-}
-
-/* --- log --- */
-function weightChartSVG(){
-  var todayT = parseKey(keyFor(0)).getTime();
-  var from = todayT - 89*86400000;
-  var pts = Object.keys(S.weight).map(function(k){
-    return { t:parseKey(k).getTime(), v:S.weight[k] };
-  }).filter(function(p){ return p.t >= from && p.t <= todayT; })
-    .sort(function(a,b){ return a.t-b.t; });
-  if(pts.length===0) return '<p class="note" style="margin:0">体重をきろくすると、ここにグラフが育ちます 🌱</p>';
-  if(pts.length===1) return '<div class="bignum">'+pts[0].v+' kg</div><p class="note" style="margin:4px 0 0">あと1回きろくすると、線になります</p>';
-
-  var W=320, H=150, pad=14, padL=38;
-  var min=Infinity, max=-Infinity;
-  pts.forEach(function(p){ if(p.v<min)min=p.v; if(p.v>max)max=p.v; });
-  min-=0.4; max+=0.4;
-  var tgt = (S.goal && S.goal.target != null) ? S.goal.target : null;
-  if(tgt != null && tgt <= min && min - tgt <= 3) min = tgt - 0.3;
-  if(tgt != null && tgt >= max && tgt - max <= 3) max = tgt + 0.3;
-  var t0=pts[0].t, t1=pts[pts.length-1].t;
-  function X(t){ return t1===t0 ? (padL+W)/2 : padL + (t-t0)/(t1-t0)*(W-padL-pad); }
-  function Y(v){ return pad + (max-v)/(max-min)*(H-pad*2-14); }
-  var svg = '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block" role="img" aria-label="体重の推移グラフ">';
-  [max-0.4, (max+min)/2, min+0.4].forEach(function(gv){
-    var gy = Y(gv);
-    svg += '<line x1="'+padL+'" y1="'+gy+'" x2="'+(W-pad)+'" y2="'+gy+'" stroke="var(--line)" stroke-width="1"/>' +
-      '<text x="'+(padL-5)+'" y="'+(gy+4)+'" text-anchor="end" font-size="10" fill="var(--sub)">'+gv.toFixed(1)+'</text>';
-  });
-  if(tgt != null && tgt > min && tgt < max){
-    var ty = Y(tgt);
-    svg += '<line x1="'+padL+'" y1="'+ty+'" x2="'+(W-pad)+'" y2="'+ty+'" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4"/>' +
-      '<text x="'+(W-pad)+'" y="'+(ty-5)+'" text-anchor="end" font-size="10" fill="var(--accent)">🌸 もくひょう '+tgt.toFixed(1)+'</text>';
-  }
-  var path = "";
-  pts.forEach(function(p,i){ path += (i?"L":"M") + X(p.t).toFixed(1) + " " + Y(p.v).toFixed(1) + " "; });
-  svg += '<path d="'+path+'" fill="none" stroke="var(--peach)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
-  pts.forEach(function(p){
-    svg += '<circle cx="'+X(p.t).toFixed(1)+'" cy="'+Y(p.v).toFixed(1)+'" r="3" fill="var(--peach)"/>';
-  });
-  var last = pts[pts.length-1];
-  svg += '<circle cx="'+X(last.t).toFixed(1)+'" cy="'+Y(last.v).toFixed(1)+'" r="5.5" fill="var(--peach)" stroke="var(--card)" stroke-width="2"/>';
-  svg += '</svg>';
-  var diff = Math.round((last.v - pts[0].v)*10)/10;
-  var days = Math.round((last.t - pts[0].t)/86400000);
-  var dtxt = diff===0 ? "キープ中(それも立派)" :
-    (days+"日で <b>"+(diff>0?"+":"−")+Math.abs(diff)+" kg</b>" + (diff<0 ? " やせました 🎉" : "(水分のいたずら。気にしない)"));
-  return '<div class="bignum">'+last.v+' <small style="font-size:14px;color:var(--sub)">kg(さいしん)</small></div>' +
-    '<div class="chartwrap">'+svg+'</div><div class="diff">'+dtxt+'</div>';
-}
-
-function renderLog(){
-  var td = themeDef(), t3 = bloomThreshold();
-  var earned = earnedWeeks();
-  var wkNow = weekKeys(), totalNow = 0;
-  for(var i=0;i<S.habits.length;i++){
-    if(S.habits[i].time !== "asa") totalNow += countIn(wkNow, S.habits[i].id);
-  }
-  var chtml = '<div class="card"><h2>あつめた'+esc(td.collectName)+'</h2>';
-  if(earned.length){
-    chtml += '<div class="collectgrid">';
-    earned.forEach(function(w){
-      chtml += '<span class="citem">'+td.collect+'<small>'+dispDate(w)+'〜</small></span>';
-    });
-    chtml += '</div>';
-  }else{
-    chtml += '<p class="note" style="margin:0">🌸やせ習慣の合計が週'+t3+'こまで育つと、つぎの月曜にここへ増えます。</p>';
-  }
-  if(totalNow >= t3){
-    chtml += '<p class="note" style="margin:8px 0 0">'+td.stages[3][0]+' こんしゅうのぶんは、月曜に'+esc(td.collectName)+'になります!</p>';
-  }
-  chtml += '</div>';
-
-  /* 🌈 未来貯金の積み立て(花には数えない) */
-  var mcard = "";
-  var asaList = S.habits.filter(function(h){ return h.time==="asa" && !h.off; });
-  if(asaList.length){
-    var nowK = keyFor(0), ym = nowK.slice(0,7), yr = nowK.slice(0,4);
-    var arows = "", tAll = 0, tYear = 0, tMonth = 0;
-    asaList.forEach(function(h){
-      var cm = 0, cy = 0, ca = 0;
-      for(var lk in S.log){
-        if(S.log[lk][h.id]){
-          ca++;
-          if(lk.slice(0,4)===yr) cy++;
-          if(lk.slice(0,7)===ym) cm++;
-        }
-      }
-      tAll += ca; tYear += cy; tMonth += cm;
-      arows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
-        '<span class="cnt">今月 '+cm+'回 <small>/ 今年 '+cy+' / 通算 '+ca+'</small></span></div>';
-    });
-    mcard = '<div class="card"><h2>🌈 未来貯金</h2>' +
-      '<div class="goldtop"><span class="rainbowbig">'+tAll+'</span><span class="goldunit">回</span>' +
-      '<span class="gsub">今月 '+tMonth+'回 / 今年 '+tYear+'回</span></div>' + arows +
-      '<p class="note" style="margin:10px 0 0">花には数えない、減らない、静かに貯まる資産です。</p></div>';
-  }
-
-  /* 🪙 資産(金貨) */
-  var gcard = "";
-  var goldList = S.habits.filter(function(h){ return h.time==="gold" && !h.off; });
-  if(goldList.length){
-    var nowK2 = keyFor(0), ym2 = nowK2.slice(0,7), yr2 = nowK2.slice(0,4);
-    var gAll = goldTotal(""), gYear = goldTotal(yr2), gMonth = goldTotal(ym2);
-    var grows = "";
-    goldList.forEach(function(h){
-      var cm=0, cy=0, ca=0;
-      for(var lk in S.log){
-        if(S.log[lk][h.id]){
-          ca++;
-          if(lk.slice(0,4)===yr2) cy++;
-          if(lk.slice(0,7)===ym2) cm++;
-        }
-      }
-      grows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
-        '<span class="cnt">今月 '+cm+'枚 <small>/ 今年 '+cy+' / 通算 '+ca+'</small></span></div>';
-    });
-    var coins = "";
-    for(var ci=0; ci<Math.min(gAll, 40); ci++) coins += '<span class="coin">🪙</span>';
-    gcard = '<div class="card"><h2>🪙 未来資産</h2>' +
-      '<div class="goldtop"><span class="goldbig">'+gAll+'</span><span class="goldunit">枚</span>' +
-      '<span class="gsub">今月 '+gMonth+'枚 / 今年 '+gYear+'枚</span></div>' +
-      (coins ? '<div class="coinbox">'+coins+(gAll>40 ? '<span class="gsub">…</span>' : '')+'</div>' : '') +
-      grows +
-      '<p class="note" style="margin:10px 0 0">金貨は減りません。できなかった日は、ただ0枚の日です。</p></div>';
-  }
-
-  var html = '<p class="sect">🌸 ゆめ(ダイエット)</p>' + chtml +
-    '<div class="card"><h2>たいじゅう(90日)</h2>' + weightChartSVG() + '</div>' +
-    (gcard ? '<p class="sect">🪙 未来資産</p>' + gcard : '');
-
-  /* おきた時間(7日) */
-  var wakes = [];
-  for(var wo=-6; wo<=0; wo++){
-    var wkk = keyFor(wo);
-    if(S.wake && S.wake[wkk]) wakes.push({k:wkk, v:S.wake[wkk]});
-  }
-  var wcard = '<div class="card"><h2>おきた時間(7日)</h2>';
-  if(wakes.length){
-    var mins = 0, wrows = "";
-    wakes.forEach(function(w){
-      var p = w.v.split(":");
-      mins += (+p[0])*60 + (+p[1]);
-      wrows += '<div class="wk"><span>⏰ '+dispDate(w.k)+'</span><span class="cnt">'+w.v+'</span></div>';
-    });
-    var avg = Math.round(mins/wakes.length);
-    wcard += wrows + '<p class="note" style="margin:8px 0 0">7日平均 '+String(Math.floor(avg/60)).padStart(2,"0")+':'+String(avg%60).padStart(2,"0")+'</p>';
-  }else{
-    wcard += '<p class="note" style="margin:0">「きょう」の おきた時間 から記録できます</p>';
-  }
-  wcard += '</div>';
-  if(mcard) html += '<p class="sect">🌈 そのほか</p>' + mcard;
-  html += '<p class="sect">📋 ふりかえり</p>' + wcard;
-
-  /* 14日グリッド */
-  var keys=[]; for(var o=-13;o<=0;o++) keys.push(keyFor(o));
-  var cols = keys.length;
-  var grid = '<div class="ggrid" style="grid-template-columns:auto repeat('+cols+',17px)">';
-  grid += '<span></span>';
-  keys.forEach(function(k){ grid += '<span class="gday">'+parseKey(k).getDate()+'</span>'; });
-  activeHabits().forEach(function(h){
-    grid += '<span class="glabel">'+esc(h.emoji)+'</span>';
-    keys.forEach(function(k){
-      var on = S.log[k] && S.log[k][h.id];
-      grid += '<span class="gcell'+(on?" on":"")+'"></span>';
-    });
-  });
-  grid += '</div>';
-  html += '<div class="card"><h2>この14日</h2><div class="gridwrap">'+grid+'</div></div>';
-
-  /* 今週・先週 */
-  var wk = weekKeys();
-  var lastWk = wk.map(function(k){ var d=parseKey(k); d.setDate(d.getDate()-7); return fmt(d); });
-  var rows = "";
-  activeHabits().forEach(function(h){
-    rows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
-      '<span class="cnt">'+countIn(wk,h.id)+'回 <small>(先週 '+countIn(lastWk,h.id)+'回)</small></span></div>';
-  });
-  html += '<div class="card"><h2>こんしゅうの回数</h2>'+rows+
-    '<p class="note" style="margin:10px 0 0">0回の週があっても、また始めればチャラです。</p></div>';
-
-  /* こんげつの畑(月ごとのカレンダー・‹›で前後の月へ) */
-  var mBase = parseKey(keyFor(0));
-  var mDate = new Date(mBase.getFullYear(), mBase.getMonth() + monthOffset, 1);
-  var yy = mDate.getFullYear(), mm = mDate.getMonth();
-  var dim = new Date(yy, mm+1, 0).getDate();
-  var firstDow = (new Date(yy, mm, 1).getDay() + 6) % 7; /* 月=0 */
-  var ymKey = yy + "-" + String(mm+1).padStart(2,"0");
-  var todayK = keyFor(0);
-
-  var cal = '<div class="mcal">';
-  ["月","火","水","木","金","土","日"].forEach(function(w){ cal += '<span class="mh">'+w+'</span>'; });
-  for(var bl=0; bl<firstDow; bl++) cal += '<span class="mcell blank"></span>';
-  var mTaps = 0, mDays = 0, mGold = 0;
-  for(var dd=1; dd<=dim; dd++){
-    var dk = ymKey + "-" + String(dd).padStart(2,"0");
-    var cv = 0;
-    if(S.log[dk]) for(var idk in S.log[dk]){ if(S.log[dk][idk]) cv++; }
-    if(cv){ mTaps += cv; mDays++; }
-    var lv = cv>=6 ? 4 : cv>=4 ? 3 : cv>=2 ? 2 : cv>=1 ? 1 : 0;
-    var gq = goldOn(dk);
-    if(gq) mGold += gq;
-    cal += '<span class="mcell'+(lv?' l'+lv:'')+(gq?' gold':'')+(dk===todayK?' today':'')+'">'+dd+'</span>';
-  }
-  cal += '</div>';
-
-  var mFlowers = earnedWeeks().filter(function(w){
-    var wd = parseKey(w); wd.setDate(wd.getDate()+3); /* 週の真ん中(木曜)がどの月か */
-    return wd.getFullYear()===yy && wd.getMonth()===mm;
-  }).length;
-  var mRows = "";
-  activeHabits().forEach(function(h){
-    var c = 0;
-    for(var lk in S.log){ if(lk.slice(0,7)===ymKey && S.log[lk][h.id]) c++; }
-    mRows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span><span class="cnt">'+c+'回</span></div>';
-  });
-
-  html += '<div class="card">' +
-    '<div class="monthhead"><button class="mbtn" id="mprev" aria-label="前の月">‹</button>' +
-    '<span class="mlabel">'+yy+'年 '+(mm+1)+'月のはたけ</span>' +
-    '<button class="mbtn" id="mnext" aria-label="次の月"'+(monthOffset>=0?' disabled':'')+'>›</button></div>' +
-    cal +
-    '<div class="msum"><span>きろくした日 <b>'+mDays+'</b>/'+dim+'日</span>' +
-    '<span>タップ <b>'+mTaps+'</b>こ</span>' +
-    '<span>'+themeDef().collect+' <b>'+mFlowers+'</b></span>' +
-    '<span>🪙 <b>'+mGold+'</b></span></div>' +
-    '<div style="margin-top:12px">'+mRows+'</div></div>';
-
-  /* ことしの畑(年間ヒートマップ、タップで開閉) */
-  var yr = keyFor(0).slice(0,4);
-  var ycard = '<div class="card"><h2>ことしの畑('+yr+'年)</h2>';
-  if(yearOpen){
-    var dayTotals = {}, yearTaps = 0;
-    for(var lk2 in S.log){
-      if(lk2.slice(0,4) !== yr) continue;
-      var cc = 0;
-      for(var id2 in S.log[lk2]){ if(S.log[lk2][id2]) cc++; }
-      if(cc){ dayTotals[lk2] = cc; yearTaps += cc; }
-    }
-    var yg = '<div class="yearwrap"><div class="ygrid">';
-    for(var mo=0; mo<12; mo++){
-      yg += '<span class="ymon">'+(mo+1)+'月</span>';
-      var dim = new Date(+yr, mo+1, 0).getDate();
-      for(var dd=1; dd<=31; dd++){
-        if(dd <= dim){
-          var dk = yr+'-'+String(mo+1).padStart(2,'0')+'-'+String(dd).padStart(2,'0');
-          var cv = dayTotals[dk] || 0;
-          var lv = cv>=6 ? 4 : cv>=4 ? 3 : cv>=2 ? 2 : cv>=1 ? 1 : 0;
-          yg += '<span class="ycell'+(lv?' l'+lv:'')+'"></span>';
-        }else{
-          yg += '<span class="ycell empty"></span>';
-        }
-      }
-    }
-    yg += '</div></div>';
-    var yFlowers = earnedWeeks().filter(function(w){ return w.slice(0,4)===yr; }).length;
-    ycard += yg +
-      '<p class="note" style="margin:8px 0 0">色がこい日ほどタップが多い日。ことしの合計 '+yearTaps+'回 / '+themeDef().collect+'×'+yFlowers+' / 🪙 '+goldTotal(yr)+'まい</p>' +
-      '<button class="linkbtn" id="yearbtn">とじる</button>';
-  }else{
-    ycard += '<button class="linkbtn" id="yearbtn">📅 タップで1年ぜんぶみる</button>';
-  }
-  ycard += '</div>';
-  html += ycard;
-
-  document.getElementById("view-log").innerHTML = html;
-  var gw = document.querySelector("#view-log .gridwrap");
-  if(gw) gw.scrollLeft = gw.scrollWidth;
-  var yb = document.getElementById("yearbtn");
-  if(yb) yb.addEventListener("click", function(){ yearOpen = !yearOpen; renderLog(); });
-  var mp = document.getElementById("mprev");
-  if(mp) mp.addEventListener("click", function(){ monthOffset--; renderLog(); });
-  var mn = document.getElementById("mnext");
-  if(mn) mn.addEventListener("click", function(){ if(monthOffset<0){ monthOffset++; renderLog(); } });
-}
-
-/* --- settings --- */
-function renderSet(){
-  var html = '<div class="card"><h2>しゅうかんの編集</h2><div id="hedit">';
-  S.habits.forEach(function(h,i){
-    html += '<div class="edit-row'+(h.off?" is-off":"")+'" data-i="'+i+'">' +
-      '<div class="edit-line">' +
-      '<input class="in-emoji" value="'+esc(h.emoji)+'" maxlength="4" aria-label="絵文字">' +
-      '<input class="in-name" value="'+esc(h.name)+'" maxlength="14" aria-label="名前">' +
-      '<button class="mini tglt" style="color:var(--accent)" aria-label="グループの切替">'+(h.time==="asa"?"🌈":h.time==="gold"?"🪙":"🌸")+'</button>' +
-      '<button class="mini act-off" style="color:var(--sub)">'+(h.off?"もどす":"おやすみ")+'</button>' +
-      '<button class="mini act-del">けす</button></div>' +
-      '<div class="edit-line"><input class="in-hint" value="'+esc(h.hint)+'" maxlength="40" aria-label="ヒント"></div>' +
-      '</div>';
-  });
-  html += '</div><p class="note" style="margin:8px 2px 0">🌸やせ習慣(花になる) / 🪙未来資産(金貨がたまる) のボタンで切りかえ。「おやすみ」は消さずに寝かせます</p>' +
-    '<div class="btnrow"><button class="btn ghost" id="haddbtn">+ ふやす</button>' +
-    '<button class="btn" id="hsavebtn">変更をほぞん</button></div></div>';
-
-  var tdcur = S.theme || "hana";
-  html += '<div class="card"><h2>そだてるもの</h2><div class="btnrow">';
-  Object.keys(THEMES).forEach(function(key){
-    var t = THEMES[key];
-    html += '<button class="btn '+(key===tdcur?"":"ghost")+' tpick" data-t="'+key+'">'+t.stages[3][0]+' '+esc(t.name)+'</button>';
-  });
-  html += '</div><p class="note" style="margin:8px 0 0">'+themeDef().stages.map(function(s){return s[0];}).join(" → ")+' と育って、'+themeDef().collect+' があつまります</p></div>';
-
-  var g = S.goal || {};
-  html += '<div class="card"><h2>もくひょう体重</h2>' +
-    '<div class="edit-line">' +
-    '<input class="in-name" id="set-gstart" type="number" inputmode="decimal" step="0.1" min="20" max="200" value="' + (g.start != null ? g.start : "") + '" placeholder="スタート" aria-label="スタート体重">' +
-    '<input class="in-name" id="set-gtarget" type="number" inputmode="decimal" step="0.1" min="20" max="200" value="' + (g.target != null ? g.target : "") + '" placeholder="もくひょう" aria-label="目標体重"></div>' +
-    '<div class="btnrow"><button class="btn ghost" id="set-gsave">もくひょうをほぞん</button></div></div>';
-
-  html += '<div class="card"><h2>バックアップ</h2>' +
-    '<p class="note" style="margin:0 0 8px">データはこのスマホの中だけに保存されます。<b>月に1回、「書き出す」の文字をコピーしてLINEのKeepメモに貼っておいてください。</b>Safariの履歴消去や機種変更で記録は消えますが、この文字さえあれば「読み込む」でぜんぶ戻せます。</p>' +
-    '<textarea class="backup" id="bktext" placeholder="ここに貼り付けて「読み込む」"></textarea>' +
-    '<div class="btnrow"><button class="btn ghost" id="bkout">書き出す</button>' +
-    '<button class="btn ghost" id="bkin">読み込む</button></div></div>';
-
-  html += '<div class="card"><h2>そのほか</h2>' +
-    '<p class="note" style="margin:0 0 10px">🌙 夜ふかしさん仕様:深夜3時までの記録は「前日」の分になります。<br>‹ ボタンで7日前までさかのぼって記録できます。</p>' +
-    '<button class="btn danger" id="wipe">データをぜんぶ消す</button></div>';
-
-  document.getElementById("view-set").innerHTML = html;
-
-  var tpicks = document.querySelectorAll(".tpick");
-  for(var tp=0;tp<tpicks.length;tp++){
-    tpicks[tp].addEventListener("click", function(){
-      S.theme = this.getAttribute("data-t");
-      save(); toast(themeDef().name + " にきまり!");
-      renderSet(); renderHeader();
-    });
-  }
-  document.getElementById("set-gsave").addEventListener("click", function(){
-    var st = parseFloat(document.getElementById("set-gstart").value);
-    var tg = parseFloat(document.getElementById("set-gtarget").value);
-    if(!(st >= 20 && st <= 200) || !(tg >= 20 && tg <= 200)){ toast("2つとも数字で入れてね"); return; }
-    S.goal = { start: Math.round(st*10)/10, target: Math.round(tg*10)/10 };
-    save(); toast("ほぞんしました 🌸"); renderHeader();
-  });
-  document.getElementById("hsavebtn").addEventListener("click", function(){
-    var rows = document.querySelectorAll("#hedit .edit-row");
-    for(var i=0;i<rows.length;i++){
-      var r = rows[i], idx = +r.getAttribute("data-i");
-      var name = r.querySelector(".in-name").value.trim();
-      if(name) S.habits[idx].name = name;
-      S.habits[idx].emoji = r.querySelector(".in-emoji").value.trim() || "✅";
-      S.habits[idx].hint = r.querySelector(".in-hint").value.trim();
-    }
-    save(); toast("ほぞんしました"); renderSet(); renderHeader();
-  });
-  document.getElementById("haddbtn").addEventListener("click", function(){
-    S.habits.push({id:"h"+Date.now(), emoji:"✨", name:"あたらしい習慣", hint:"", time:"yoru"});
-    save(); renderSet();
-  });
-  var offs = document.querySelectorAll("#hedit .act-off");
-  for(var of=0; of<offs.length; of++){
-    offs[of].addEventListener("click", function(){
-      var idx = +this.closest(".edit-row").getAttribute("data-i");
-      S.habits[idx].off = !S.habits[idx].off;
-      if(!S.habits[idx].off) delete S.habits[idx].off;
-      save();
-      toast(S.habits[idx].off ? "おやすみ中にしました 💤(記録は残ります)" : "もどしました ✓");
-      renderSet(); renderHeader();
-    });
-  }
-  var tgls = document.querySelectorAll("#hedit .tglt");
-  for(var tg=0;tg<tgls.length;tg++){
-    tgls[tg].addEventListener("click", function(){
-      var idx = +this.closest(".edit-row").getAttribute("data-i");
-      var cur = S.habits[idx].time;
-      var nxt = cur==="yoru" ? "gold" : "yoru";
-      S.habits[idx].time = nxt;
-      save(); toast(nxt==="gold" ? "未来資産に移動 🪙" : "やせ習慣に移動 🌸");
-      renderSet();
-    });
-  }
-  var dels = document.querySelectorAll("#hedit .act-del");
-  for(var d=0;d<dels.length;d++){
-    dels[d].addEventListener("click", function(){
-      var row = this.closest(".edit-row"), idx = +row.getAttribute("data-i");
-      var id = S.habits[idx].id;
-      if(pendingConfirm["del"+id]){
-        delete pendingConfirm["del"+id];
-        S.habits.splice(idx,1);
-        save(); toast("けしました"); renderSet(); renderHeader();
-      }else{
-        pendingConfirm["del"+id] = true;
-        this.textContent = "ほんとにけす?";
-        toast("もう一度おすと消えます");
-      }
-    });
-  }
-  document.getElementById("bkout").addEventListener("click", function(){
-    var txt = JSON.stringify(S);
-    var ta = document.getElementById("bktext");
-    ta.value = txt; ta.select();
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(txt).then(function(){ toast("コピーしました 📋"); },
-        function(){ toast("全選択したのでコピーしてね"); });
-    }else toast("全選択したのでコピーしてね");
-  });
-  document.getElementById("bkin").addEventListener("click", function(){
-    var ta = document.getElementById("bktext");
-    var s;
-    try{ s = JSON.parse(ta.value); }catch(e){ toast("読み込めない形式でした"); return; }
-    if(!s || !s.habits || !s.log){ toast("バックアップの文字ではないみたい"); return; }
-    var addDays = 0, d;
-    for(d in s.log){ if(!S.log[d] || Object.keys(S.log[d]).length === 0) addDays++; }
-    if(pendingConfirm.imp){
-      delete pendingConfirm.imp;
-      /* 記録は「合体」する。いまある記録は消さない(古いバックアップを読んでも安全) */
-      var merged = {}, k;
-      for(k in s.log) merged[k] = s.log[k];
-      for(k in S.log){ if(S.log[k] && Object.keys(S.log[k]).length) merged[k] = S.log[k]; }
-      var mw = {}, mk = {};
-      for(k in s.weight) mw[k] = s.weight[k];
-      for(k in S.weight) mw[k] = S.weight[k];
-      for(k in (s.wake||{})) mk[k] = s.wake[k];
-      for(k in (S.wake||{})) mk[k] = S.wake[k];
-      s.log = merged; s.weight = mw; s.wake = mk;
-      S = s; save();
-      toast(addDays ? addDays + "日ぶん、記録がふえました ✓" : "読み込みました(記録はそのまま)");
-      renderHeader(); renderToday(); renderLog(); renderSet();
-    }else{
-      pendingConfirm.imp = true;
-      toast(addDays ? "もう一度おすと " + addDays + "日ぶん追加します"
-                    : "新しい記録はないみたい。もう一度おすと設定だけ読み込みます");
-    }
-  });
-  document.getElementById("wipe").addEventListener("click", function(){
-    if(pendingConfirm.wipe){
-      delete pendingConfirm.wipe;
-      S = defaults(); save();
-      toast("まっさらにしました");
-      renderHeader(); renderToday(); renderLog(); renderSet();
-    }else{
-      pendingConfirm.wipe = true;
-      this.textContent = "ほんとに消す?(もう一度)";
-      toast("もう一度おすと全部消えます");
-    }
-  });
-}
-
-/* --- tabs & nav --- */
-function show(){
-  document.getElementById("view-today").hidden = tab!=="today";
-  document.getElementById("view-log").hidden = tab!=="log";
-  document.getElementById("view-set").hidden = tab!=="set";
-  var tabs = document.querySelectorAll(".tab");
-  for(var i=0;i<tabs.length;i++)
-    tabs[i].classList.toggle("active", tabs[i].getAttribute("data-tab")===tab);
-  if(tab==="today") renderToday();
-  if(tab==="log") renderLog();
-  if(tab==="set"){ pendingConfirm={}; renderSet(); }
-  renderHeader();
-}
-var tabBtns = document.querySelectorAll(".tab");
-for(var i=0;i<tabBtns.length;i++){
-  tabBtns[i].addEventListener("click", function(){
-    tab = this.getAttribute("data-tab"); show();
-  });
-}
-document.getElementById("dprev").addEventListener("click", function(){
-  if(dayOffset>-60){ dayOffset--; renderHeader(); renderToday(); }
-});
-document.getElementById("dnext").addEventListener("click", function(){
-  if(dayOffset<0){ dayOffset++; renderHeader(); renderToday(); }
-});
-
-show();
+  S=DB.classes[DB.active];
 })();
+function save(){try{localStorage.setItem(LS_KEY,JSON.stringify(DB));}catch(e){toast('ほぞんに しっぱいしました');}}
+function switchClass(id){
+  if(!DB.classes[id])return;
+  DB.active=id;S=DB.classes[id];
+  kuji=null;const ka=document.getElementById('kujiArea');if(ka)ka.style.display='none';
+  save();renderAll();updateSndBtn();
+  if(typeof bgmApply==='function')bgmApply();
+  if(typeof updateBgmBtn==='function')updateBgmBtn();
+}
+function uid(){return 's'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+function stu(id){return S.students.find(x=>x.id===id);}
+function seatObj(k){return S.seats[k]||{};}
+function setSeat(k,patch){S.seats[k]=Object.assign({},S.seats[k]||{},patch);}
+function key(r,c){return r+'_'+c;}
+function enabledSeats(){const out=[];for(let r=0;r<S.rows;r++)for(let c=0;c<S.cols;c++){const k=key(r,c);if(!seatObj(k).off)out.push(k);}return out;}
+function rc(k){const p=k.split('_');return [ +p[0], +p[1] ];}
+
+/* ================= i18n ================= */
+const TXT={
+appTitle:['せきがえ君','せきがえ君'],
+tabRoster:['めいぼ','名簿'],tabLayout:['ざせき','座席'],tabRules:['やくそく','条件'],
+tabShuffle:['せきがえ','席替え'],tabOmake:['くじびき','くじ引き'],tabHistory:['きろく','記録'],tabSettings:['せってい','設定'],tabHelp:['つかいかた','使い方'],
+rosterH:['めいぼ','名簿'],rosterD:['クラスのみんなの なまえと せいべつを とうろくします(さいだい45人)。','クラス全員の名前と性別を登録します(最大45人)。'],
+add:['ついか','追加'],add2:['ついか','追加'],bulk:['まとめて とうろく(コピペ)','まとめて登録(コピペ)'],
+rosterClear:['めいぼを ぜんぶ けす','名簿を全部消す'],
+layoutH:['ざせきの かたち','座席の形'],layoutD:['きょうしつに あわせて せきを つくります。へんしゅうモードを えらんで せきを タップ!','教室に合わせて席を作ります。編集モードを選んで席をタップ。'],
+rows:['たて','縦'],cols:['よこ','横'],
+emOnoff:['せき あり/なし','席あり/なし'],emFixed:['していせき','指定席'],emGender:['だんじょ','男女'],emTeam:['はん','班'],
+board:['こくばん','黒 板'],
+rulesH:['はいちの やくそく','配置の条件'],
+rulesD:['「このこと このこは はなす」などの はいりょを せっていします。していせき・だんじょの せきは「ざせき」タブで。','「この子とこの子は離す」などの配慮を設定します。指定席・男女席は「座席」タブで。'],
+rulesAdd:['はなす ペアを ついか','離すペアを追加'],and:['と','と'],
+ctAdj:['となりに しない(まわり1マス)','隣にしない(周囲1マス)'],ctDist:['きょりを してい','距離を指定'],
+vgap:['たてに','縦に'],hgap:['よこに','横に'],gapHint:['人ぶんより ちかくに しない','人分より近くにしない'],
+histRule:['まえに となりだった こ','以前隣だった子'],
+histRuleTxt:['さいきん','直近'],histRuleTxt2:['回の せきがえで となりだった こ とは、なるべく となりに しない','回の席替えで隣だった子とは、なるべく隣にしない'],
+histRuleHint:['※「ぜったい」ではなく「なるべく」です。せんせいの せっていが さいゆうせん。','※「絶対」ではなく「なるべく」です。先生の配慮設定が最優先。'],
+shufH:['せきがえ','席替え'],shufD:['じゅんびが できたら、ボタンを おしてね!','準備ができたら、ボタンを押してください。'],
+scope:['はんい:','範囲:'],scopeAll:['クラス ぜんいん','クラス全員'],scopeTeam:['はんの なかだけ','班の中だけ'],
+fx:['えんしゅつ:','演出:'],fxPlain:['シンプル','シンプル'],
+btnBatch:['🎉 いっきに せきがえ!','🎉 一括で席替え'],btnKuji:['🎟 ひとりずつ くじびき','🎟 一人ずつくじ引き'],
+kujiHint:['じぶんの なまえを タップして、くじを ひこう!','自分の名前をタップして、くじを引こう!'],
+btnReveal:['🥁 はっぴょう!','🥁 発表!'],cancel:['やめる','中止'],
+omakeH:['なんでも くじびき','なんでもくじ引き'],
+omakeD:['はっぴょうの じゅんばんきめ、かかりきめ など、いろいろ つかえる くじです。','発表の順番決め、係決めなど、いろいろ使えるくじです。'],
+omakeFrom:['だれの なかから?','対象:'],omakeOne:['1人 えらぶ','1人選ぶ'],omakeOrder:['じゅんばんを きめる','順番を決める'],
+omakeGo:['🎲 くじを ひく!','🎲 くじを引く'],
+histH:['せきがえの きろく','席替えの記録'],
+histD:['これまでの ざせきが ひづけつきで のこります。タップで ひょうじ、がぞうほぞんも できます。','これまでの座席が日付つきで残ります。タップで表示、画像保存もできます。'],
+setH:['せってい','設定'],setSnd:['おと','音'],sndFun:['にぎやか','にぎやか'],sndCalm:['おちつき','おちつき'],sndOff:['なし','なし'],
+setData:['データの ほかん','データの保管'],
+setDataHint:['データは この iPad(このブラウザ)の なかだけに ほぞんされます。ねんのため ときどき バックアップすると あんしんです。','データはこのiPad(このブラウザ)の中だけに保存されます。念のため、ときどきバックアップしておくと安心です。'],
+expData:['バックアップを かきだす','バックアップを書き出す'],impData:['バックアップを よみこむ','バックアップを読み込む'],
+setDanger:['データの さくじょ','データの削除'],clearHist:['このクラスの きろくを ぜんぶ けす','このクラスの記録を全部消す'],clearAll:['このクラスの データを ぜんぶ けす','このクラスのデータを全部消す'],
+setCls:['クラスの かんり','クラスの管理'],
+setClsHint:['あたらしい ねんども、まえの きろくを のこしたまま つかえるよ。うえの 🏫ボタンからも ひらけます。','新年度になったら新しいクラスを追加すれば、前の年度の記録を残したまま使えます。画面上部の🏫ボタンからも開けます。'],
+setClsBtn:['🏫 クラスの きりかえ・ついか','🏫 クラスの切り替え・追加'],
+};
+function T(k){const e=TXT[k];return e?e[S.grade==='low'?0:1]:k;}
+function applyText(){
+  $$('[data-k]').forEach(el=>{el.textContent=T(el.dataset.k);});
+  $('#appTitle').textContent=T('appTitle');
+  $('#classBtn').textContent='🏫 '+(S.name||'クラス');
+  document.documentElement.classList.toggle('g-low',S.grade==='low');
+  document.documentElement.classList.toggle('g-high',S.grade!=='low');
+}
+
+/* ================= toast / modal ================= */
+let toastTimer;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('on'),2300);}
+$('#toast').addEventListener('click',()=>{$('#toast').classList.remove('on');clearTimeout(toastTimer);});
+function openModal(html){$('#modalBody').innerHTML=html;$('#modalBack').classList.add('on');}
+function closeModal(){$('#modalBack').classList.remove('on');}
+$('#modalBack').addEventListener('click',e=>{if(e.target.id==='modalBack')closeModal();});
+/* in-app confirm (window.confirm is blocked inside the hosted page) */
+function confirmBox(msg,onYes){
+  openModal(`<h3>${S.grade==='low'?'かくにん':'確認'}</h3>
+  <p style="font-weight:700;white-space:pre-line;">${esc(msg)}</p>
+  <div class="row" style="justify-content:flex-end;">
+    <button class="btn sm" id="cbNo">${S.grade==='low'?'やめる':'キャンセル'}</button>
+    <button class="btn primary sm" id="cbYes">OK</button>
+  </div>`);
+  $('#cbNo').addEventListener('click',closeModal);
+  $('#cbYes').addEventListener('click',()=>{closeModal();onYes();});
+}
+
+/* ================= sound ================= */
+let AC=null;
+function ac(){if(!AC){const C=window.AudioContext||window.webkitAudioContext;AC=new C();}if(AC.state==='suspended')AC.resume();return AC;}
+/* all sound effects go through one gain node so they can be cut instantly */
+let SFX=null;
+function sfxNode(){const a=ac();if(!SFX){SFX=a.createGain();SFX.gain.value=1;SFX.connect(a.destination);}return SFX;}
+function sfxKill(){if(SFX){try{SFX.disconnect();}catch(e){}SFX=null;}}
+/* iOS: audio must be unlocked inside the first real user gesture */
+function unlockAudio(){
+  try{
+    const a=ac();
+    const b=a.createBuffer(1,1,22050);
+    const s=a.createBufferSource();s.buffer=b;s.connect(a.destination);s.start(0);
+  }catch(e){}
+  bgmStart();
+  document.removeEventListener('touchend',unlockAudio);
+  document.removeEventListener('click',unlockAudio);
+}
+document.addEventListener('touchend',unlockAudio);
+document.addEventListener('click',unlockAudio);
+
+/* ================= BGM ================= */
+const midiF=m=>440*Math.pow(2,(m-69)/12);
+/* 3 loops: 32 eighth-note steps each; 0 = rest
+   perc: 0=なし 1=ハイハット(シャカ) 2=キック(ドン)  swing: 裏拍を遅らせて跳ねさせる */
+const BGMS={
+  wakuwaku:{ // 🎉 スキップするようなはずむ曲(スウィング+打楽器)
+    step:0.23,type:'triangle',vol:0.06,bvol:0.05,swing:0.34,
+    mel:[72,0,74,76, 0,79,76,74, 72,74,72,69, 67,0,0,0, 69,0,72,74, 0,76,74,72, 74,76,79,76, 72,0,0,0],
+    bass:[48,0,55,0, 52,0,55,0, 45,0,52,0, 48,0,55,0, 45,0,52,0, 48,0,55,0, 50,0,55,0, 48,0,43,0],
+    perc:[2,0,1,0, 2,0,1,1, 2,0,1,0, 2,0,1,0, 2,0,1,0, 2,0,1,1, 2,0,1,0, 2,1,1,1]},
+  yuttari:{ // 🍃 あつ森風・のんびり口笛メロディ+やわらか和音
+    step:0.46,type:'sine',vol:0.05,bvol:0.04,swing:0.15,
+    mel:[76,0,0,74, 72,0,67,0, 72,0,0,71, 69,0,64,0, 65,0,0,67, 69,0,72,0, 74,0,71,0, 67,0,0,0],
+    bass:[48,0,0,0, 55,0,52,0, 45,0,0,0, 52,0,48,0, 50,0,0,0, 57,0,53,0, 43,0,0,0, 50,0,47,0],
+    harm:[64,0,0,0, 0,0,0,0, 60,0,0,0, 0,0,0,0, 62,0,0,0, 0,0,0,0, 59,0,0,0, 0,0,0,0]},
+  genki:{ // ⚡ はやいマーチ(ドラム入り)
+    step:0.18,type:'square',vol:0.028,bvol:0.026,swing:0,
+    mel:[72,72,76,72, 79,76,72,74, 76,76,79,76, 81,79,76,74, 72,72,76,79, 84,81,79,76, 74,76,77,79, 81,79,77,74],
+    bass:[48,48,55,55, 48,48,55,55, 50,50,57,57, 50,50,57,57, 45,45,52,52, 45,45,52,52, 43,43,50,50, 55,55,55,55],
+    perc:[2,1,1,1, 2,1,1,1, 2,1,1,1, 2,1,1,1, 2,1,1,1, 2,1,1,1, 2,1,1,1, 2,1,2,1]}
+};
+let bgm={timer:null,nextT:0,step:0,gain:null};
+function bgmEnsure(){
+  const a=ac();
+  if(!bgm.gain){bgm.gain=a.createGain();bgm.gain.gain.value=1;bgm.gain.connect(a.destination);}
+}
+function bgmNote(f,t,dur,type,vol){
+  const a=ac(),o=a.createOscillator(),g=a.createGain();
+  o.type=type;o.frequency.value=f;
+  g.gain.setValueAtTime(0.0001,t);
+  g.gain.exponentialRampToValueAtTime(vol,t+0.02);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g).connect(bgm.gain);
+  o.start(t);o.stop(t+dur+0.05);
+}
+function bgmPerc(t,kind){
+  const a=ac();
+  if(kind===2){ // キック
+    const o=a.createOscillator(),g=a.createGain();
+    o.type='sine';o.frequency.setValueAtTime(160,t);o.frequency.exponentialRampToValueAtTime(55,t+0.1);
+    g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.09,t+0.01);g.gain.exponentialRampToValueAtTime(0.0001,t+0.13);
+    o.connect(g).connect(bgm.gain);o.start(t);o.stop(t+0.16);
+  }else{ // ハイハット
+    const n=Math.floor(a.sampleRate*0.03),buf=a.createBuffer(1,n,a.sampleRate),d=buf.getChannelData(0);
+    for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);
+    const src=a.createBufferSource();src.buffer=buf;
+    const g=a.createGain();g.gain.value=0.035;
+    src.connect(g).connect(bgm.gain);src.start(t);
+  }
+}
+function bgmTick(){
+  const a=ac();
+  const st=BGMS[S.bgmStyle]||BGMS.wakuwaku;
+  while(bgm.nextT<a.currentTime+0.8){
+    const i=bgm.step%st.mel.length;
+    const t=bgm.nextT+((i%2===1)?st.step*(st.swing||0):0); // 裏拍スウィング
+    if(st.mel[i])bgmNote(midiF(st.mel[i]),t,st.step*0.95,st.type,st.vol);
+    if(st.bass[i])bgmNote(midiF(st.bass[i]),t,st.step*1.8,'sine',st.bvol);
+    if(st.harm&&st.harm[i])bgmNote(midiF(st.harm[i]),t,st.step*5,'sine',0.022);
+    if(st.perc&&st.perc[i])bgmPerc(t,st.perc[i]);
+    bgm.step++;bgm.nextT+=st.step;
+  }
+}
+function bgmStart(){
+  if(bgm.timer||!S.bgmOn||S.snd==='off')return;
+  try{
+    const a=ac();bgmEnsure();
+    bgm.nextT=a.currentTime+0.08;bgm.step=0;
+    bgmTick();
+    bgm.timer=setInterval(bgmTick,250);
+  }catch(e){}
+}
+function bgmStop(){if(bgm.timer){clearInterval(bgm.timer);bgm.timer=null;}}
+function bgmApply(){if(S.bgmOn&&S.snd!=='off')bgmStart();else bgmStop();}
+function bgmDuck(d){
+  if(!bgm.gain)return;
+  try{const a=ac();bgm.gain.gain.cancelScheduledValues(a.currentTime);bgm.gain.gain.setTargetAtTime(d?0.05:1,a.currentTime,0.18);}catch(e){}
+}
+document.addEventListener('visibilitychange',()=>{if(document.hidden)bgmStop();else bgmApply();});
+function updateBgmBtn(){const b=$('#bgmBtn');b.textContent=S.bgmOn?'🎵':'🎵ﾅｼ';b.style.opacity=S.bgmOn?'1':'.5';}
+$('#bgmBtn').addEventListener('click',()=>{
+  S.bgmOn=!S.bgmOn;save();bgmApply();updateBgmBtn();
+  toast(S.bgmOn?'BGM オン🎵':'BGM オフ');
+});
+function tone(f,dur,type,vol,when,fEnd){
+  if(S.snd==='off')return;
+  const a=ac(),o=a.createOscillator(),g=a.createGain(),t0=a.currentTime+(when||0);
+  o.type=type||'sine';o.frequency.setValueAtTime(f,t0);
+  if(fEnd)o.frequency.exponentialRampToValueAtTime(fEnd,t0+dur);
+  g.gain.setValueAtTime(0.0001,t0);g.gain.exponentialRampToValueAtTime(vol||0.15,t0+0.015);
+  g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);
+  o.connect(g).connect(sfxNode());o.start(t0);o.stop(t0+dur+0.05);
+}
+function noiseBurst(dur,vol,when){
+  if(S.snd==='off')return;
+  const a=ac(),n=Math.floor(a.sampleRate*dur),buf=a.createBuffer(1,n,a.sampleRate),d=buf.getChannelData(0);
+  for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);
+  const src=a.createBufferSource();src.buffer=buf;
+  const g=a.createGain();g.gain.value=vol||0.12;
+  const t0=a.currentTime+(when||0);
+  src.connect(g).connect(sfxNode());src.start(t0);
+}
+const fun=()=>S.snd==='fun';
+function sndRattle(dur){if(!fun())return;
+  const n=Math.floor(dur/0.065);
+  for(let i=0;i<n;i++){noiseBurst(0.05,0.14,i*0.065);if(i%3===0)tone(150+Math.random()*80,0.06,'square',0.06,i*0.065);}
+}
+function sndShaka(){if(!fun())return;
+  [0,.14,.3,.44,.6,.74,.9,1.04,1.18].forEach((t,i)=>{noiseBurst(0.07,0.15,t);tone(900+((i%2)*300),0.04,'square',0.05,t);});
+}
+function sndTicks(times){if(!fun())return;times.forEach(t=>{tone(1400,0.03,'square',0.11,t);tone(700,0.03,'square',0.05,t);});}
+function sndPop(){if(!fun())return;tone(600,0.09,'sine',0.12,0,900);}
+function sndResult(){
+  if(S.snd==='off')return;
+  if(fun()){tone(880,0.12,'triangle',0.16);tone(1320,0.25,'triangle',0.16,0.12);}
+  else{tone(660,0.4,'sine',0.08);tone(880,0.5,'sine',0.06,0.05);}
+}
+function sndFanfare(){
+  if(S.snd==='off')return;
+  if(fun()){[[523,0],[659,.11],[784,.22],[1047,.34]].forEach(x=>tone(x[0],0.22,'triangle',0.15,x[1]));tone(1047,0.5,'triangle',0.12,0.5);}
+  else{tone(523,0.6,'sine',0.06);tone(659,0.6,'sine',0.06,0.02);tone(784,0.7,'sine',0.06,0.04);}
+}
+function sndDrum(dur){if(!fun()){return;}
+  const n=Math.floor(dur/0.038);
+  for(let i=0;i<n;i++){noiseBurst(0.03,0.11,i*0.038);if(i%4===0)tone(110,0.07,'sine',0.1,i*0.038);}
+}
+/* per-fx result sounds */
+function sndKoron(){ // ガラポン:コロン!
+  tone(880,0.08,'sine',0.15,0,520);
+  tone(740,0.07,'sine',0.12,0.11,470);
+  tone(1320,0.35,'triangle',0.15,0.22);
+}
+function sndChin(){ // おみくじ:チリーン
+  tone(2093,0.9,'sine',0.09);
+  tone(2637,0.7,'sine',0.05,0.02);
+  tone(1568,1.0,'sine',0.04,0.01);
+}
+function sndJan(){ // ルーレット:ジャン!
+  [262,523,659,784,1047].forEach(f=>tone(f,0.7,'triangle',0.16));
+  noiseBurst(0.2,0.14,0);
+  tone(1319,0.5,'triangle',0.12,0.08);
+  tone(1568,0.4,'triangle',0.08,0.12);
+}
+function sndResultFx(){
+  if(S.snd==='off')return;
+  if(!fun()){sndResult();return;}
+  if(S.fx==='gara')sndKoron();
+  else if(S.fx==='miku')sndChin();
+  else if(S.fx==='rou')sndJan();
+  else sndResult();
+}
+function updateSndBtn(){$('#sndBtn').textContent=S.snd==='fun'?'🔊':(S.snd==='calm'?'🔈':'🔇');}
+$('#sndBtn').addEventListener('click',()=>{S.snd=S.snd==='fun'?'calm':(S.snd==='calm'?'off':'fun');save();updateSndBtn();renderSettings();bgmApply();toast(S.snd==='fun'?T('sndFun'):(S.snd==='calm'?T('sndCalm'):T('sndOff')));});
+
+/* ================= tabs ================= */
+$$('#tabs .tab').forEach(b=>b.addEventListener('click',()=>{
+  $$('#tabs .tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  $$('section.pane').forEach(p=>p.classList.remove('on'));
+  $('#pane-'+b.dataset.pane).classList.add('on');
+  renderAll();
+}));
+
+/* ================= grade switch ================= */
+$('#gLow').addEventListener('click',()=>{S.grade='low';save();renderAll();});
+$('#gHigh').addEventListener('click',()=>{S.grade='high';save();renderAll();});
+
+/* ================= class management ================= */
+$('#classBtn').addEventListener('click',openClassModal);
+$('#classMgr').addEventListener('click',openClassModal);
+function openClassModal(){
+  const low=S.grade==='low';
+  let html=`<h3>🏫 ${low?'クラスの きりかえ・かんり':'クラスの切り替え・管理'}</h3>
+  <p class="hint">${low?'つかう クラスを タップしてね。あたらしい ねんどは「クラスを ついか」で!':'使うクラスをタップして切り替え。新年度は「クラスを追加」で名簿を新しくできます(前のクラスの記録は残ります)。'}</p>
+  <div class="consList">`;
+  Object.keys(DB.classes).forEach(id=>{
+    const c=DB.classes[id];
+    const on=id===DB.active;
+    html+=`<div class="consRow" style="${on?'border-color:var(--red);':''}">
+      <button class="btn sm ${on?'primary':''}" data-sw="${id}" style="min-width:130px;">${on?'✓ ':''}${esc(c.name)}</button>
+      <span class="hint" style="flex:1;">${c.students.length}${low?'にん':'人'}・${low?'きろく':'記録'}${c.history.length}${low?'かい':'回'}</span>
+      <button class="btn sm" data-rn="${id}">✏️</button>
+      <button class="xbtn" data-del="${id}">✕</button>
+    </div>`;
+  });
+  html+=`</div>
+  <h3 style="margin-top:16px;">➕ ${low?'クラスを ついか':'クラスを追加'}</h3>
+  <div class="row">
+    <input type="text" id="newClsName" placeholder="${low?'クラスのなまえ(れい:2027年度)':'クラス名(例:2027年度 4年1組)'}" maxlength="20" style="flex:1;min-width:160px;">
+  </div>
+  <div class="row">
+    <label style="font-size:13.5px;font-weight:700;"><input type="checkbox" id="copyLayout" checked> ${low?'いまの ざせきの かたちを コピーする':'今の座席の形(席のなし・班など)をコピーする'}</label>
+  </div>
+  <div class="row" style="justify-content:flex-end;">
+    <button class="btn sm" id="clsClose">${low?'とじる':'閉じる'}</button>
+    <button class="btn primary sm" id="clsAdd">${low?'ついか':'追加'}</button>
+  </div>`;
+  openModal(html);
+  $('#clsClose').addEventListener('click',closeModal);
+  $$('#modalBody [data-sw]').forEach(b=>b.addEventListener('click',()=>{switchClass(b.dataset.sw);closeModal();toast((low?'クラスを きりかえたよ:':'クラスを切り替えました:')+DB.classes[b.dataset.sw].name);}));
+  $$('#modalBody [data-rn]').forEach(b=>b.addEventListener('click',()=>{renameClassModal(b.dataset.rn);}));
+  $$('#modalBody [data-del]').forEach(b=>b.addEventListener('click',()=>{
+    const id=b.dataset.del;
+    if(Object.keys(DB.classes).length<=1){toast(low?'さいごの クラスは けせないよ':'最後のクラスは削除できません');return;}
+    confirmBox((low?'クラス「':'クラス「')+DB.classes[id].name+(low?'」を けしますか?\nめいぼも きろくも ぜんぶ きえます。もどせません!':'」を削除しますか?\n名簿も記録もすべて消えます。元に戻せません。'),()=>{
+      delete DB.classes[id];
+      if(DB.active===id){DB.active=Object.keys(DB.classes)[0];S=DB.classes[DB.active];}
+      save();renderAll();updateSndBtn();openClassModal();
+    });
+  }));
+  $('#clsAdd').addEventListener('click',()=>{
+    const nm=$('#newClsName').value.trim();
+    if(!nm){toast(low?'クラスの なまえを いれてね':'クラス名を入力してください');return;}
+    const copy=$('#copyLayout').checked;
+    const id='c'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+    const c=defState(nm);
+    c.grade=S.grade;c.fx=S.fx;c.snd=S.snd;c.histDepth=S.histDepth;
+    if(copy){
+      c.rows=S.rows;c.cols=S.cols;
+      c.seats={};
+      Object.keys(S.seats).forEach(k=>{const o=S.seats[k];c.seats[k]={off:o.off||0,g:o.g||'',team:o.team||0,fix:null};});
+    }
+    DB.classes[id]=c;
+    switchClass(id);
+    closeModal();
+    toast((low?'あたらしい クラス「':'新しいクラス「')+nm+(low?'」が できたよ!めいぼを とうろくしてね':'」を作りました。名簿を登録してください'));
+  });
+}
+function renameClassModal(id){
+  const low=S.grade==='low';
+  openModal(`<h3>✏️ ${low?'クラスの なまえを かえる':'クラス名の変更'}</h3>
+  <div class="row"><input type="text" id="rnName" value="${esc(DB.classes[id].name)}" maxlength="20" style="flex:1;"></div>
+  <div class="row" style="justify-content:flex-end;">
+    <button class="btn sm" id="rnNo">${low?'やめる':'キャンセル'}</button>
+    <button class="btn primary sm" id="rnYes">OK</button>
+  </div>`);
+  $('#rnNo').addEventListener('click',()=>{closeModal();openClassModal();});
+  $('#rnYes').addEventListener('click',()=>{
+    const nm=$('#rnName').value.trim();
+    if(nm)DB.classes[id].name=nm;
+    save();renderAll();closeModal();openClassModal();
+  });
+}
+
+/* ================= roster ================= */
+let newG='M';
+$('#newGender').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;newG=b.dataset.g;
+  $$('#newGender button').forEach(x=>x.classList.toggle('on',x===b));
+});
+$('#addStu').addEventListener('click',()=>{
+  const n=$('#newName').value.trim();
+  if(!n){toast(S.grade==='low'?'なまえを いれてね':'名前を入力してください');return;}
+  if(S.students.length>=MAX_KIDS){toast('45人までです');return;}
+  S.students.push({id:uid(),name:n,g:newG});
+  $('#newName').value='';save();renderAll();
+});
+$('#newName').addEventListener('keydown',e=>{if(e.key==='Enter')$('#addStu').click();});
+$('#bulkOpen').addEventListener('click',()=>{
+  openModal(`<h3>${T('bulk')}</h3>
+  <p class="hint">1行に「名前 性別」で貼り付けてください。区切りはスペース・タブ・カンマOK。<br>性別は 男 / 女 / M / F / 男子 / 女子 など。例:<br>やまだ たろう→「山田太郎 男」</p>
+  <textarea id="bulkText" rows="10" style="width:100%;"></textarea>
+  <div class="row" style="justify-content:flex-end;">
+    <button class="btn sm" onclick="closeModal()">やめる</button>
+    <button class="btn primary sm" id="bulkGo">とうろく</button>
+  </div>`);
+  $('#bulkGo').addEventListener('click',()=>{
+    const lines=$('#bulkText').value.split(/\n/).map(x=>x.trim()).filter(x=>x);
+    let added=0,unknown=0;
+    for(const line of lines){
+      if(S.students.length>=MAX_KIDS)break;
+      const parts=line.split(/[\s,、\t]+/).filter(x=>x);
+      if(!parts.length)continue;
+      let g=null;
+      const last=parts[parts.length-1];
+      if(/^(男子?|M|m|♂)$/.test(last))g='M';
+      else if(/^(女子?|F|f|♀)$/.test(last))g='F';
+      const name=(g?parts.slice(0,-1):parts).join('');
+      if(!name)continue;
+      if(!g){g='M';unknown++;}
+      S.students.push({id:uid(),name:name,g:g});added++;
+    }
+    save();closeModal();renderAll();
+    toast(added+'人 とうろくしました'+(unknown?'(性別ふめい'+unknown+'人→男子にしました)':''));
+  });
+});
+$('#rosterClear').addEventListener('click',()=>{
+  if(!S.students.length){toast(S.grade==='low'?'めいぼは もう からっぽだよ':'名簿はすでに空です');return;}
+  confirmBox(S.grade==='low'
+    ?'めいぼの '+S.students.length+'人を ぜんぶ けしますか?\n(ざせきの かたちと きろくは のこります)'
+    :'名簿の'+S.students.length+'人を全員削除しますか?\n(座席の形と記録は残ります)',()=>{
+    S.students=[];
+    Object.keys(S.seats).forEach(k=>{S.seats[k].fix=null;});
+    S.cons=[];
+    save();renderAll();
+    toast(S.grade==='low'?'めいぼを からっぽに したよ':'名簿を空にしました');
+  });
+});
+function removeStu(id){
+  S.students=S.students.filter(x=>x.id!==id);
+  Object.keys(S.seats).forEach(k=>{if(S.seats[k].fix===id)S.seats[k].fix=null;});
+  S.cons=S.cons.filter(c=>c.a!==id&&c.b!==id);
+  save();renderAll();
+}
+function renderRoster(){
+  const L=$('#rosterList');L.innerHTML='';
+  S.students.forEach(st=>{
+    const d=document.createElement('div');d.className='stuRow';
+    d.innerHTML=`<span class="nm">${esc(st.name)}</span>
+      <span class="gtoggle">
+        <button class="${st.g==='M'?'onM':''}" data-g="M">男</button>
+        <button class="${st.g==='F'?'onF':''}" data-g="F">女</button>
+      </span>
+      <button class="xbtn" title="けす">✕</button>`;
+    d.querySelectorAll('.gtoggle button').forEach(b=>b.addEventListener('click',()=>{st.g=b.dataset.g;save();renderAll();}));
+    d.querySelector('.xbtn').addEventListener('click',()=>{
+      confirmBox(st.name+(S.grade==='low'?' を めいぼから けしますか?':' を名簿から削除しますか?'),()=>removeStu(st.id));
+    });
+    L.appendChild(d);
+  });
+  const boys=S.students.filter(x=>x.g==='M').length;
+  $('#rcBoy').textContent=(S.grade==='low'?'男子 ':'男子 ')+boys;
+  $('#rcGirl').textContent=(S.grade==='low'?'女子 ':'女子 ')+(S.students.length-boys);
+  $('#rcTotal').textContent=(S.grade==='low'?'合計 ':'合計 ')+S.students.length;
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+/* ================= layout editor ================= */
+let editMode='onoff', teamSel=1;
+$('#editMode').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;editMode=b.dataset.m;
+  $$('#editMode button').forEach(x=>x.classList.toggle('on',x===b));
+  $('#teamRow').style.display=editMode==='team'?'flex':'none';
+  renderLayout();
+});
+function step(idBase,get,set,min,max){
+  $('#'+idBase+'Minus').addEventListener('click',()=>{set(Math.max(min,get()-1));});
+  $('#'+idBase+'Plus').addEventListener('click',()=>{set(Math.min(max,get()+1));});
+}
+step('row',()=>S.rows,v=>{S.rows=v;save();renderAll();},1,10);
+step('col',()=>S.cols,v=>{S.cols=v;save();renderAll();},1,12);
+function teamOf(k){return seatObj(k).team||0;}
+function renderTeamChips(){
+  const w=$('#teamChips');w.innerHTML='';
+  for(let t=1;t<=10;t++){
+    const b=document.createElement('button');b.className='teamChip'+(teamSel===t?' on':'');
+    b.style.background=TEAMC[t-1]+'33';b.style.color=TEAMC[t-1];
+    b.textContent=(S.grade==='low'?'はん':'班')+t;
+    b.addEventListener('click',()=>{teamSel=t;renderTeamChips();});
+    w.appendChild(b);
+  }
+  const b0=document.createElement('button');b0.className='teamChip'+(teamSel===0?' on':'');
+  b0.textContent=S.grade==='low'?'はんを けす':'班を消す';
+  b0.addEventListener('click',()=>{teamSel=0;renderTeamChips();});
+  w.appendChild(b0);
+}
+function seatEl(k,idx,opts){
+  const o=seatObj(k), d=document.createElement('div');
+  d.className='seat';
+  if(o.off)d.className+= opts.edit?' offEdit':' off';
+  if(o.g==='M')d.classList.add('gM'); if(o.g==='F')d.classList.add('gF');
+  if(o.fix&&stu(o.fix))d.classList.add('fixed');
+  let inner='';
+  if(!o.off&&idx>0)inner+=`<span class="no">${idx}</span>`;
+  if(o.g)inner+=`<span class="gmark" style="color:${o.g==='M'?'var(--sky)':'var(--pink)'}">${o.g==='M'?'男':'女'}</span>`;
+  if(o.team){inner+=`<span class="tmark" style="color:${TEAMC[o.team-1]}">${S.grade==='low'?'はん':'班'}${o.team}</span>`;
+    d.style.borderColor=TEAMC[o.team-1]; d.style.background=TEAMC[o.team-1]+'1A';}
+  let nm='';
+  if(opts.pos){ // display by positions map
+    for(const sid in opts.pos){const p=opts.pos[sid];if(key(p[0],p[1])===k){const s2=opts.stuMap?opts.stuMap[sid]:stu(sid);if(s2)nm=s2.name;}}
+  } else if(o.fix&&stu(o.fix)&&opts.edit){nm=stu(o.fix).name;}
+  if(o.off&&opts.edit)nm=S.grade==='low'?'なし':'なし';
+  inner+=`<span class="nm ${nm?'':'empty'}">${esc(nm)||'・'}</span>`;
+  d.innerHTML=inner;
+  return d;
+}
+function renderChartInto(el,opts){
+  el.innerHTML='';
+  const rows=opts.rows||S.rows, cols=opts.cols||S.cols;
+  el.style.gridTemplateColumns=`repeat(${cols},minmax(${opts.big?76:62}px,1fr))`;
+  el.style.maxWidth=(cols*(opts.big?120:104))+'px';
+  const seatsSrc=opts.seats||S.seats;
+  // enabled index
+  let idx=0;const idxMap={};
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const k=key(r,c);const off=(seatsSrc[k]||{}).off;if(!off){idx++;idxMap[k]=idx;}}
+  const saveSeats=S.seats, saveRows=S.rows, saveCols=S.cols;
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const k=key(r,c);
+    const realSeats=S.seats; S.seats=seatsSrc; // temp for seatObj
+    const d=seatEl(k,idxMap[k]||0,opts);
+    S.seats=realSeats;
+    if(opts.onTap&&!((seatsSrc[k]||{}).off&&!opts.edit)){d.classList.add('tappable');d.addEventListener('click',()=>opts.onTap(k));}
+    else if(opts.onTap&&opts.edit){d.classList.add('tappable');d.addEventListener('click',()=>opts.onTap(k));}
+    el.appendChild(d);
+  }
+  return idxMap;
+}
+function renderLayout(){
+  $('#rowVal').textContent=S.rows; $('#colVal').textContent=S.cols;
+  renderTeamChips();
+  const hints={
+    onoff:['タップで せきを けしたり もどしたり できるよ','タップで席のあり/なしを切り替え'],
+    fixed:['せきを タップして、そこに すわる こを えらぶよ','席をタップして、固定する児童を選択'],
+    gender:['タップするたびに なし→男子→女子 と かわるよ','タップするたびに 指定なし→男子席→女子席 と切り替え'],
+    team:['はんの いろを えらんでから せきを タップ','班を選んでから席をタップ'],
+  };
+  $('#editHint').textContent=hints[editMode][S.grade==='low'?0:1];
+  renderChartInto($('#editGrid'),{edit:true,onTap:k=>{
+    const o=seatObj(k);
+    if(editMode==='onoff'){setSeat(k,{off:!o.off?1:0});}
+    else if(o.off){toast(S.grade==='low'?'この せきは「なし」だよ':'この席は「なし」です');return;}
+    else if(editMode==='gender'){setSeat(k,{g:o.g===''||!o.g?'M':(o.g==='M'?'F':'')});}
+    else if(editMode==='team'){setSeat(k,{team:teamSel});}
+    else if(editMode==='fixed'){pickFixed(k);return;}
+    save();renderAll();
+  }});
+  $('#seatCount').textContent=(S.grade==='low'?'せきのかず:':'席数:')+enabledSeats().length+' / '+(S.grade==='low'?'じどう':'児童')+S.students.length+'人';
+}
+function pickFixed(k){
+  const cur=seatObj(k).fix;
+  let html=`<h3>${T('emFixed')}</h3><div class="pickerList">`;
+  html+=`<button class="pickBtn" data-sid="">${S.grade==='low'?'してい かいじょ':'指定解除'}</button>`;
+  S.students.forEach(st=>{html+=`<button class="pickBtn" data-sid="${st.id}" ${st.id===cur?'style="border-color:var(--red)"':''}>${esc(st.name)}</button>`;});
+  html+='</div>';
+  openModal(html);
+  $$('#modalBody .pickBtn').forEach(b=>b.addEventListener('click',()=>{
+    const sid=b.dataset.sid||null;
+    if(sid)Object.keys(S.seats).forEach(kk=>{if(S.seats[kk].fix===sid)S.seats[kk].fix=null;});
+    setSeat(k,{fix:sid});
+    save();closeModal();renderAll();
+  }));
+}
+
+/* ================= rules ================= */
+let consT='adj', vg=2, hg=2;
+$('#consType').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;consT=b.dataset.t;
+  $$('#consType button').forEach(x=>x.classList.toggle('on',x===b));
+  $('#distRow').style.display=consT==='dist'?'flex':'none';
+});
+step('vg',()=>vg,v=>{vg=v;$('#vgVal').textContent=v;},1,8);
+step('hg',()=>hg,v=>{hg=v;$('#hgVal').textContent=v;},1,8);
+step('hd',()=>S.histDepth,v=>{S.histDepth=v;save();$('#hdVal').textContent=v;},0,10);
+$('#consAdd').addEventListener('click',()=>{
+  const a=$('#consA').value,b=$('#consB').value;
+  if(!a||!b||a===b){toast(S.grade==='low'?'べつべつの 2人を えらんでね':'別々の2人を選んでください');return;}
+  const VG=consT==='adj'?2:vg+1, HG=consT==='adj'?2:hg+1;
+  S.cons.push({a:a,b:b,vg:VG,hg:HG,adj:consT==='adj'});
+  save();renderAll();toast(S.grade==='low'?'ついかしたよ':'追加しました');
+});
+function renderRules(){
+  const selA=$('#consA'),selB=$('#consB');
+  [selA,selB].forEach(sel=>{
+    const cur=sel.value;sel.innerHTML='';
+    S.students.forEach(st=>{const o=document.createElement('option');o.value=st.id;o.textContent=st.name;sel.appendChild(o);});
+    if(cur)sel.value=cur;
+  });
+  if(S.students.length>1&&selA.value===selB.value)selB.selectedIndex=1;
+  $('#hdVal').textContent=S.histDepth;
+  const L=$('#consList');L.innerHTML='';
+  S.cons.forEach((c,i)=>{
+    const A=stu(c.a),B=stu(c.b);if(!A||!B)return;
+    const d=document.createElement('div');d.className='consRow';
+    const desc=c.adj?(S.grade==='low'?'となりに しない':'隣にしない')
+      :(S.grade==='low'?`たてに${c.vg-1}人ぶん・よこに${c.hg-1}人ぶん はなす`:`縦${c.vg-1}人分・横${c.hg-1}人分離す`);
+    d.innerHTML=`<span class="desc">🤝 ${esc(A.name)} と ${esc(B.name)}:${desc}</span><button class="xbtn">✕</button>`;
+    d.querySelector('.xbtn').addEventListener('click',()=>{S.cons.splice(i,1);save();renderAll();});
+    L.appendChild(d);
+  });
+}
+
+/* ================= solver ================= */
+function histNeighborWeights(){
+  const w={};
+  const H=S.history.slice(-S.histDepth);
+  H.forEach((h,i)=>{
+    const weight=30+50*((i+1)/H.length); // recent = heavier
+    const ids=Object.keys(h.pos||{});
+    for(let x=0;x<ids.length;x++)for(let y=x+1;y<ids.length;y++){
+      const p=h.pos[ids[x]],q=h.pos[ids[y]];
+      if(Math.abs(p[0]-q[0])<=1&&Math.abs(p[1]-q[1])<=1){
+        const kk=ids[x]<ids[y]?ids[x]+'|'+ids[y]:ids[y]+'|'+ids[x];
+        w[kk]=(w[kk]||0)+weight;
+      }
+    }
+  });
+  return w;
+}
+function computeAssignment(scope){
+  const keys=enabledSeats();
+  const kids=S.students.slice();
+  if(!kids.length)return {err:(S.grade==='low'?'まず めいぼに なまえを とうろくしてね':'まず名簿に児童を登録してください')};
+  if(kids.length>keys.length)return {err:(S.grade==='low'?'せきが たりないよ!「ざせき」タブで ふやしてね':'席が足りません。「座席」タブで増やしてください')};
+  const pos={}; // k -> seat idx
+  keys.forEach((k,i)=>pos[k]=i);
+  const seatArr=keys.map(k=>{const o=seatObj(k);const p=rc(k);return {k:k,r:p[0],c:p[1],g:o.g||'',fix:(o.fix&&stu(o.fix))?o.fix:null,team:o.team||0};});
+  const N=seatArr.length;
+  const locked=new Array(N).fill(false);
+  let assign=new Array(N).fill(null);
+  // scope pools
+  let pool=[]; // list of arrays of seat indices that may swap among themselves
+  if(scope==='team'){
+    if(!S.current)return {err:(S.grade==='low'?'まだ いまの せきが ないよ。さきに ふつうの せきがえを してね':'まだ現在の座席がありません。先に通常の席替えをしてください')};
+    // start from current positions
+    const curPos=S.current.pos||{};
+    const byTeam={};
+    kids.forEach(kd=>{
+      const p=curPos[kd.id];if(!p)return;
+      const k=key(p[0],p[1]);const i=pos[k];
+      if(i===undefined)return;
+      assign[i]=kd.id;
+      const t=seatArr[i].team;
+      if(seatArr[i].fix===kd.id){locked[i]=true;return;}
+      if(t){(byTeam[t]=byTeam[t]||[]).push(i);}else{locked[i]=true;}
+    });
+    if(!Object.keys(byTeam).length)return {err:(S.grade==='low'?'はんが まだ ないよ。「ざせき」タブで はんを つくってね':'班がまだ設定されていません。「座席」タブで班を設定してください')};
+    pool=Object.values(byTeam).filter(a=>a.length>1);
+    if(!pool.length)return {err:'班の中で入れかえできる席がありません'};
+  }else{
+    // fixed first
+    const used=new Set();
+    seatArr.forEach((s,i)=>{if(s.fix){assign[i]=s.fix;locked[i]=true;used.add(s.fix);}});
+    const rest=kids.filter(kd=>!used.has(kd.id));
+    // greedy: gendered seats first
+    const restM=rest.filter(x=>x.g==='M'), restF=rest.filter(x=>x.g==='F');
+    shuffle(restM);shuffle(restF);
+    const openIdx=seatArr.map((s,i)=>i).filter(i=>!locked[i]);
+    shuffle(openIdx);
+    for(const i of openIdx){const s=seatArr[i];
+      if(s.g==='M'&&restM.length)assign[i]=restM.pop();
+      else if(s.g==='F'&&restF.length)assign[i]=restF.pop();
+    }
+    for(const i of openIdx){if(assign[i])continue;
+      const kd=restM.length&&(!restF.length||Math.random()<restM.length/(restM.length+restF.length))?restM.pop():restF.pop();
+      if(kd)assign[i]=kd;
+    }
+    assign=assign.map(x=>x&&x.id?x.id:x);
+    pool=[seatArr.map((s,i)=>i).filter(i=>!locked[i])];
+  }
+  // scoring
+  const hw=histNeighborWeights();
+  const cur=S.current?S.current.pos||{}:{};
+  const consList=S.cons.filter(c=>stu(c.a)&&stu(c.b));
+  const maxD=S.rows+S.cols;
+  function fullScore(A){
+    let p=0;
+    const posOf={};
+    for(let i=0;i<N;i++){if(A[i])posOf[A[i]]=i;}
+    // gender hard
+    for(let i=0;i<N;i++){const sid=A[i];if(!sid)continue;const s=seatArr[i],kd=stu(sid);
+      if(s.g&&kd&&kd.g!==s.g)p+=1e6;}
+    // cons hard
+    for(const c of consList){
+      const ia=posOf[c.a],ib=posOf[c.b];
+      if(ia===undefined||ib===undefined)continue;
+      const dr=Math.abs(seatArr[ia].r-seatArr[ib].r),dc=Math.abs(seatArr[ia].c-seatArr[ib].c);
+      if(dr<c.vg&&dc<c.hg)p+=1e6;
+    }
+    // history neighbors soft
+    for(let i=0;i<N;i++){const a=A[i];if(!a)continue;
+      for(let j=i+1;j<N;j++){const b=A[j];if(!b)continue;
+        if(Math.abs(seatArr[i].r-seatArr[j].r)<=1&&Math.abs(seatArr[i].c-seatArr[j].c)<=1){
+          const kk=a<b?a+'|'+b:b+'|'+a;
+          if(hw[kk])p+=hw[kk];
+        }
+      }
+    }
+    // distance from current soft
+    for(let i=0;i<N;i++){const sid=A[i];if(!sid)continue;const cp=cur[sid];if(!cp)continue;
+      const d=Math.abs(seatArr[i].r-cp[0])+Math.abs(seatArr[i].c-cp[1]);
+      p+=Math.max(0,maxD-d)*2;
+    }
+    return p;
+  }
+  function annealOnce(A0){
+    let A=A0.slice(), sc=fullScore(A);
+    let best=A.slice(), bestSc=sc;
+    const ITER=3500;
+    for(let it=0;it<ITER;it++){
+      const grp=pool[Math.floor(Math.random()*pool.length)];
+      if(grp.length<2)continue;
+      const i=grp[Math.floor(Math.random()*grp.length)];
+      let j=grp[Math.floor(Math.random()*grp.length)];
+      if(i===j)continue;
+      [A[i],A[j]]=[A[j],A[i]];
+      const ns=fullScore(A);
+      const temp=Math.max(1,60*(1-it/ITER));
+      if(ns<=sc||Math.random()<Math.exp((sc-ns)/temp)){sc=ns;if(sc<bestSc){bestSc=sc;best=A.slice();}}
+      else{[A[i],A[j]]=[A[j],A[i]];}
+    }
+    return {A:best,sc:bestSc};
+  }
+  let best=null;
+  const tries=scope==='team'?3:4;
+  for(let t=0;t<tries;t++){
+    let A0;
+    if(scope==='team')A0=assign.slice();
+    else{
+      // fresh random init each try (reuse structure)
+      A0=assign.slice();
+      const grp=pool[0];
+      // fisher-yates the occupants of open seats (respect nothing; anneal fixes)
+      for(let i=grp.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));
+        [A0[grp[i]],A0[grp[j]]]=[A0[grp[j]],A0[grp[i]]];}
+    }
+    const r=annealOnce(A0);
+    if(!best||r.sc<best.sc)best=r;
+    if(best.sc<1e6&&t>=1)break;
+  }
+  const warn=best.sc>=1e6?(S.grade==='low'?'ぜんぶの やくそくは まもれなかったよ。せってい を みなおしてね':'すべての条件を満たす配置が見つかりませんでした(一部の条件が守られていない可能性があります)'):null;
+  // build result maps
+  const asg={},posMap={},numOf={};
+  best.A.forEach((sid,i)=>{if(sid){asg[seatArr[i].k]=sid;posMap[sid]=[seatArr[i].r,seatArr[i].c];numOf[sid]=i+1;}});
+  // seat numbers = enabled order index+1 (seatArr is in reading order)
+  return {asg:asg,pos:posMap,numOf:numOf,warn:warn};
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ================= stage / fx ================= */
+const stage=$('#stage');
+let stageSeq=0; // bumped on open/close: cancels pending animation timeouts
+function openStage(title,sub){stageSeq++;$('#stageTitle').textContent=title;$('#stageSub').textContent=sub||'';const ar=$('#stageArea');ar.innerHTML='';ar.style.width='';$('#stageBtns').innerHTML='';stage.classList.add('on');bgmDuck(true);}
+function closeStage(){
+  stageSeq++;
+  stage.classList.remove('on');
+  sfxKill();                                   // 予約済みの効果音を即停止
+  $$('.confetti').forEach(el=>el.remove());    // 紙吹雪も消す
+  bgmDuck(false);
+}
+$('#stageClose').addEventListener('click',closeStage);
+function stageBtn(label,cls,fn){const b=document.createElement('button');b.className='btn '+cls;b.textContent=label;b.addEventListener('click',fn);$('#stageBtns').appendChild(b);return b;}
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const cols=TEAMC;
+  for(let i=0;i<44;i++){
+    const d=document.createElement('div');d.className='confetti';
+    d.style.left=Math.random()*100+'vw';
+    d.style.background=cols[Math.floor(Math.random()*cols.length)];
+    d.style.animation=`confFall ${1.8+Math.random()*1.6}s linear ${Math.random()*0.6}s both`;
+    d.style.borderRadius=Math.random()<0.5?'50%':'2px';
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),4200);
+  }
+}
+function fxPlay(fxKind,onDone){ // returns after animation, caller shows result
+  const area=$('#stageArea');
+  const seq=stageSeq; // stage closed? -> abort chain
+  const alive=()=>seq===stageSeq;
+  if(fxKind==='gara'){
+    area.innerHTML=`<div class="gara"><div class="garaDrum"><div class="win">🎁</div></div><div class="garaBall">?</div></div>`;
+    const drum=area.querySelector('.garaDrum'),ball=area.querySelector('.garaBall');
+    drum.classList.add('spin');sndRattle(1.6);
+    setTimeout(()=>{
+      if(!alive())return;
+      ball.style.background=TEAMC[Math.floor(Math.random()*TEAMC.length)];
+      ball.classList.add('out');sndResultFx();
+      setTimeout(()=>{if(alive())onDone();},650);
+    },1650);
+  }else if(fxKind==='miku'){
+    area.innerHTML=`<div class="miku"><div class="mikuStick">?</div><div class="mikuBox">おみくじ</div></div>`;
+    const m=area.querySelector('.miku');
+    m.classList.add('shake');sndShaka();
+    setTimeout(()=>{if(!alive())return;m.classList.add('outStick');sndResultFx();setTimeout(()=>{if(alive())onDone();},600);},1350);
+  }else if(fxKind==='rou'){
+    area.innerHTML=`<div class="rouWrap"><div class="rouArrow"></div><div class="rouWheel"></div><div class="rouCenter"><div class="n">?</div></div></div>`;
+    const wheel=area.querySelector('.rouWheel');
+    wheel.style.transition='transform 2.1s cubic-bezier(.15,.65,.2,1)';
+    requestAnimationFrame(()=>{wheel.style.transform='translateX(-50%) rotate('+(1440+Math.random()*360)+'deg)';});
+    sndDrum(2.0);
+    const ticks=[];for(let t=0;t<2.0;t+=0.06+t*0.05)ticks.push(t);
+    sndTicks(ticks);
+    setTimeout(()=>{if(!alive())return;sndResultFx();setTimeout(()=>{if(alive())onDone();},320);},2100);
+  }else{
+    area.innerHTML=`<div class="simpleBox">…</div>`;
+    sndDrum(0.9);
+    setTimeout(()=>{if(!alive())return;sndResultFx();setTimeout(()=>{if(alive())onDone();},180);},900);
+  }
+}
+function showResultNum(num,label,subLabel){
+  // 決定音は fxPlay の演出終わりで鳴らし済み
+  const area=$('#stageArea');
+  area.innerHTML=`<div class="resultNum">${num}</div><div class="resultName">${esc(label)}</div>${subLabel?`<div class="hint">${esc(subLabel)}</div>`:''}`;
+}
+
+/* ================= shuffle pane ================= */
+$('#scopeSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.scope=b.dataset.s;save();renderShuffle();});
+$('#fxSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.fx=b.dataset.f;save();renderShuffle();});
+function renderShuffle(){
+  $$('#scopeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.s===S.scope));
+  $$('#fxSeg button').forEach(b=>b.classList.toggle('on',b.dataset.f===S.fx));
+  const n=S.students.length, seats=enabledSeats().length;
+  const ok=n>0&&n<=seats;
+  const low=S.grade==='low';
+  // このタブは子どもと一緒に見るので、指定席・離すペアの数は表示しない
+  $('#shufStatus').innerHTML=
+    `<span class="${ok?'okc':'badc'}">${low?'じどう':'児童'} ${n}人 / ${low?'せき':'席'} ${seats} ${ok?'✓':'✗'}</span>`+
+    `<span>${low?'きろく':'記録'} ${S.history.length}${low?'かい':'回'}</span>`;
+}
+let kuji=null; // {res, drawn:{}, scope}
+$('#btnBatch').addEventListener('click',()=>{
+  const res=computeAssignment(S.scope);
+  if(res.err){toast(res.err);return;}
+  if(res.warn)toast(res.warn);
+  openStage(S.grade==='low'?'せきがえ ちゅう…':'席替え中…','');
+  fxPlay(S.fx,()=>revealChart(res));
+});
+$('#btnKuji').addEventListener('click',()=>{
+  const res=computeAssignment(S.scope);
+  if(res.err){toast(res.err);return;}
+  if(res.warn)toast(res.warn);
+  kuji={res:res,drawn:{}};
+  $('#kujiArea').style.display='block';
+  renderKuji();
+  $('#kujiArea').scrollIntoView({behavior:'smooth'});
+});
+$('#btnKujiCancel').addEventListener('click',()=>{kuji=null;$('#kujiArea').style.display='none';});
+function renderKuji(){
+  if(!kuji)return;
+  const low=S.grade==='low';
+  const total=Object.keys(kuji.res.numOf).length, done=Object.keys(kuji.drawn).length;
+  $('#kujiTitle').textContent=(low?'くじびき ':'くじ引き ')+done+' / '+total+(low?'にん':'人');
+  const w=$('#drawChips');w.innerHTML='';
+  S.students.forEach(st=>{
+    if(!(st.id in kuji.res.numOf))return;
+    const b=document.createElement('button');
+    if(st.id in kuji.drawn){
+      b.className='drawChip done';
+      b.innerHTML=`${esc(st.name)} <span class="num">${kuji.drawn[st.id]}${low?'ばん':'番'}</span>`;
+    }else{
+      b.className='drawChip';
+      b.textContent=st.name;
+      b.addEventListener('click',()=>drawOne(st));
+    }
+    w.appendChild(b);
+  });
+  $('#btnReveal').disabled=done<total;
+}
+function drawOne(st){
+  const low=S.grade==='low';
+  openStage(st.name+(low?' さんの くじ':' さんのくじ'),low?'ボタンを おしてね!':'ボタンを押してね!');
+  const go=stageBtn(low?'🎰 くじを ひく!':'🎰 くじを引く!','primary big',()=>{
+    $('#stageBtns').innerHTML='';
+    fxPlay(S.fx,()=>{
+      const num=kuji.res.numOf[st.id];
+      showResultNum(num+(low?'ばん':'番'),st.name+(low?' さん':' さん'));
+      kuji.drawn[st.id]=num;
+      renderKuji();
+      stageBtn(low?'つぎの ひとへ →':'次の人へ →','green big',closeStage);
+    });
+  });
+}
+$('#btnReveal').addEventListener('click',()=>{
+  if(!kuji)return;
+  openStage(S.grade==='low'?'はっぴょう!':'発表!','');
+  const seq=stageSeq;
+  sndDrum(1.2);
+  setTimeout(()=>{if(seq===stageSeq&&kuji)revealChart(kuji.res);},1250);
+});
+function revealChart(res){
+  const low=S.grade==='low';
+  $('#stageTitle').textContent=low?'あたらしい せき!':'新しい座席!';
+  $('#stageSub').textContent='';
+  const area=$('#stageArea');
+  area.innerHTML=`<div style="width:100%;"><div class="boardBar">${T('board')}</div><div class="chartWrap"><div class="grid revealChart" id="revealGrid"></div></div></div>`;
+  area.style.width='min(1000px,96vw)';
+  const grid=$('#revealGrid');
+  renderChartInto(grid,{pos:res.pos,big:true});
+  // hide names then pop in
+  const seatsEls=Array.from(grid.children).filter(el=>!el.classList.contains('off'));
+  const withNames=seatsEls.filter(el=>{const nm=el.querySelector('.nm');return nm&&!nm.classList.contains('empty');});
+  const seq=stageSeq;
+  withNames.forEach(el=>{el.style.visibility='hidden';});
+  withNames.forEach((el,i)=>{
+    setTimeout(()=>{if(seq!==stageSeq)return;el.style.visibility='visible';el.classList.add('pop');if(i%2===0)sndPop();},250+i*130);
+  });
+  const doneAt=250+withNames.length*130+300;
+  setTimeout(()=>{
+    if(seq!==stageSeq)return;
+    sndFanfare();if(fun())confetti();
+    stageBtn(low?'✅ このせきに けってい!':'✅ この席に決定!','primary big',()=>confirmAssign(res));
+    if(!kuji){
+      stageBtn(low?'🔁 やりなおす':'🔁 やり直す','',()=>{
+        const r2=computeAssignment(S.scope);
+        if(r2.err){toast(r2.err);return;}
+        if(r2.warn)toast(r2.warn);
+        $('#stageBtns').innerHTML='';
+        revealChart(r2);
+      });
+    }
+    stageBtn(low?'とじる':'閉じる','sm',closeStage);
+  },doneAt);
+}
+function confirmAssign(res){
+  const seatsSnap=JSON.parse(JSON.stringify(S.seats));
+  const names={};
+  Object.keys(res.pos).forEach(sid=>{const st2=stu(sid);if(st2)names[sid]=st2.name;});
+  const entry={date:new Date().toISOString(),pos:res.pos,rows:S.rows,cols:S.cols,seats:seatsSnap,names:names};
+  try{entry.img=drawHist(entry,1200,900).toDataURL('image/jpeg',0.78);}catch(e){}
+  S.history.push(entry);
+  S.current={pos:res.pos};
+  kuji=null;$('#kujiArea').style.display='none';
+  saveWithImgFallback(entry);
+  closeStage();renderAll();
+  toast(S.grade==='low'?'けってい! きろくに のこしたよ📚':'決定!記録に保存しました📚');
+}
+/* if storage is full, drop oldest stored images first, then this one */
+function saveWithImgFallback(entry){
+  try{localStorage.setItem(LS_KEY,JSON.stringify(DB));return;}catch(e){}
+  const all=[];
+  Object.keys(DB.classes).forEach(id=>DB.classes[id].history.forEach(h=>{if(h.img&&h!==entry)all.push(h);}));
+  all.sort((a,b)=>a.date<b.date?-1:1);
+  for(const h of all){
+    delete h.img;
+    try{localStorage.setItem(LS_KEY,JSON.stringify(DB));toast('保存の空きが少ないため、古い記録の画像を整理しました');return;}catch(e){}
+  }
+  delete entry.img;
+  try{localStorage.setItem(LS_KEY,JSON.stringify(DB));toast('空きが少ないため、今回の画像は保存できませんでした(記録は保存済み)');}catch(e){toast('ほぞんに しっぱいしました');}
+}
+
+/* ================= omake ================= */
+let omakeT='one';
+$('#omakeType').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;omakeT=b.dataset.t;$$('#omakeType button').forEach(x=>x.classList.toggle('on',x===b));});
+function omakeGroups(){
+  const g={};
+  if(S.current&&S.current.pos){
+    for(const sid in S.current.pos){
+      const p=S.current.pos[sid];const t=teamOf(key(p[0],p[1]));
+      if(t&&stu(sid))(g[t]=g[t]||[]).push(sid);
+    }
+  }
+  return g;
+}
+function renderOmake(){
+  const sel=$('#omakeScope');const cur=sel.value;sel.innerHTML='';
+  const low=S.grade==='low';
+  const o0=document.createElement('option');o0.value='all';o0.textContent=low?'クラス ぜんいん':'クラス全員';sel.appendChild(o0);
+  const g=omakeGroups();
+  Object.keys(g).sort((a,b)=>a-b).forEach(t=>{
+    const o=document.createElement('option');o.value='t'+t;o.textContent=(low?'はん':'班')+t+'('+g[t].length+(low?'にん':'人')+')';sel.appendChild(o);
+  });
+  if(cur)sel.value=cur;
+  if(!sel.value)sel.value='all';
+}
+$('#omakeGo').addEventListener('click',()=>{
+  const low=S.grade==='low';
+  const v=$('#omakeScope').value;
+  let members;
+  if(v==='all')members=S.students.map(x=>x.id);
+  else members=(omakeGroups()[v.slice(1)]||[]);
+  if(!members.length){toast(low?'めいぼが からっぽだよ':'対象がいません');return;}
+  const shuffled=shuffle(members.slice());
+  openStage(omakeT==='one'?(low?'だれかな…?':'誰でしょう…?'):(low?'じゅんばん くじ':'順番くじ'),'');
+  fxPlay(S.fx,()=>{
+    if(omakeT==='one'){
+      const win=stu(shuffled[0]);
+      $('#stageArea').innerHTML=`<div class="resultNum" style="font-size:min(64px,12vw);">🎉</div><div class="resultName" style="font-size:34px;">${esc(win?win.name:'?')} さん!</div>`;
+      sndResult();if(fun())confetti();
+    }else{
+      let html='<ol style="font-size:22px;font-weight:800;line-height:1.9;margin:0;padding-left:1.6em;">';
+      shuffled.forEach(sid=>{const st2=stu(sid);if(st2)html+=`<li>${esc(st2.name)}</li>`;});
+      html+='</ol>';
+      $('#stageArea').innerHTML=`<div style="max-height:52vh;overflow:auto;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 22px;">${html}</div>`;
+      sndFanfare();
+    }
+    stageBtn(low?'もういちど':'もう一度','',()=>{closeStage();setTimeout(()=>$('#omakeGo').click(),80);});
+    stageBtn(low?'とじる':'閉じる','primary',closeStage);
+  });
+});
+
+/* ================= history ================= */
+function fmtDate(iso){
+  const d=new Date(iso);
+  return d.getFullYear()+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+}
+function renderHistory(){
+  const L=$('#histList');L.innerHTML='';
+  const low=S.grade==='low';
+  if(!S.history.length){L.innerHTML=`<p class="hint">${low?'まだ きろくが ないよ。せきがえを すると ここに たまるよ!':'まだ記録がありません。席替えをするとここに残ります。'}</p>`;return;}
+  S.history.slice().reverse().forEach((h,ri)=>{
+    const i=S.history.length-1-ri;
+    const d=document.createElement('div');d.className='histRow';
+    const n=Object.keys(h.pos||{}).length;
+    const thumb=h.img?`<img class="thumb" src="${h.img}" alt="座席表">`:'';
+    d.innerHTML=`${thumb}<span class="dt">📅 ${fmtDate(h.date)}</span><span class="meta">${n}${low?'にん':'人'}${i===S.history.length-1?(low?' ・いまの せき':' ・現在の座席'):''}</span>
+      <button class="btn sm view">${low?'みる':'表示'}</button>
+      <button class="btn sm png">${low?'がぞうで ほぞん':'画像で保存'}</button>
+      <button class="xbtn">✕</button>`;
+    const th=d.querySelector('.thumb');if(th)th.addEventListener('click',()=>viewHist(i));
+    d.querySelector('.view').addEventListener('click',()=>viewHist(i));
+    d.querySelector('.png').addEventListener('click',()=>exportPNG(S.history[i]));
+    d.querySelector('.xbtn').addEventListener('click',()=>{
+      confirmBox(low?'このきろくを けす?':'この記録を削除しますか?',()=>{
+        S.history.splice(i,1);S.current=S.history.length?{pos:S.history[S.history.length-1].pos}:null;save();renderAll();
+      });
+    });
+    L.appendChild(d);
+  });
+}
+function viewHist(i){
+  const h=S.history[i];
+  openStage('📅 '+fmtDate(h.date),'');
+  const area=$('#stageArea');
+  area.style.width='min(1000px,96vw)';
+  if(h.img){
+    area.innerHTML=`<img src="${h.img}" alt="座席表" style="max-width:100%;border-radius:12px;border:2px solid var(--line);">`;
+  }else{
+    area.innerHTML=`<div style="width:100%;"><div class="boardBar">${T('board')}</div><div class="chartWrap"><div class="grid" id="histGrid"></div></div></div>`;
+    renderChartInto($('#histGrid'),{pos:h.pos,rows:h.rows,cols:h.cols,seats:h.seats});
+  }
+  stageBtn(S.grade==='low'?'がぞうで ほぞん':'画像で保存','blue',()=>exportPNG(h));
+  stageBtn(S.grade==='low'?'とじる':'閉じる','',closeStage);
+}
+function drawHist(h,W,H){
+  const cv=$('#pngCanvas'),ctx=cv.getContext('2d');
+  const rows=h.rows,cols=h.cols;
+  cv.width=W;cv.height=H;
+  const sc=W/1600;
+  ctx.fillStyle='#FFF9F0';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#463A2F';ctx.font='bold '+Math.round(44*sc)+'px sans-serif';ctx.textAlign='left';
+  ctx.fillText('座席表  '+fmtDate(h.date),50*sc,70*sc);
+  // blackboard
+  ctx.fillStyle='#3E6B57';roundRect(ctx,50*sc,100*sc,W-100*sc,54*sc,10*sc);ctx.fill();
+  ctx.fillStyle='#EAF5EF';ctx.font='bold '+Math.round(30*sc)+'px sans-serif';ctx.textAlign='center';
+  ctx.fillText('黒　板',W/2,138*sc);
+  const top=190*sc,pad=14*sc;
+  const cw=Math.min(170*sc,(W-100*sc-(cols-1)*pad)/cols), ch=Math.min(120*sc,(H-top-60*sc-(rows-1)*pad)/rows);
+  const gx=(W-(cols*cw+(cols-1)*pad))/2;
+  // reverse pos: k->name (prefer names stored at confirm time)
+  const nameAt={};
+  for(const sid in (h.pos||{})){
+    const p=h.pos[sid];
+    const nm=(h.names&&h.names[sid])||(stu(sid)&&stu(sid).name)||'?';
+    nameAt[p[0]+'_'+p[1]]=nm;
+  }
+  let num=0;
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const k=r+'_'+c,o=(h.seats||{})[k]||{};
+    if(o.off)continue;
+    num++;
+    const x=gx+c*(cw+pad),y=top+r*(ch+pad);
+    ctx.fillStyle=o.team?TEAMC[o.team-1]+'22':'#FFFFFF';
+    ctx.strokeStyle=o.team?TEAMC[o.team-1]:'#D9C9AF';ctx.lineWidth=3*sc;
+    roundRect(ctx,x,y,cw,ch,12*sc);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#95836F';ctx.font=Math.round(20*sc)+'px sans-serif';ctx.textAlign='left';
+    ctx.fillText(num,x+10*sc,y+26*sc);
+    const nm=nameAt[k];
+    if(nm){
+      ctx.fillStyle='#463A2F';ctx.textAlign='center';
+      let fs=Math.min(30*sc,(cw-16*sc)/Math.max(1,nm.length)*1.6);
+      ctx.font='bold '+Math.round(fs)+'px sans-serif';
+      ctx.fillText(nm,x+cw/2,y+ch/2+fs/3+6*sc);
+    }
+    if(o.g){ctx.fillStyle=o.g==='M'?'#3E97D4':'#F06E9C';ctx.font='bold '+Math.round(18*sc)+'px sans-serif';ctx.textAlign='right';ctx.fillText(o.g==='M'?'男':'女',x+cw-8*sc,y+24*sc);}
+  }
+  return cv;
+}
+function exportPNG(h){
+  const url=h.img||drawHist(h,1600,1200).toDataURL('image/png');
+  const a=document.createElement('a');
+  a.download='sekigae_'+h.date.slice(0,10)+(url.slice(0,15).includes('jpeg')?'.jpg':'.png');
+  a.href=url;
+  document.body.appendChild(a);a.click();a.remove();
+  toast(S.grade==='low'?'がぞうを ほぞんしたよ🖼':'画像を保存しました🖼');
+}
+function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+
+/* ================= settings ================= */
+$('#sndSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.snd=b.dataset.s;save();renderSettings();updateSndBtn();bgmApply();if(S.snd!=='off')sndResult();});
+$('#bgmSeg').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  S.bgmStyle=b.dataset.b;save();renderSettings();
+  if(S.bgmOn&&S.snd!=='off'){bgmStop();bgmStart();}
+});
+$('#sndTest').addEventListener('click',()=>{
+  if(S.snd==='off'){toast('音の設定が「なし」になっています。「にぎやか」か「おちつき」を選んでください');return;}
+  sndResult();
+  toast('🔔 音を鳴らしました。聞こえないときは本体の音量・消音スイッチ・イヤホンを確認してください');
+});
+function renderSettings(){
+  $$('#sndSeg button').forEach(b=>b.classList.toggle('on',b.dataset.s===S.snd));
+  $$('#bgmSeg button').forEach(b=>b.classList.toggle('on',b.dataset.b===(S.bgmStyle||'wakuwaku')));
+  $('#gLow').classList.toggle('on',S.grade==='low');
+  $('#gHigh').classList.toggle('on',S.grade!=='low');
+  updateBgmBtn();
+}
+$('#expData').addEventListener('click',()=>{
+  const blob=new Blob([JSON.stringify(DB,null,1)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.download='sekigae_backup_'+new Date().toISOString().slice(0,10)+'.json';
+  a.href=URL.createObjectURL(blob);
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  toast('全クラスのバックアップを書き出しました');
+});
+$('#impData').addEventListener('click',()=>$('#impFile').click());
+$('#impFile').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    try{
+      const data=JSON.parse(rd.result);
+      if(data&&data.classes&&data.active){
+        // full backup: replace everything
+        confirmBox('バックアップ全体を読み込みます。\n今このアプリに入っているデータは、バックアップの内容に置き換わります。よろしいですか?',()=>{
+          DB=data;
+          Object.keys(DB.classes).forEach(id=>{DB.classes[id]=Object.assign(defState(DB.classes[id].name),DB.classes[id]);});
+          if(!DB.classes[DB.active])DB.active=Object.keys(DB.classes)[0];
+          S=DB.classes[DB.active];
+          save();renderAll();updateSndBtn();toast('よみこみました✓');
+        });
+      }else if(data&&Array.isArray(data.students)){
+        // old single-class backup: add as a new class
+        const id='c'+Date.now().toString(36);
+        DB.classes[id]=Object.assign(defState('よみこんだクラス'),data);
+        switchClass(id);
+        toast('クラスとして よみこみました✓');
+      }else throw new Error('bad');
+    }catch(err){toast('よみこめませんでした。ファイルを確認してください');}
+  };
+  rd.readAsText(f);
+  e.target.value='';
+});
+$('#clearHist').addEventListener('click',()=>{
+  confirmBox('このクラスの席替え記録をすべて削除しますか?\n(名簿・座席設定は残ります)',()=>{S.history=[];S.current=null;save();renderAll();toast('記録を消しました');});
+});
+$('#clearAll').addEventListener('click',()=>{
+  confirmBox('クラス「'+S.name+'」の名簿・座席・条件・記録をすべて削除します。\n(他のクラスには影響しません)\nこの操作は元に戻せません。よろしいですか?',()=>{
+    const nm=S.name;
+    DB.classes[DB.active]=defState(nm);
+    S=DB.classes[DB.active];
+    save();renderAll();updateSndBtn();toast('このクラスのデータを消しました');
+  });
+});
+
+/* ================= render all ================= */
+function renderAll(){
+  applyText();
+  renderRoster();
+  renderLayout();
+  renderRules();
+  renderShuffle();
+  renderOmake();
+  renderHistory();
+  renderSettings();
+}
+renderAll();
+updateSndBtn();
 </script>
