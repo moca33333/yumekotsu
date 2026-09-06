@@ -187,6 +187,7 @@ input,textarea{font:inherit; color:var(--ink);}
 /* ---------- settings ---------- */
 .edit-row{border-bottom:1px dashed var(--line); padding:10px 0;}
 .edit-row:last-child{border-bottom:none;}
+.edit-row.is-off{opacity:.5;}
 .edit-line{display:flex; gap:8px; margin-bottom:6px;}
 .edit-line input{border:1.5px solid var(--line); border-radius:10px; padding:7px 10px; background:var(--bg); font-size:16px;}
 .in-emoji{width:56px; text-align:center; flex:none;}
@@ -650,27 +651,29 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:23, gv:4,
+  return { v:1, hv:26, gv:4,
     habits:[
-      /* 🌈 未来貯金(花には数えない) */
-      {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"asa"},
-      {id:"sanpo", emoji:"🚶", name:"さんぽ", hint:"朝が暗い日は夜でもOK。歩きながら発信も◎", time:"asa"},
-      {id:"hasshin", emoji:"📣", name:"1日1発信", hint:"1行でもOK。さんぽ中のひとことで◎", time:"asa"},
-      {id:"kane",  emoji:"🎓", name:"未来への勉強", hint:"お金・資格など。動画1本・1ページでもOK", time:"asa"},
-      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"毎日30分を目標に!5分でもOK", time:"asa"},
-      /* 🌸 やせ習慣(花になる) */
-      {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru"},
-      {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru"},
-      {id:"junbi", emoji:"🪥", name:"寝かしつけ直行", hint:"歯磨きまですませて添い寝へ→1時半はキッチン寄らずふとん直行", time:"yoru"},
-      {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru"},
-      {id:"kintore", emoji:"💪", name:"筋トレ", hint:"ドローイン・壁ペタ・スクワット、なんでも", time:"yoru", goal:3},
-      /* 🪙 資産(金貨がたまる。花には数えない) */
+      /* 🪙 未来貯金(金貨がたまる。花には数えない) */
+      {id:"kane",  emoji:"🎓", name:"学びの時間", hint:"お金・資格など。動画1本・1ページでもOK", time:"gold"},
+      {id:"hasshin", emoji:"📣", name:"1発信", hint:"1行でもOK。誰に届かなくても、出したら勝ち", time:"gold"},
       {id:"kinshu", emoji:"🍵", name:"禁酒", hint:"のまなかった日は、健康資産が1枚", time:"gold"},
       {id:"taikin", emoji:"🏫", name:"6時退勤", hint:"終わってなくても切り上げる。持ち帰らず、続きは明日", time:"gold"},
-      {id:"okane",  emoji:"💴", name:"お金の行動", hint:"マネーフォワード確認・見直し・投資など、1つでも", time:"gold"}
+      /* 🌸 やせ習慣(花になる) */
+      {id:"asuken", emoji:"🥗", name:"あすけん記録", hint:"食べたものを入力。ざっくりでもOK", time:"yoru"},
+      {id:"kintore", emoji:"💪", name:"筋トレ", hint:"信号待ちでお腹へこませ10秒でもOK", time:"yoru", goal:3},
+      /* 💤 おやすみ中(記録は残る。せっていで「もどす」と復活) */
+      {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"gold", off:true},
+      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"毎日30分を目標に!5分でもOK", time:"gold", off:true},
+      {id:"souji", emoji:"🧽", name:"そうじ", hint:"1か所さっとでOK。動いた分は歩数にもなる", time:"gold", off:true},
+      {id:"sanpo", emoji:"🚶", name:"さんぽ", hint:"朝が暗い日は夜でもOK", time:"gold", off:true},
+      {id:"okane",  emoji:"💴", name:"お金の行動", hint:"マネーフォワード確認・見直し・投資など、1つでも", time:"gold", off:true},
+      {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru", off:true},
+      {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru", off:true},
+      {id:"junbi", emoji:"🪥", name:"寝かしつけ直行", hint:"歯磨きまですませて添い寝へ→1時半はキッチン寄らずふとん直行", time:"yoru", off:true},
+      {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru", off:true}
     ],
     goal:{ start:63.9, target:56 },
-    log:{}, weight:{ "2026-07-08": 63.9, "2026-07-31": 63.1 }, wake:{} };
+    log:{}, weight:{ "2026-07-08": 63.9, "2026-07-31": 63.1 }, wake:{}, earned:{} };
 }
 /* 2026-08-06 復旧: Safari履歴消去で消えた7/20〜8/1の記録を、本人のスクリーンショット
    (週ごとの回数)から復元。日付までは分からないため、週内のもっともらしい日に配置してある。
@@ -709,9 +712,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 23){ /* 2026-08 かたづけ・さんぽの文言を更新(記録は残す) */
+        if(!s.hv || s.hv < 26){ /* 2026-08 未来貯金を金貨に統合(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 23;
+          s.hv = 26;
         }
         if(!s.wake) s.wake = {};
         if(!s.rv) applyRecover(s);
@@ -791,10 +794,13 @@ var THEMES = {
   hiyoko: { name:"ひよこ",   stages:[["🥚","たまご"],["🐣","うまれた"],["🐤","ひよこ"],["🐔","りっぱ!"]], collect:"🐤", collectName:"ひよこ" }
 };
 function themeDef(){ return THEMES[S.theme] || THEMES.hana; }
+function activeHabits(){ /* おやすみ中(off)をのぞいた、いま使っている習慣 */
+  return S.habits.filter(function(h){ return !h.off; });
+}
 function bloomThreshold(){ /* 咲くラインは🌸やせ習慣の数が基準。🌈未来貯金と🪙資産は花に数えない */
-  var core = 0, t;
-  for(var i=0;i<S.habits.length;i++){ t = S.habits[i].time; if(t !== "asa" && t !== "gold") core++; }
-  if(!core) core = S.habits.length;
+  var core = 0, t, act = activeHabits();
+  for(var i=0;i<act.length;i++){ t = act[i].time; if(t !== "asa" && t !== "gold") core++; }
+  if(!core) core = act.length;
   return Math.max(6, Math.ceil(core * 3.5));
 }
 function asaIdSet(){
@@ -836,9 +842,17 @@ function weekTotals(){ /* 週の頭(月曜)キー → その週の🌸やせ習�
   }
   return m;
 }
-function earnedWeeks(){ /* 咲ききった過去の週(今週はまだ育ち中) */
+function earnedWeeks(){ /* 咲ききった過去の週(今週はまだ育ち中)
+  一度もらった花は永久に残す。習慣を増減しても咲くラインが変わるだけで、
+  過去のコレクションが減ることはない。 */
   var t3 = bloomThreshold(), cur = weekKeys()[0], totals = weekTotals();
-  return Object.keys(totals).filter(function(w){ return w < cur && totals[w] >= t3; }).sort();
+  if(!S.earned) S.earned = {};
+  var changed = false;
+  for(var w in totals){
+    if(w < cur && totals[w] >= t3 && !S.earned[w]){ S.earned[w] = 1; changed = true; }
+  }
+  if(changed) save();
+  return Object.keys(S.earned).sort();
 }
 
 /* --- state --- */
@@ -876,16 +890,12 @@ function renderHeader(){
   var td = themeDef(), st = td.stages[si];
   var n = earnedWeeks().length;
   /* トップは「今週」だけ。月曜にぜんぶ0に戻る */
-  var gWeek = 0, rWeek = 0, asaSet = asaIdSet();
-  for(var w=0; w<wk.length; w++){
-    gWeek += goldOn(wk[w]);
-    var dayw = S.log[wk[w]];
-    if(dayw) for(var idw in dayw){ if(dayw[idw] && asaSet[idw]) rWeek++; }
-  }
+  var gWeek = 0;
+  for(var w=0; w<wk.length; w++) gWeek += goldOn(wk[w]);
   document.getElementById("plant").innerHTML =
     '<span class="pico">'+st[0]+'</span><span class="plabel">'+st[1]+'</span>' +
     '<span class="plabel" style="margin-top:3px">こんしゅう</span>' +
-    '<span class="pcount">🌸'+total+' 🌈'+rWeek+' 🪙'+gWeek+'</span>';
+    '<span class="pcount">🌸'+total+'こ 🪙'+gWeek+'まい</span>';
 }
 
 /* --- today --- */
@@ -961,7 +971,7 @@ function renderToday(){
       '<span class="h-check">'+check+'</span></button>';
   }
   var asa = [], yoru = [], gold = [];
-  S.habits.forEach(function(h){
+  activeHabits().forEach(function(h){
     if(h.time==="asa") asa.push(h);
     else if(h.time==="gold") gold.push(h);
     else yoru.push(h);
@@ -970,9 +980,9 @@ function renderToday(){
   asa.forEach(function(h){ asaHtml += habitBtn(h); });
   yoru.forEach(function(h){ yoruHtml += habitBtn(h); });
   gold.forEach(function(h){ goldHtml += habitBtn(h); });
-  if(asa.length) asaHtml = '<p class="sect">🌈 未来貯金 <span class="sectsub">(花には数えません)</span></p>' + asaHtml;
+  if(asa.length) asaHtml = '<p class="sect">🌈 そのほか</p>' + asaHtml;
   if(yoru.length) yoruHtml = '<p class="sect">🌸 やせ習慣 <span class="sectsub">(ここが花になります)</span></p>' + yoruHtml;
-  if(gold.length) goldHtml = '<p class="sect">🪙 資産 <span class="sectsub">(できた日は金貨が1枚)</span></p>' + goldHtml;
+  if(gold.length) goldHtml = '<p class="sect">🪙 未来資産 <span class="sectsub">(できた日は金貨が1枚)</span></p>' + goldHtml;
   /* いま押すものが上に来る: 朝(3〜12時)は貯金が上、午後からはやせ習慣が上 */
   var hr = new Date().getHours();
   html += (hr >= 3 && hr < 12) ? (asaHtml + yoruHtml + goldHtml) : (yoruHtml + goldHtml + asaHtml);
@@ -1123,7 +1133,7 @@ function renderLog(){
 
   /* 🌈 未来貯金の積み立て(花には数えない) */
   var mcard = "";
-  var asaList = S.habits.filter(function(h){ return h.time==="asa"; });
+  var asaList = S.habits.filter(function(h){ return h.time==="asa" && !h.off; });
   if(asaList.length){
     var nowK = keyFor(0), ym = nowK.slice(0,7), yr = nowK.slice(0,4);
     var arows = "", tAll = 0, tYear = 0, tMonth = 0;
@@ -1148,7 +1158,7 @@ function renderLog(){
 
   /* 🪙 資産(金貨) */
   var gcard = "";
-  var goldList = S.habits.filter(function(h){ return h.time==="gold"; });
+  var goldList = S.habits.filter(function(h){ return h.time==="gold" && !h.off; });
   if(goldList.length){
     var nowK2 = keyFor(0), ym2 = nowK2.slice(0,7), yr2 = nowK2.slice(0,4);
     var gAll = goldTotal(""), gYear = goldTotal(yr2), gMonth = goldTotal(ym2);
@@ -1167,7 +1177,7 @@ function renderLog(){
     });
     var coins = "";
     for(var ci=0; ci<Math.min(gAll, 40); ci++) coins += '<span class="coin">🪙</span>';
-    gcard = '<div class="card"><h2>🪙 資産(ゴールド)</h2>' +
+    gcard = '<div class="card"><h2>🪙 未来資産</h2>' +
       '<div class="goldtop"><span class="goldbig">'+gAll+'</span><span class="goldunit">枚</span>' +
       '<span class="gsub">今月 '+gMonth+'枚 / 今年 '+gYear+'枚</span></div>' +
       (coins ? '<div class="coinbox">'+coins+(gAll>40 ? '<span class="gsub">…</span>' : '')+'</div>' : '') +
@@ -1177,7 +1187,7 @@ function renderLog(){
 
   var html = '<p class="sect">🌸 ゆめ(ダイエット)</p>' + chtml +
     '<div class="card"><h2>たいじゅう(90日)</h2>' + weightChartSVG() + '</div>' +
-    (gcard ? '<p class="sect">🪙 資産</p>' + gcard : '');
+    (gcard ? '<p class="sect">🪙 未来資産</p>' + gcard : '');
 
   /* おきた時間(7日) */
   var wakes = [];
@@ -1199,8 +1209,8 @@ function renderLog(){
     wcard += '<p class="note" style="margin:0">「きょう」の おきた時間 から記録できます</p>';
   }
   wcard += '</div>';
-  html += '<p class="sect">🌈 未来貯金</p>' + mcard + wcard;
-  html += '<p class="sect">📋 ふりかえり</p>';
+  if(mcard) html += '<p class="sect">🌈 そのほか</p>' + mcard;
+  html += '<p class="sect">📋 ふりかえり</p>' + wcard;
 
   /* 14日グリッド */
   var keys=[]; for(var o=-13;o<=0;o++) keys.push(keyFor(o));
@@ -1208,7 +1218,7 @@ function renderLog(){
   var grid = '<div class="ggrid" style="grid-template-columns:auto repeat('+cols+',17px)">';
   grid += '<span></span>';
   keys.forEach(function(k){ grid += '<span class="gday">'+parseKey(k).getDate()+'</span>'; });
-  S.habits.forEach(function(h){
+  activeHabits().forEach(function(h){
     grid += '<span class="glabel">'+esc(h.emoji)+'</span>';
     keys.forEach(function(k){
       var on = S.log[k] && S.log[k][h.id];
@@ -1222,7 +1232,7 @@ function renderLog(){
   var wk = weekKeys();
   var lastWk = wk.map(function(k){ var d=parseKey(k); d.setDate(d.getDate()-7); return fmt(d); });
   var rows = "";
-  S.habits.forEach(function(h){
+  activeHabits().forEach(function(h){
     rows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span>' +
       '<span class="cnt">'+countIn(wk,h.id)+'回 <small>(先週 '+countIn(lastWk,h.id)+'回)</small></span></div>';
   });
@@ -1259,7 +1269,7 @@ function renderLog(){
     return wd.getFullYear()===yy && wd.getMonth()===mm;
   }).length;
   var mRows = "";
-  S.habits.forEach(function(h){
+  activeHabits().forEach(function(h){
     var c = 0;
     for(var lk in S.log){ if(lk.slice(0,7)===ymKey && S.log[lk][h.id]) c++; }
     mRows += '<div class="wk"><span>'+esc(h.emoji)+' '+esc(h.name)+'</span><span class="cnt">'+c+'回</span></div>';
@@ -1304,13 +1314,8 @@ function renderLog(){
     }
     yg += '</div></div>';
     var yFlowers = earnedWeeks().filter(function(w){ return w.slice(0,4)===yr; }).length;
-    var asaSet = asaIdSet(), yChokin = 0;
-    for(var lk3 in S.log){
-      if(lk3.slice(0,4) !== yr) continue;
-      for(var id3 in S.log[lk3]){ if(S.log[lk3][id3] && asaSet[id3]) yChokin++; }
-    }
     ycard += yg +
-      '<p class="note" style="margin:8px 0 0">色がこい日ほどタップが多い日。ことしの合計 '+yearTaps+'回 / '+themeDef().collect+'×'+yFlowers+' / 🌈貯金 '+yChokin+'回</p>' +
+      '<p class="note" style="margin:8px 0 0">色がこい日ほどタップが多い日。ことしの合計 '+yearTaps+'回 / '+themeDef().collect+'×'+yFlowers+' / 🪙 '+goldTotal(yr)+'まい</p>' +
       '<button class="linkbtn" id="yearbtn">とじる</button>';
   }else{
     ycard += '<button class="linkbtn" id="yearbtn">📅 タップで1年ぜんぶみる</button>';
@@ -1333,16 +1338,17 @@ function renderLog(){
 function renderSet(){
   var html = '<div class="card"><h2>しゅうかんの編集</h2><div id="hedit">';
   S.habits.forEach(function(h,i){
-    html += '<div class="edit-row" data-i="'+i+'">' +
+    html += '<div class="edit-row'+(h.off?" is-off":"")+'" data-i="'+i+'">' +
       '<div class="edit-line">' +
       '<input class="in-emoji" value="'+esc(h.emoji)+'" maxlength="4" aria-label="絵文字">' +
       '<input class="in-name" value="'+esc(h.name)+'" maxlength="14" aria-label="名前">' +
       '<button class="mini tglt" style="color:var(--accent)" aria-label="グループの切替">'+(h.time==="asa"?"🌈":h.time==="gold"?"🪙":"🌸")+'</button>' +
+      '<button class="mini act-off" style="color:var(--sub)">'+(h.off?"もどす":"おやすみ")+'</button>' +
       '<button class="mini act-del">けす</button></div>' +
       '<div class="edit-line"><input class="in-hint" value="'+esc(h.hint)+'" maxlength="40" aria-label="ヒント"></div>' +
       '</div>';
   });
-  html += '</div><p class="note" style="margin:8px 2px 0">🌈未来貯金 / 🌸やせ習慣 / 🪙資産 のボタンをおすと、グループを切りかえられます</p>' +
+  html += '</div><p class="note" style="margin:8px 2px 0">🌸やせ習慣(花になる) / 🪙未来資産(金貨がたまる) のボタンで切りかえ。「おやすみ」は消さずに寝かせます</p>' +
     '<div class="btnrow"><button class="btn ghost" id="haddbtn">+ ふやす</button>' +
     '<button class="btn" id="hsavebtn">変更をほぞん</button></div></div>';
 
@@ -1403,14 +1409,25 @@ function renderSet(){
     S.habits.push({id:"h"+Date.now(), emoji:"✨", name:"あたらしい習慣", hint:"", time:"yoru"});
     save(); renderSet();
   });
+  var offs = document.querySelectorAll("#hedit .act-off");
+  for(var of=0; of<offs.length; of++){
+    offs[of].addEventListener("click", function(){
+      var idx = +this.closest(".edit-row").getAttribute("data-i");
+      S.habits[idx].off = !S.habits[idx].off;
+      if(!S.habits[idx].off) delete S.habits[idx].off;
+      save();
+      toast(S.habits[idx].off ? "おやすみ中にしました 💤(記録は残ります)" : "もどしました ✓");
+      renderSet(); renderHeader();
+    });
+  }
   var tgls = document.querySelectorAll("#hedit .tglt");
   for(var tg=0;tg<tgls.length;tg++){
     tgls[tg].addEventListener("click", function(){
       var idx = +this.closest(".edit-row").getAttribute("data-i");
       var cur = S.habits[idx].time;
-      var nxt = cur==="asa" ? "yoru" : cur==="yoru" ? "gold" : "asa";
+      var nxt = cur==="yoru" ? "gold" : "yoru";
       S.habits[idx].time = nxt;
-      save(); toast(nxt==="asa" ? "未来貯金に移動 🌈" : nxt==="gold" ? "資産に移動 🪙" : "やせ習慣に移動 🌸");
+      save(); toast(nxt==="gold" ? "未来資産に移動 🪙" : "やせ習慣に移動 🌸");
       renderSet();
     });
   }
