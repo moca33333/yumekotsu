@@ -651,19 +651,19 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:27, gv:4,
+  return { v:1, hv:29, gv:4,
     habits:[
       /* 🌸 わたしの習慣(花になる) */
       {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"yoru"},
-      {id:"kane",  emoji:"🎓", name:"学びの時間", hint:"お金・資格など。動画1本・1ページでもOK", time:"yoru"},
-      {id:"hasshin", emoji:"📣", name:"1発信", hint:"1行でもOK。誰に届かなくても、出したら勝ち", time:"yoru"},
+      {id:"kane",  emoji:"🎓", name:"学びの時間", hint:"お金・資格・発信。動画1本、1行でもOK", time:"yoru"},
       {id:"asuken", emoji:"🥗", name:"あすけん記録", hint:"食べたものを入力。ざっくりでもOK", time:"yoru"},
-      {id:"kintore", emoji:"💪", name:"筋トレ", hint:"信号待ちでお腹へこませ10秒でもOK", time:"yoru", goal:3},
+      {id:"kata",  emoji:"🧹", name:"そうじ・かたづけ", hint:"1か所5分でもOK。家がととのう", time:"yoru"},
       /* 🪙 未来資産(金貨がたまる。花には数えない) */
       {id:"kinshu", emoji:"🍵", name:"禁酒", hint:"のまなかった日は、健康資産が1枚", time:"gold"},
       {id:"taikin", emoji:"🏫", name:"6時退勤", hint:"終わってなくても切り上げる。持ち帰らず、続きは明日", time:"gold"},
+      {id:"kintore", emoji:"💪", name:"筋トレ", hint:"信号待ちでお腹へこませ10秒でもOK", time:"gold"},
       /* 💤 おやすみ中(記録は残る。せっていで「もどす」と復活) */
-      {id:"kata",  emoji:"🧹", name:"かたづけ", hint:"毎日30分を目標に!5分でもOK", time:"yoru", off:true},
+      {id:"hasshin", emoji:"📣", name:"1発信", hint:"1行でもOK。誰に届かなくても、出したら勝ち", time:"yoru", off:true},
       {id:"souji", emoji:"🧽", name:"そうじ", hint:"1か所さっとでOK。動いた分は歩数にもなる", time:"yoru", off:true},
       {id:"sanpo", emoji:"🚶", name:"さんぽ", hint:"朝が暗い日は夜でもOK", time:"yoru", off:true},
       {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru", off:true},
@@ -712,9 +712,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 27){ /* 2026-08 「わたしの習慣」に再編(記録は残す) */
+        if(!s.hv || s.hv < 29){ /* 2026-09 学びのヒントに発信を明記(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 27;
+          s.hv = 29;
         }
         if(!s.wake) s.wake = {};
         if(!s.rv) applyRecover(s);
