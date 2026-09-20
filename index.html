@@ -651,13 +651,14 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:29, gv:4,
+  return { v:1, hv:30, gv:4,
     habits:[
       /* 🌸 わたしの習慣(花になる) */
       {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"yoru"},
       {id:"kane",  emoji:"🎓", name:"学びの時間", hint:"お金・資格・発信。動画1本、1行でもOK", time:"yoru"},
       {id:"asuken", emoji:"🥗", name:"あすけん記録", hint:"食べたものを入力。ざっくりでもOK", time:"yoru"},
       {id:"kata",  emoji:"🧹", name:"そうじ・かたづけ", hint:"1か所5分でもOK。家がととのう", time:"yoru"},
+      {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru"},
       /* 🪙 未来資産(金貨がたまる。花には数えない) */
       {id:"kinshu", emoji:"🍵", name:"禁酒", hint:"のまなかった日は、健康資産が1枚", time:"gold"},
       {id:"taikin", emoji:"🏫", name:"6時退勤", hint:"終わってなくても切り上げる。持ち帰らず、続きは明日", time:"gold"},
@@ -669,7 +670,6 @@ function defaults(){
       {id:"soda",  emoji:"🫧", name:"あいだに炭酸水", hint:"2杯目の前に炭酸水を1杯はさむ", time:"yoru", off:true},
       {id:"otsu",  emoji:"🍢", name:"おつまみ上手", hint:"低脂質・低糖質・減塩(昼ごはん・間食も)", time:"yoru", off:true},
       {id:"junbi", emoji:"🪥", name:"寝かしつけ直行", hint:"歯磨きまですませて添い寝へ→1時半はキッチン寄らずふとん直行", time:"yoru", off:true},
-      {id:"walk",  emoji:"👟", name:"1日1万歩", hint:"ヘルスケアの歩数を見て、達成したらタップ", time:"yoru", off:true},
       {id:"okane",  emoji:"💴", name:"お金の行動", hint:"マネーフォワード確認・見直し・投資など、1つでも", time:"gold", off:true}
     ],
     goal:{ start:63.9, target:56 },
@@ -712,9 +712,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 29){ /* 2026-09 学びのヒントに発信を明記(記録は残す) */
+        if(!s.hv || s.hv < 30){ /* 2026-09 1日1万歩を「わたしの習慣」に復帰(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 29;
+          s.hv = 30;
         }
         if(!s.wake) s.wake = {};
         if(!s.rv) applyRecover(s);
