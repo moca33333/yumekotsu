@@ -88,6 +88,10 @@ input,textarea{font:inherit; color:var(--ink);}
 .h-week{display:flex; gap:3px; margin-top:5px;}
 .h-week i{width:8px; height:8px; border-radius:50%; background:var(--line);}
 .h-week i.on{background:var(--accent);}
+.h-week i.skip{background:transparent; box-shadow:inset 0 0 0 2px var(--line);}
+.habit.skipped{border-color:var(--line); background:var(--card);}
+.habit.skipped .h-emoji, .habit.skipped .h-name, .habit.skipped .h-hint{opacity:.55;}
+.habit.skipped .h-check{border-color:var(--line); color:var(--sub); background:transparent; font-size:15px;}
 .h-week i.today{box-shadow:0 0 0 2px var(--accent-soft);}
 .h-check{
   flex:none; width:34px; height:34px; border-radius:50%; border:2px solid var(--line);
@@ -147,6 +151,7 @@ input,textarea{font:inherit; color:var(--ink);}
 .mcell{position:relative; aspect-ratio:1; border-radius:7px; background:var(--line); opacity:.45;
   display:flex; align-items:center; justify-content:center; font-size:11px;
   font-variant-numeric:tabular-nums; color:var(--sub);}
+.mcell.checked{border:1.5px solid var(--sub); opacity:.8;}
 .mcell.gold::after{content:""; position:absolute; top:3px; right:3px; width:8px; height:8px;
   border-radius:50%; background:var(--gold); box-shadow:0 0 0 1.5px var(--card);}
 .mcell.blank{background:transparent;}
@@ -176,6 +181,7 @@ input,textarea{font:inherit; color:var(--ink);}
 .ggrid{display:grid; gap:4px; font-size:11px; color:var(--sub); min-width:340px;}
 .gcell{width:17px; height:17px; border-radius:5px; background:var(--line); opacity:.55;}
 .gcell.on{background:var(--accent); opacity:1;}
+.gcell.skipped{background:transparent; box-shadow:inset 0 0 0 2px var(--line); opacity:1;}
 .gcell.future{opacity:.18;}
 .glabel{white-space:nowrap; display:flex; align-items:center; font-size:14px;}
 .gday{text-align:center; width:17px;}
@@ -651,7 +657,7 @@ function todaysQuote(){
 function gcd2(a, b){ while(b){ var t = a % b; a = b; b = t; } return a; }
 
 function defaults(){
-  return { v:1, hv:30, gv:4,
+  return { v:1, hv:31, gv:4,
     habits:[
       /* 🌸 わたしの習慣(花になる) */
       {id:"journal", emoji:"✍️", name:"ジャーナリング", hint:"思いつくまま、なんでもかいてOK", time:"yoru"},
@@ -712,9 +718,9 @@ function load(){
     if(raw){
       var s = JSON.parse(raw);
       if(s && s.habits && s.log){
-        if(!s.hv || s.hv < 30){ /* 2026-09 1日1万歩を「わたしの習慣」に復帰(記録は残す) */
+        if(!s.hv || s.hv < 31){ /* 2026-09 やった/やらなかったの3状態に対応(記録は残す) */
           s.habits = defaults().habits;
-          s.hv = 30;
+          s.hv = 31;
         }
         if(!s.wake) s.wake = {};
         if(!s.rv) applyRecover(s);
@@ -938,7 +944,7 @@ function renderToday(){
   var html = '<div class="quote"><small>きょうのことば</small>' +
     '<span class="qtext">' + esc(q[0]) + '</span>' +
     (q[1] ? '<span class="qby">— ' + esc(q[1]) + '</span>' : '') + '</div>';
-  html += '<p class="note">できた分だけタップ。できない日があっても大丈夫。</p>';
+  html += '<p class="note">タップするたび ◯(まだ) → ✓やった → ✕やらなかった。できない日があっても大丈夫。</p>';
   html += goalCardHtml();
 
   var wakeVal = (S.wake && S.wake[k]) || "";
@@ -950,19 +956,22 @@ function renderToday(){
     '</div>';
 
   function habitBtn(h){
-    var n = day[h.id] || 0;
+    /* 3つの状態: 未入力(まだ見ていない) / やった / やらなかった(0) */
+    var v = day[h.id];
+    var skipped = (v === 0);
+    var n = v > 0 ? v : 0;
     var done = n > 0;
     var full = h.goal ? (n >= h.goal) : done;
     var dots = "";
     for(var j=0;j<7;j++){
-      var cls = (S.log[wk[j]] && S.log[wk[j]][h.id]) ? "on" : "";
+      var dv = S.log[wk[j]] ? S.log[wk[j]][h.id] : undefined;
+      var cls = dv > 0 ? "on" : (dv === 0 ? "skip" : "");
       if(wk[j]===todayKey) cls += " today";
       dots += '<i class="'+cls+'"></i>';
     }
-    var check = h.goal
-      ? (full ? "✓" : '<span class="h-num">'+n+'<small>/'+h.goal+'</small></span>')
-      : "✓";
-    return '<button class="habit'+(done?" done":"")+(full?" full":"")+'" data-habit="'+esc(h.id)+'">' +
+    var check = skipped ? "✕"
+      : (h.goal && !full ? '<span class="h-num">'+n+'<small>/'+h.goal+'</small></span>' : "✓");
+    return '<button class="habit'+(done?" done":"")+(full?" full":"")+(skipped?" skipped":"")+'" data-habit="'+esc(h.id)+'">' +
       '<span class="h-emoji">'+esc(h.emoji)+'</span>' +
       '<span class="h-body"><span class="h-name">'+esc(h.name)+
       (h.goal ? '<span class="h-goal">1日'+h.goal+'回</span>' : '')+'</span>' +
@@ -996,24 +1005,29 @@ function renderToday(){
       var hb = null;
       for(var hi=0; hi<S.habits.length; hi++){ if(S.habits[hi].id===id) hb = S.habits[hi]; }
       if(!S.log[kk]) S.log[kk] = {};
-      var cur = S.log[kk][id] || 0;
+      /* タップで3つの状態をめぐる: 未入力 → やった → やらなかった(0) → 未入力 */
+      var cur = S.log[kk][id];
+      function didIt(val){
+        S.log[kk][id] = val;
+        toast(hb && hb.time === "gold" ? "🪙 金貨が1枚たまりました!"
+                                       : PRAISE[Math.floor(Math.random()*PRAISE.length)]);
+      }
       if(hb && hb.goal){
-        /* 1日◯回タイプ: タップのたびに +1、目標をこえたら0に戻る */
-        var next = cur + 1;
-        if(next > hb.goal) next = 0;
-        if(next === 0) delete S.log[kk][id];
+        /* 1日◯回タイプ: +1 →(目標をこえたら)やらなかった → 未入力 */
+        if(cur === 0){ delete S.log[kk][id]; toast("きろくを消しました"); }
         else{
-          S.log[kk][id] = next;
-          toast(next >= hb.goal ? "きょうの"+hb.goal+"回、たっせい! 💮"
-                                : next + "回目 ◎ のこり" + (hb.goal - next) + "回");
+          var next = (cur || 0) + 1;
+          if(next > hb.goal){ S.log[kk][id] = 0; toast("きょうは やらなかった ✕"); }
+          else{
+            S.log[kk][id] = next;
+            toast(next >= hb.goal ? "きょうの"+hb.goal+"回、たっせい! 💮"
+                                  : next + "回目 ◎ のこり" + (hb.goal - next) + "回");
+          }
         }
       }else{
-        if(cur){ delete S.log[kk][id]; }
-        else{
-          S.log[kk][id] = 1;
-          toast(hb && hb.time === "gold" ? "🪙 金貨が1枚たまりました!"
-                                         : PRAISE[Math.floor(Math.random()*PRAISE.length)]);
-        }
+        if(cur === undefined) didIt(1);
+        else if(cur > 0){ S.log[kk][id] = 0; toast("きょうは やらなかった ✕"); }
+        else{ delete S.log[kk][id]; toast("きろくを消しました"); }
       }
       save(); renderHeader(); renderToday();
     });
@@ -1221,8 +1235,8 @@ function renderLog(){
   activeHabits().forEach(function(h){
     grid += '<span class="glabel">'+esc(h.emoji)+'</span>';
     keys.forEach(function(k){
-      var on = S.log[k] && S.log[k][h.id];
-      grid += '<span class="gcell'+(on?" on":"")+'"></span>';
+      var gv2 = S.log[k] ? S.log[k][h.id] : undefined;
+      grid += '<span class="gcell'+(gv2 > 0 ? " on" : (gv2 === 0 ? " skipped" : ""))+'"></span>';
     });
   });
   grid += '</div>';
@@ -1260,7 +1274,9 @@ function renderLog(){
     var lv = cv>=6 ? 4 : cv>=4 ? 3 : cv>=2 ? 2 : cv>=1 ? 1 : 0;
     var gq = goldOn(dk);
     if(gq) mGold += gq;
-    cal += '<span class="mcell'+(lv?' l'+lv:'')+(gq?' gold':'')+(dk===todayK?' today':'')+'">'+dd+'</span>';
+    /* タップは0でも「見て記録した日」は枠で分かるように */
+    var checked = (cv === 0 && S.log[dk] && Object.keys(S.log[dk]).length > 0);
+    cal += '<span class="mcell'+(lv?' l'+lv:'')+(checked?' checked':'')+(gq?' gold':'')+(dk===todayK?' today':'')+'">'+dd+'</span>';
   }
   cal += '</div>';
 
